@@ -5,7 +5,7 @@
  * Time: 1:43 PM
  * To change this template use File | Settings | File Templates.
  */
-public class RobotWrapper {
+public class KeyboardControl {
 
     public void keyToggle(char s) {
 
@@ -18,22 +18,4 @@ public class RobotWrapper {
     public void keyRelease(char s) {
 
     }
-
-    public void moveMouse(String direction, int magnitude) {
-
-    }
-
-    public void leftMouseButtonToggle() {
-
-    }
-
-    public void leftMouseButtonHold() {
-
-    }
-
-    public void leftMouseButtonRelease() {
-
-    }
-
-
 }

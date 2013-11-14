@@ -1,3 +1,5 @@
+package bluetooth;
+
 /**
  * Created with IntelliJ IDEA.
  * User: john
