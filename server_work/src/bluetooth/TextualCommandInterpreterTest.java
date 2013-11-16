@@ -172,7 +172,7 @@ public class TextualCommandInterpreterTest {
 
     @Test
     public void testKeyboardReleaseAll() throws Exception {
-        textualCommandInterpreterFactory("KEYBOARD RELEASE ALL").processCommand();
+        textualCommandInterpreterFactory("KEYBOARD RELEASE_ALL").processCommand();
         Mockito.verify(keyboardInputControlMock).keyReleaseAll();
     }
 }
