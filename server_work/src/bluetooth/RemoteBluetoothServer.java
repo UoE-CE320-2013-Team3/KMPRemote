@@ -7,6 +7,7 @@ package bluetooth;
  * Time: 1:18 PM
  * To change this template use File | Settings | File Templates.
  */
+// Built on demonstration code found here: http://luugiathuy.com/2011/02/android-java-bluetooth/comment-page-2/
 public class RemoteBluetoothServer {
     public static void main(String[] args) {
         Thread waitThread = new Thread(new WaitThread());

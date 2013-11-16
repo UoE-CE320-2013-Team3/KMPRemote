@@ -14,6 +14,7 @@ import javax.microedition.io.StreamConnectionNotifier;
  * Time: 1:35 PM
  * To change this template use File | Settings | File Templates.
  */
+// Built on demonstration code found here: http://luugiathuy.com/2011/02/android-java-bluetooth/comment-page-2/
 public class WaitThread implements Runnable{
     public WaitThread(){
 
@@ -46,6 +47,11 @@ public class WaitThread implements Runnable{
             try {
                 System.out.println("waiting for connection...");
                 connection = notifier.acceptAndOpen();
+                Thread processThread = new Thread(new ProcessConnectionThread(connection));
+                processThread.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return;
 
             }
         }

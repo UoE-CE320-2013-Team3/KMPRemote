@@ -75,6 +75,4 @@ public class MouseInputControl {
         robot.mouseRelease(InputEvent.BUTTON3_MASK);
 
     }
-
-
 }
