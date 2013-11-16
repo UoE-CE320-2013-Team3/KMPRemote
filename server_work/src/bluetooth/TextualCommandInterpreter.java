@@ -101,15 +101,24 @@ public class TextualCommandInterpreter {
 
 
     private void processMouseToggle() {
-
+        String commandWord = commandTokens.pop();
+        if (commandWord.equals("LEFT")) {
+            mouseInputControl.leftMouseButtonToggle();
+        }
     }
 
     private void processMouseRelease() {
-
+        String commandWord = commandTokens.pop();
+        if (commandWord.equals("LEFT")) {
+            mouseInputControl.leftMouseButtonRelease();
+        }
     }
 
     private void processMouseHold() {
-
+        String commandWord = commandTokens.pop();
+        if (commandWord.equals("LEFT")) {
+            mouseInputControl.leftMouseButtonHold();
+        }
     }
 
     private void processMouseMoveUp() {
@@ -136,7 +145,6 @@ public class TextualCommandInterpreter {
         String commandWord = commandTokens.pop();
         return Integer.parseInt(commandWord);
     }
-
 
     public class NoSuchCommandException extends Throwable {
         String errorMessage;
