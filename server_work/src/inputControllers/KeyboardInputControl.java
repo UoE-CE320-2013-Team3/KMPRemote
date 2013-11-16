@@ -107,17 +107,6 @@ public class KeyboardInputControl {
         }
     }
 
-
-
-    public class NoSuchKeyException extends Throwable {
-        private NoSuchKeyException(char character) {
-            super(character + "is not a valid character");
-        }
-        private NoSuchKeyException(String string) {
-            super(string + "is not a valid string");
-        }
-    }
-
     //deals with character input. If not [a-Z] or [1-9] throws exception
     private char returnKeyCodeForCharacter(char character) throws NoSuchKeyException {
         if (Character.isLetter(character) | Character.isDigit(character)) {
@@ -162,4 +151,16 @@ public class KeyboardInputControl {
         }
 
     }
+
+    public class NoSuchKeyException extends Exception {
+        private NoSuchKeyException(char character) {
+            super(character + "is not a valid character. Character must " +
+                  "be in range [a-Z] or [1-9]");
+        }
+        private NoSuchKeyException(String string) {
+            super(string + "is not a valid string. Valid strings include:\n" +
+                  "SHIFT\nCTRL\nALT\nTAB\nSPACE\nCAPS\nENTER\nBACKSPACE\n");
+        }
+    }
+
 }

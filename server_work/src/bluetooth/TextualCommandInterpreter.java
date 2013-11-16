@@ -37,16 +37,18 @@ public class TextualCommandInterpreter {
     //TODO keyboard instance variables.
 
     // Examples of Parsable messages.
-    // KEYBOARD TOGGLE a
-    // KEYBOARD HOLD a b c
-    // KEYBOARD RELEASE a b c
+    // KEYBOARD TOGGLE a b c
+    // KEYBOARD HOLD CTRL SHIFT
+    // KEYBOARD RELEASE TAB
     // MOUSE MOVE UP 20
     // MOUSE MOVE DOWN 50
+    // MOUSE MOVE LEFT 100
+    // MOUSE MOVE RIGHT 30
     // MOUSE TOGGLE leftclick
     // MOUSE HOLD leftclick
     // MOUSE RELEASE leftclick
+    // MOUSE TOGGLE rightclick
     // KEYBOARD RELEASE ALL
-    // MOUSE RELEASE ALL
 
 
     //TODO ctrl tab tab, multiple key functionality, release all mouse, enter, return, backspace
@@ -192,7 +194,7 @@ public class TextualCommandInterpreter {
     }
     
 
-    public class NoSuchCommandException extends Throwable {
+    public class NoSuchCommandException extends Exception {
         String errorMessage;
 
         public NoSuchCommandException(String commandWord, String... acceptedCommands) {
