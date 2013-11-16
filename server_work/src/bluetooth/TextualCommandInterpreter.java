@@ -39,18 +39,37 @@ public class TextualCommandInterpreter {
     //TODO keyboard instance variables.
 
     // Examples of Parsable messages.
-    // KEYBOARD TOGGLE a b c
-    // KEYBOARD HOLD CTRL SHIFT
-    // KEYBOARD RELEASE TAB
-    // MOUSE MOVE UP 20
-    // MOUSE MOVE DOWN 50
-    // MOUSE MOVE LEFT 100
-    // MOUSE MOVE RIGHT 30
-    // MOUSE TOGGLE leftclick
-    // MOUSE HOLD leftclick
-    // MOUSE RELEASE leftclick
-    // MOUSE TOGGLE rightclick
-    // KEYBOARD RELEASE_ALL
+  /*
+  Allowable keyboard commands:
+      Characters (not to be used for keyHold or keyRelease): [a-Z] [1-9]
+      Strings:
+          SHIFT
+          CTRL
+          ALT
+          TAB
+          SPACE
+          CAPS
+          ENTER
+          BACKSPACE
+
+
+    KEYBOARD TOGGLE a b c // Toggle presses and releases buttons, in this case a, then b, then c.
+    KEYBOARD HOLD CTRL SHIFT // Hold holds a button down indefinitely.
+    KEYBOARD RELEASE TAB // Release releases a button held down.
+    KEYBOARD RELEASE_ALL // This releases all held down buttons.
+
+
+    MOUSE MOVE UP 20 // Moves the cursor up 20 pixels
+    MOUSE MOVE DOWN 50 //Moves the cursor down 50 pixels
+    MOUSE MOVE LEFT 100 // Moves the cursor left 100 pixels
+    MOUSE MOVE RIGHT 30 // Moves the cursor right 30 pixels
+    MOUSE TOGGLE leftclick // Presses and releases left mouse button.
+    MOUSE HOLD leftclick // Holds left mouse button indefinitely.
+    MOUSE RELEASE leftclick // Releases left mouse button
+    MOUSE TOGGLE rightclick // Presses and releases right mouse button
+
+    */
+
 
 
     //TODO ctrl tab tab, multiple key functionality, release all mouse, enter, return, backspace
