@@ -104,6 +104,8 @@ public class TextualCommandInterpreter {
         String commandWord = commandTokens.pop();
         if (commandWord.equals("LEFT")) {
             mouseInputControl.leftMouseButtonToggle();
+        } else if (commandWord.equals(("RIGHT"))) {
+            mouseInputControl.rightMouseButtonToggle();
         }
     }
 
