@@ -9,9 +9,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-
 /**
  * Created with IntelliJ IDEA.
  * User: john
@@ -20,7 +17,6 @@ import java.lang.reflect.Method;
  * To change this template use File | Settings | File Templates.
  */
 public class TextualCommandInterpreterTest {
-      TextualCommandInterpreter textualCommandInterpreter;
       @Mock
       MouseInputControl mouseInputControlMock;
       @Mock
@@ -33,7 +29,7 @@ public class TextualCommandInterpreterTest {
     }
 
     private TextualCommandInterpreter textualCommandInterpreterFactory(String command) {
-        return new TextualCommandInterpreter(String command, mouseInputControlMock, keyboardInputControlMock);
+        return new TextualCommandInterpreter(command, mouseInputControlMock, keyboardInputControlMock);
     }
 
 
@@ -45,7 +41,7 @@ public class TextualCommandInterpreterTest {
 
     @Test
     public void testMouseUp() throws Exception, TextualCommandInterpreter.NoSuchCommandException, KeyboardInputControl.NoSuchKeyException {
-     textualCommandInterpreterFactory("MOUSE UP 20").processCommand();
+     textualCommandInterpreterFactory("MOUSE MOVE UP 20").processCommand();
      Mockito.verify(mouseInputControlMock).moveMouseUp(20);
     }
 

@@ -4,7 +4,7 @@ import inputControllers.KeyboardInputControl;
 import inputControllers.MouseInputControl;
 
 import java.awt.*;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,17 +20,17 @@ public class TextualCommandInterpreter {
     private static final String KEYBOARD_CMD = "KEYBOARD";
     private static final String UP_CMD = "UP";
     private static final String DOWN_CMD = "DOWN";
-    private static final String DOWN_DIRECTION_CMD = "DOWN_DIRECTION";
-    private static final String UP_DIRECTION_CMD = "UP_DIRECTION";
-    private static final String LEFT_DIRECTION_CMD = "LEFT_DIRECTION";
-    private static final String RIGHT_DIRECTION_CMD = "RIGHT_DIRECTION";
+    private static final String DOWN_DIRECTION_CMD = "DOWN";
+    private static final String UP_DIRECTION_CMD = "UP";
+    private static final String LEFT_DIRECTION_CMD = "LEFT";
+    private static final String RIGHT_DIRECTION_CMD = "RIGHT";
     private static final String MOVE_CMD = "MOVE";
     private static final String TOGGLE_CMD = "TOGGLE";
     private static final String HOLD_CMD = "HOLD";
     private static final String RELEASE_CMD = "RELEASE";
     private static final String ALL_CMD = "ALL";
 
-    private Stack<String> commandTokens;
+    private Queue<String> commandTokens;
     private MouseInputControl mouseInputControl;
     private KeyboardInputControl keyboardInputControl;
 
@@ -56,7 +56,7 @@ public class TextualCommandInterpreter {
         keyboardInputControl = new KeyboardInputControl();
     }
     private void initCommands(String commands) {
-    commandTokens = new Stack<String>();
+    commandTokens = new LinkedList<String>();
     for (String command : commands.split("\\s+")) {
         commandTokens.add(command);
     }}
@@ -67,8 +67,8 @@ public class TextualCommandInterpreter {
         this.keyboardInputControl = keyboardInputControl;
     }
     public void processCommand() throws NoSuchCommandException, KeyboardInputControl.NoSuchKeyException {
-        while (!commandTokens.empty()) {
-            String commandWord = commandTokens.pop();
+        while (!commandTokens.isEmpty()) {
+            String commandWord = commandTokens.remove();
             if (commandWord.equals(MOUSE_CMD)) {
                 processMouse();
             } else if (commandWord.equals(KEYBOARD_CMD)) {
@@ -81,7 +81,7 @@ public class TextualCommandInterpreter {
     }
 
     private void processKeyboard() throws KeyboardInputControl.NoSuchKeyException {
-        String commandWord = commandTokens.pop();
+        String commandWord = commandTokens.remove();
         if (commandWord.equals(TOGGLE_CMD)) {
             processKeyboardToggle();
         } else if (commandWord.equals(RELEASE_CMD)) {
@@ -110,11 +110,11 @@ public class TextualCommandInterpreter {
 
     private String processKeyboardKey() {
         //TODO Add validity checking
-        return commandTokens.pop();
+        return commandTokens.remove();
     }
 
     private void processMouse() {
-        String commandWord = commandTokens.pop();
+        String commandWord = commandTokens.remove();
         if (commandWord.equals(MOVE_CMD)) {
             processMouseMove();
         } else if (commandWord.equals(TOGGLE_CMD)) {
@@ -130,7 +130,7 @@ public class TextualCommandInterpreter {
     }
 
     private void processMouseMove() {
-        String commandWord = commandTokens.pop();
+        String commandWord = commandTokens.remove();
         if (commandWord.equals(UP_DIRECTION_CMD)) {
             processMouseMoveUp();
         } else if (commandWord.equals(DOWN_DIRECTION_CMD)) {
@@ -144,7 +144,7 @@ public class TextualCommandInterpreter {
 
 
     private void processMouseToggle() {
-        String commandWord = commandTokens.pop();
+        String commandWord = commandTokens.remove();
         if (commandWord.equals("LEFT")) {
             mouseInputControl.leftMouseButtonToggle();
         } else if (commandWord.equals(("RIGHT"))) {
@@ -153,14 +153,14 @@ public class TextualCommandInterpreter {
     }
 
     private void processMouseRelease() {
-        String commandWord = commandTokens.pop();
+        String commandWord = commandTokens.remove();
         if (commandWord.equals("LEFT")) {
             mouseInputControl.leftMouseButtonRelease();
         }
     }
 
     private void processMouseHold() {
-        String commandWord = commandTokens.pop();
+        String commandWord = commandTokens.remove();
         if (commandWord.equals("LEFT")) {
             mouseInputControl.leftMouseButtonHold();
         }
@@ -187,7 +187,7 @@ public class TextualCommandInterpreter {
     }
 
     private int processMagnitude() {
-        String commandWord = commandTokens.pop();
+        String commandWord = commandTokens.remove();
         return Integer.parseInt(commandWord);
     }
     
@@ -199,7 +199,7 @@ public class TextualCommandInterpreter {
             StringBuilder acceptedCommandsGenerator = new StringBuilder();
             acceptedCommandsGenerator.append(acceptedCommands[0]);
             for (int i = 1; i < acceptedCommands.length; i++) {
-                acceptedCommandsGenerator.append(acceptedCommands[i]);
+                acceptedCommandsGenerator.append(", "+acceptedCommands[i]);
             }
             errorMessage = "Found :" + commandWord + " where " + acceptedCommandsGenerator.toString() + " was expected.";
         }
