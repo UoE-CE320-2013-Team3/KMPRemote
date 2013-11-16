@@ -14,6 +14,7 @@ import java.util.Stack;
  * To change this template use File | Settings | File Templates.
  */
 public class TextualCommandInterpreter {
+
     // Constant that indicate command from devices
     private static final String MOUSE_CMD = "MOUSE";
     private static final String KEYBOARD_CMD = "KEYBOARD";
@@ -47,15 +48,24 @@ public class TextualCommandInterpreter {
     // KEYBOARD RELEASE ALL
     // MOUSE RELEASE ALL
 
+
+    //TODO ctrl tab tab, multiple key functionality, release all mouse, enter, return, backspace
     public TextualCommandInterpreter(String commands) throws AWTException {
-        commandTokens = new Stack<String>();
-        for (String command : commands.split("\\s+")) {
-            commandTokens.add(command);
-        }
+        initCommands(commands);
         mouseInputControl = new MouseInputControl();
         keyboardInputControl = new KeyboardInputControl();
     }
+    private void initCommands(String commands) {
+    commandTokens = new Stack<String>();
+    for (String command : commands.split("\\s+")) {
+        commandTokens.add(command);
+    }}
 
+    public TextualCommandInterpreter(String commands, MouseInputControl mouseInputControl, KeyboardInputControl keyboardInputControl) {
+        initCommands(commands);
+        this.mouseInputControl = mouseInputControl;
+        this.keyboardInputControl = keyboardInputControl;
+    }
     public void processCommand() throws NoSuchCommandException, KeyboardInputControl.NoSuchKeyException {
         while (!commandTokens.empty()) {
             String commandWord = commandTokens.pop();

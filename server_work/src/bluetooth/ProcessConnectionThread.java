@@ -1,5 +1,7 @@
 package bluetooth;
 
+import inputControllers.KeyboardInputControl;
+
 import javax.microedition.io.StreamConnection;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -53,7 +55,11 @@ public class ProcessConnectionThread implements Runnable {
                 if (commandWord == (END_CMD)) {
                     try {
                         //TODO parse the command into a string, print out errors.
-                        new TextualCommandInterpreter("todo").processCommand();
+                        try {
+                            new TextualCommandInterpreter("todo").processCommand();
+                        } catch (KeyboardInputControl.NoSuchKeyException e) {
+                            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                        }
                     } catch (TextualCommandInterpreter.NoSuchCommandException e) {
                         e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                     }
