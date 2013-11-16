@@ -29,6 +29,8 @@ public class TextualCommandInterpreter {
     private static final String HOLD_CMD = "HOLD";
     private static final String RELEASE_CMD = "RELEASE";
     private static final String ALL_CMD = "ALL";
+    private static final String LEFT_CLICK_CMD = "leftclick";
+    private static final String RIGHT_CLICK_CMD = "rightclick";
 
     private Queue<String> commandTokens;
     private MouseInputControl mouseInputControl;
@@ -147,23 +149,23 @@ public class TextualCommandInterpreter {
 
     private void processMouseToggle() {
         String commandWord = commandTokens.remove();
-        if (commandWord.equals("LEFT")) {
+        if (commandWord.equals(LEFT_CLICK_CMD)) {
             mouseInputControl.leftMouseButtonToggle();
-        } else if (commandWord.equals(("RIGHT"))) {
+        } else if (commandWord.equals((RIGHT_CLICK_CMD))) {
             mouseInputControl.rightMouseButtonToggle();
         }
     }
 
     private void processMouseRelease() {
         String commandWord = commandTokens.remove();
-        if (commandWord.equals("LEFT")) {
+        if (commandWord.equals(LEFT_CLICK_CMD)) {
             mouseInputControl.leftMouseButtonRelease();
         }
     }
 
     private void processMouseHold() {
         String commandWord = commandTokens.remove();
-        if (commandWord.equals("LEFT")) {
+        if (commandWord.equals(LEFT_CLICK_CMD)) {
             mouseInputControl.leftMouseButtonHold();
         }
     }
