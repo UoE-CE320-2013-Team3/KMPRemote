@@ -120,6 +120,7 @@ public class KeyboardInputControl {
         }
     }
 
+    //TODO Add additonal fuctionality (Talk with Lee, Mo, David & Neil)
     //deals with string input. Throws exception if string not recognized
     private char returnKeyCodeForString(String string) throws NoSuchKeyException {
         if (string.equals("SHIFT")) {
