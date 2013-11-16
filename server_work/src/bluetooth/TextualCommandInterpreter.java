@@ -56,18 +56,51 @@ public class TextualCommandInterpreter {
         keyboardInputControl = new KeyboardInputControl();
     }
 
-    public void processCommand() throws NoSuchCommandException {
+    public void processCommand() throws NoSuchCommandException, KeyboardInputControl.NoSuchKeyException {
         while (!commandTokens.empty()) {
             String commandWord = commandTokens.pop();
             if (commandWord.equals(MOUSE_CMD)) {
                 processMouse();
             } else if (commandWord.equals(KEYBOARD_CMD)) {
-                //TODO processKeyboard();
+                processKeyboard();
             } else {
                 throw new NoSuchCommandException(commandWord, MOUSE_CMD, KEYBOARD_CMD);
             }
         }
 
+    }
+
+    private void processKeyboard() throws KeyboardInputControl.NoSuchKeyException {
+        String commandWord = commandTokens.pop();
+        if (commandWord.equals(TOGGLE_CMD)) {
+            processKeyboardToggle();
+        } else if (commandWord.equals(RELEASE_CMD)) {
+            processKeyboardRelease();
+        } else if (commandWord.equals(HOLD_CMD)) {
+            processKeyboardHold();
+        } else {
+            //TODO refactor error checking.
+        }
+    }
+
+    private void processKeyboardRelease() throws KeyboardInputControl.NoSuchKeyException {
+        String key = processKeyboardKey(); 
+        keyboardInputControl.keyRelease(key);
+    }
+    
+    private void processKeyboardHold() throws KeyboardInputControl.NoSuchKeyException {
+        String key = processKeyboardKey();
+        keyboardInputControl.keyHold(key);
+    }
+    
+    private void processKeyboardToggle() throws KeyboardInputControl.NoSuchKeyException {
+        String key = processKeyboardKey();
+        keyboardInputControl.keyToggle(key);
+    }
+
+    private String processKeyboardKey() {
+        //TODO Add validity checking
+        return commandTokens.pop();
     }
 
     private void processMouse() {
@@ -147,6 +180,7 @@ public class TextualCommandInterpreter {
         String commandWord = commandTokens.pop();
         return Integer.parseInt(commandWord);
     }
+    
 
     public class NoSuchCommandException extends Throwable {
         String errorMessage;
