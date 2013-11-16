@@ -47,7 +47,7 @@ public class TextualCommandInterpreterTest {
     //TODO: Fix exception handling in textualCommandInterpreter
     @Test
     public void testMouseUp() throws Exception {
-        textualCommandInterpreterFactory("MOUSE UP 20").processCommand();
+        textualCommandInterpreterFactory("MOUSE UP 30").processCommand();
         Mockito.verify(mouseInputControlMock).moveMouseUp(20);
     }
 
