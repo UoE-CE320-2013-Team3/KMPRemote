@@ -1,5 +1,9 @@
 package bluetooth;
 
+import inputControllers.KeyboardInputControl;
+import inputControllers.MouseInputControl;
+
+import java.awt.*;
 import java.util.Stack;
 
 /**
@@ -26,6 +30,8 @@ public class TextualCommandInterpreter {
     private static final String ALL_CMD = "ALL";
 
     private Stack<String> commandTokens;
+    private MouseInputControl mouseInputControl;
+    private KeyboardInputControl keyboardInputControl;
 
     //TODO keyboard instance variables.
 
@@ -41,11 +47,13 @@ public class TextualCommandInterpreter {
     // KEYBOARD RELEASE ALL
     // MOUSE RELEASE ALL
 
-    public TextualCommandInterpreter(String commands) {
+    public TextualCommandInterpreter(String commands) throws AWTException {
         commandTokens = new Stack<String>();
         for (String command : commands.split("\\s+")) {
             commandTokens.add(command);
         }
+        mouseInputControl = new MouseInputControl();
+        keyboardInputControl = new KeyboardInputControl();
     }
 
     public void processCommand() throws NoSuchCommandException {
@@ -72,16 +80,25 @@ public class TextualCommandInterpreter {
             processMouseRelease();
         } else if (commandWord.equals(HOLD_CMD)) {
             processMouseHold();
-        }
-        else {
+        } else {
             //TODO refactor error checking.
         }
 
     }
 
     private void processMouseMove() {
-
+        String commandWord = commandTokens.pop();
+        if (commandWord.equals(UP_DIRECTION_CMD)) {
+            processMouseMoveUp();
+        } else if (commandWord.equals(DOWN_DIRECTION_CMD)) {
+            processMouseMoveDown();
+        } else if (commandWord.equals(RIGHT_DIRECTION_CMD)) {
+            processMouseMoveRight();
+        } else if (commandWord.equals(LEFT_DIRECTION_CMD)) {
+            processMouseMoveLeft();
+        }
     }
+
 
     private void processMouseToggle() {
 
@@ -93,6 +110,31 @@ public class TextualCommandInterpreter {
 
     private void processMouseHold() {
 
+    }
+
+    private void processMouseMoveUp() {
+        int magnitude = processMagnitude();
+        mouseInputControl.moveMouseUp(magnitude);
+    }
+
+    private void processMouseMoveDown() {
+        int magnitude = processMagnitude();
+        mouseInputControl.moveMouseDown(magnitude);
+    }
+
+    private void processMouseMoveRight() {
+        int magnitude = processMagnitude();
+        mouseInputControl.moveMouseRight(magnitude);
+    }
+
+    private void processMouseMoveLeft() {
+        int magnitude = processMagnitude();
+        mouseInputControl.moveMouseLeft(magnitude);
+    }
+
+    private int processMagnitude() {
+        String commandWord = commandTokens.pop();
+        return Integer.parseInt(commandWord);
     }
 
 
