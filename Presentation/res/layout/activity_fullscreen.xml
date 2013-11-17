@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:background="@color/black_overlay"
+    tools:context=".FullscreenActivity" >
+
+    <!--
+         The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc.
+    -->
+
+    <!--
+         This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows.
+    -->
+
+    <Button
+        android:id="@+id/button1"
+        style="@style/ButtonBar"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Start/End" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/ButtonBar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Previous" />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/ButtonBar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Next" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="209dp"
+        android:layout_gravity="bottom"
+        android:text="Presentation Notes" />
+
+</FrameLayout>
