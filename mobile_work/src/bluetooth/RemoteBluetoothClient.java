@@ -1,7 +1,21 @@
-public class RemoteBluetoothClient{
+package com.example.bluetoothconnection;
 
-	private	Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Set;
+
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
+
+public class RemoteBluetoothClient{
 	private	BluetoothAdapter deviceBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+	private	Set<BluetoothDevice> pairedDevices = deviceBluetoothAdapter.getBondedDevices();
+	//threads
+	private ConnectThread ct;
+	private ConnectedThread cnt;
 	public RemoteBluetoothClient(){			
 			if(hasBluetoothAdapter()){
 				if(!isBluetoothEnabled()){
@@ -36,5 +50,95 @@ public class RemoteBluetoothClient{
 				mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
 			}
 		}	
+	}
+	
+	public void connect(BluetoothDevice device){
+		// check if there is a connection : terminate
+		ct = new ConnectThread(device);
+		ct.start();
+	}
+	
+	public void connected(BluetoothDevice device, BluetoothSocket socket){
+		// if to cancel the connection thread
+		// if to cancel any thread running a connection
+		cnt = new ConnectedThread(socket);
+		cnt.start();
+	}
+	
+	
+	
+	private class ConnectThread extends Thread{
+		private BluetoothDevice btDevice;
+		private BluetoothSocket btSocket;
+		
+		public ConnectThread(BluetoothDevice device){
+			btDevice = device;
+			try{
+				btSocket = btDevice.createInsecureRfcommSocketToServiceRecord(UUID);
+				
+			}catch(IOException e){
+		
+			}
+		}
+		
+		public void run(){
+			deviceBluetoothAdapter.cancelDiscovery();
+			try {
+				btSocket.connect();
+			} catch (IOException e) {
+				try{
+					btSocket.close();
+				}catch(IOException ex){
+					
+				}
+				e.printStackTrace();
+			}
+			connected(btDevice,btSocket);
+		}
+		
+		public void cancel(){
+			try {
+				btSocket.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	private class ConnectedThread extends Thread{
+		BluetoothSocket btSocket;
+		OutputStream os;
+		
+		ConnectedThread(BluetoothSocket socket){
+			btSocket = socket;
+			os = null;
+			try{
+			os = socket.getOutputStream();
+			}catch(IOException e){
+			//fill me out!	
+			}
+		}
+		public void run(){
+			byte[] buffer = new byte[1024];
+			int bytes;
+		}// imagine I have drawn some bats here!
+		public void write(byte[] buffer){
+			try {
+				os.write(buffer);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		public void cancel(){
+			try {
+				btSocket.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }
