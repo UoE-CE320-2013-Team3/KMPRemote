@@ -1,4 +1,5 @@
 public class RemoteBluetoothClient{
+
 	private	Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 	private	BluetoothAdapter deviceBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 	public RemoteBluetoothClient(){			
