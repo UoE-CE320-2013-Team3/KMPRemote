@@ -9,7 +9,11 @@ import java.util.UUID;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
 import android.widget.Toast;
 
 public class RemoteBluetoothClient{
@@ -18,6 +22,7 @@ public class RemoteBluetoothClient{
 	
 	private	BluetoothAdapter deviceBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 	private	Set<BluetoothDevice> pairedDevices = deviceBluetoothAdapter.getBondedDevices();
+	private BluetoothDevice btDevice;
 	//threads
 	private ConnectThread ct;
 	private ConnectedThread cnt;
@@ -43,6 +48,29 @@ public class RemoteBluetoothClient{
 		return deviceBluetoothAdapter.isEnabled();
 	}
 	
+	public void getDevice() {
+		boolean discovered = deviceBluetoothAdapter.startDiscovery();
+		
+		final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+		    public void onReceive(Context context, Intent intent) {
+		        String action = intent.getAction();
+		        // When discovery finds a device
+		        if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+		            // Get the BluetoothDevice object from the Intent
+		            BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+		            Log.d("DeviceList" , device.getName() + "\n" + device.getAddress());
+		            btDevice = device;
+		            // Add the name and address to an array adapter to show in a ListView
+		            //mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+		        }
+		    }
+		};
+		// Register the BroadcastReceiver
+		//IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+		//registerReceiver(mReceiver, filter); // Don't forget to unregister during onDestroy
+		
+	}
+	
 //	public void turnBluetoothOn(){
 //		if (!isBluetoothEnabled()) {
 //			Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -50,12 +78,13 @@ public class RemoteBluetoothClient{
 //		}
 //	}	
 
-	public void connect(BluetoothDevice device){
+	public void connect(){
 		// check if there is a connection : terminate
+		getDevice();
 		if(ct != null) {
 			ct.cancel();
 		}
-		ct = new ConnectThread(device);
+		ct = new ConnectThread(btDevice);
 		ct.start();
 	}
 	
@@ -76,7 +105,6 @@ public class RemoteBluetoothClient{
 			//TODO message: no connectedThread. (connect() to start a new connection)
 		}		
 	}
-	
 	
 	
 	//creates a socket and connects to the server
