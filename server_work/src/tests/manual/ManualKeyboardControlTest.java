@@ -28,6 +28,15 @@ package tests.manual;
  *          The program should then print out "Caught invalid string" to the standard
  *          output stream
  *
+ * Second Test:
+ *      After adding functionality to KeyboardInputControl, the new inputs (F5, F6, RIGHTARROW,
+ *      LEFTARROW, PAGEUP, PAGEDOWN, ESC) needed to be test this. To use this test:
+ *      Open Microsoft Powerpoint and create 2 pages
+ *      Start the test
+ *      Select Microsoft Powerpoint
+ *      The test should start the presentation and then cycle move through the slides in
+ *      the order; forward, backward, forward, backward, forward. The presentation should
+ *      then exit and then restart on the second slide rather than the first
  */
 
 import inputControllers.KeyboardInputControl;
@@ -42,95 +51,153 @@ public class ManualKeyboardControlTest {
         keyControl.wait(2000);
 
         try {
+//
+//            keyControl.keyHold("CTRL");
+//            keyControl.keyToggle("x");
+//            keyControl.keyRelease("CTRL");
+//
+//            keyControl.wait(2000);
+//
+//            keyControl.keyHold("CTRL");
+//            keyControl.keyToggle("v");
+//            keyControl.keyRelease("CTRL");
+//
+//            keyControl.keyToggle("SPACE");
+//
+//            keyControl.keyToggle("t");
+//            keyControl.keyToggle("e");
+//            keyControl.keyToggle("s");
+//            keyControl.keyToggle("t");
+//
+//            keyControl.keyToggle("ENTER");
+//            keyControl.keyHold("SHIFT");
+//
+//            keyControl.keyToggle("t");
+//            keyControl.keyToggle("e");
+//            keyControl.keyToggle("s");
+//            keyControl.keyToggle("t");
+//
+//            keyControl.keyReleaseAll();
+//            keyControl.keyToggle("ENTER");
+//
+//            keyControl.keyToggle("t");
+//            keyControl.keyToggle("e");
+//            keyControl.keyToggle("s");
+//            keyControl.keyToggle("t");
+//
+//            keyControl.keyToggle("TAB");
+//
+//            keyControl.keyToggle("T");
+//            keyControl.keyToggle("E");
+//            keyControl.keyToggle("S");
+//            keyControl.keyToggle("T");
+//
+//            keyControl.keyToggle("ENTER");
+//
+//            keyControl.keyToggle("CAPS");
+//
+//            keyControl.keyToggle("t");
+//            keyControl.keyToggle("e");
+//            keyControl.keyToggle("s");
+//            keyControl.keyToggle("t");
+//
+//            keyControl.keyToggle("CAPS");
+//
+//            keyControl.keyToggle("ENTER");
+//
+//            keyControl.keyToggle("1");
+//            keyControl.keyToggle("2");
+//            keyControl.keyToggle("3");
+//            keyControl.keyToggle("4");
+//
+//            keyControl.keyToggle("ENTER");
+//            keyControl.keyHold("SHIFT");
+//
+//            keyControl.keyToggle("1");
+//            keyControl.keyToggle("2");
+//            keyControl.keyToggle("3");
+//            keyControl.keyToggle("4");
+//
+//            keyControl.keyRelease("SHIFT");
+//
+//            keyControl.wait(2000);
+//
+//            keyControl.keyToggle("BACKSPACE");
+//
+//            keyControl.wait(2000);
+//
+//            keyControl.keyToggle("BACKSPACE");
+//
+//            keyControl.wait(2000);
+//
+//            keyControl.keyHold("ALT");
+//            keyControl.keyToggle("TAB");
+//
+//            keyControl.wait(2000);
+//
+//            keyControl.keyToggle("TAB");
+//
+//            keyControl.wait(2000);
+//
+//            keyControl.keyRelease("ALT");
 
-            keyControl.keyHold("CTRL");
-            keyControl.keyToggle("x");
-            keyControl.keyRelease("CTRL");
+            //start of new tests
 
-            keyControl.wait(2000);
+            keyControl.keyToggle("F5");
 
-            keyControl.keyHold("CTRL");
-            keyControl.keyToggle("v");
-            keyControl.keyRelease("CTRL");
+            keyControl.wait(1000);
 
-            keyControl.keyToggle("SPACE");
+            keyControl.keyToggle("RIGHTARROW");
 
-            keyControl.keyToggle("t");
-            keyControl.keyToggle("e");
-            keyControl.keyToggle("s");
-            keyControl.keyToggle("t");
+            keyControl.wait(1000);
+
+            keyControl.keyToggle("LEFTARROW");
+
+            keyControl.wait(1000);
 
             keyControl.keyToggle("ENTER");
+
+            keyControl.wait(1000);
+
+            keyControl.keyToggle("PAGEUP");
+
+            keyControl.wait(1000);
+
+            keyControl.keyToggle("PAGEDOWN");
+
+            keyControl.wait(1000);
+
+            keyControl.keyToggle("ESC");
+
+            keyControl.wait(1000);
+
             keyControl.keyHold("SHIFT");
 
-            keyControl.keyToggle("t");
-            keyControl.keyToggle("e");
-            keyControl.keyToggle("s");
-            keyControl.keyToggle("t");
-
-            keyControl.keyReleaseAll();
-            keyControl.keyToggle("ENTER");
-
-            keyControl.keyToggle("t");
-            keyControl.keyToggle("e");
-            keyControl.keyToggle("s");
-            keyControl.keyToggle("t");
-
-            keyControl.keyToggle("TAB");
-
-            keyControl.keyToggle("T");
-            keyControl.keyToggle("E");
-            keyControl.keyToggle("S");
-            keyControl.keyToggle("T");
-
-            keyControl.keyToggle("ENTER");
-
-            keyControl.keyToggle("CAPS");
-
-            keyControl.keyToggle("t");
-            keyControl.keyToggle("e");
-            keyControl.keyToggle("s");
-            keyControl.keyToggle("t");
-
-            keyControl.keyToggle("CAPS");
-
-            keyControl.keyToggle("ENTER");
-
-            keyControl.keyToggle("1");
-            keyControl.keyToggle("2");
-            keyControl.keyToggle("3");
-            keyControl.keyToggle("4");
-
-            keyControl.keyToggle("ENTER");
-            keyControl.keyHold("SHIFT");
-
-            keyControl.keyToggle("1");
-            keyControl.keyToggle("2");
-            keyControl.keyToggle("3");
-            keyControl.keyToggle("4");
+            keyControl.keyToggle("F5");
 
             keyControl.keyRelease("SHIFT");
 
-            keyControl.wait(2000);
+            keyControl.wait(1000);
 
-            keyControl.keyToggle("BACKSPACE");
+            keyControl.keyToggle("ESC");
 
-            keyControl.wait(2000);
+            keyControl.wait(1000);
 
-            keyControl.keyToggle("BACKSPACE");
+            keyControl.keyToggle("F6");
 
-            keyControl.wait(2000);
+            keyControl.wait(1000);
 
-            keyControl.keyHold("ALT");
-            keyControl.keyToggle("TAB");
+            keyControl.keyToggle("F6");
 
-            keyControl.wait(2000);
+            keyControl.wait(1000);
 
-            keyControl.keyToggle("TAB");
+            keyControl.keyToggle("F6");
 
-            keyControl.wait(2000);
+            keyControl.wait(1000);
 
-            keyControl.keyRelease("ALT");
+            keyControl.keyToggle("F6");
+
+
 
             try {
                 keyControl.keyToggle("notAValidString");

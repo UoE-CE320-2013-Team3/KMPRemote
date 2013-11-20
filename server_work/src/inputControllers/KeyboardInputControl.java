@@ -153,7 +153,7 @@ public class KeyboardInputControl {
         else if (string.equals("BACKSPACE")) {
             return KeyEvent.VK_BACK_SPACE;
         }
-        else if (string.equals("F5")) {          ///TESTTESTTEST
+        else if (string.equals("F5")) {
             return KeyEvent.VK_F5;
         }
         else if (string.equals("F6")) {
