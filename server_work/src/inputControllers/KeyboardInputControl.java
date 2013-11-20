@@ -191,7 +191,9 @@ public class KeyboardInputControl {
         }
         private NoSuchKeyException(String string) {
             super(string + "is not a valid string. Valid strings include:\n" +
-                  "SHIFT\nCTRL\nALT\nTAB\nSPACE\nCAPS\nENTER\nBACKSPACE\n");
+                  "SHIFT\nCTRL\nALT\nTAB\nSPACE\nCAPS\nENTER\nBACKSPACE\n" +
+                  "F5\nF6\nRIGHTARROW\nLEFTARROW\nPAGEUP\nPAGEDOWN\nESC\n");
+
         }
     }
 
