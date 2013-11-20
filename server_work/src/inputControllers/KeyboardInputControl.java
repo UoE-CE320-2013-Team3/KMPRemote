@@ -25,6 +25,10 @@ package inputControllers; /**
  *          PAGEUP
  *          PAGEDOWN
  *          ESC
+ *
+ *  To add new button functionality, add a new 'else if' statement to the
+ *  returnKeyCodeForString function in a format copying the other statements
+ *  For the correct KeyEvent button reference, refer to the KeyEvent API.
  */
 
 import java.awt.*;
