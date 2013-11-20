@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Presentation</string>
+    <string name="action_settings">Settings</string>   
+    <string name="notes_text">Notes.</string>
+    <string name="previous_button">Previous</string>
+    <string name="START_button">Start</string>
+    <string name="END_button">End</string>  
+    <string name="next_button">Next</string>
+    <string name="F5_Toast">You have just sent the keycode for F5 to the keyboard</string>
+    <string name="F6_Toast">You have just sent the keycode for F6 to the keyboard</string>
+    <string name="Left_Toast">You have just sent the keycode for Left DPAD to the keyboard</string>
+    <string name="Right_Toast">You have just sent the keycode for Right DPAD to the keyboard</string>
+    <color name="white">#FFFFFF</color>
+    
+</resources>
