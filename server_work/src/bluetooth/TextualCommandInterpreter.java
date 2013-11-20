@@ -36,6 +36,8 @@ public class TextualCommandInterpreter {
     private MouseInputControl mouseInputControl;
     private KeyboardInputControl keyboardInputControl;
 
+    private Stack<String> currentCommandTokensParsedLog;
+
     //TODO keyboard instance variables.
 
     // Examples of Parsable messages.
@@ -92,22 +94,29 @@ public class TextualCommandInterpreter {
         this.keyboardInputControl = keyboardInputControl;
     }
 
+    private String getNextCommand() {
+        String commandWord = commandTokens.remove();
+        currentCommandTokensParsedLog.push(commandWord);
+        return commandWord;
+    }
+
     public void processCommand() throws NoSuchCommandException, KeyboardInputControl.NoSuchKeyException {
         while (!commandTokens.isEmpty()) {
-            String commandWord = commandTokens.remove();
+            currentCommandTokensParsedLog = new Stack<String>();
+            String commandWord = getNextCommand();
             if (commandWord.equals(MOUSE_CMD)) {
                 processMouse();
             } else if (commandWord.equals(KEYBOARD_CMD)) {
                 processKeyboard();
             } else {
-                throw new NoSuchCommandException(commandWord, MOUSE_CMD, KEYBOARD_CMD);
+                throw new NoSuchCommandException(MOUSE_CMD, KEYBOARD_CMD);
             }
         }
 
     }
 
-    private void processKeyboard() throws KeyboardInputControl.NoSuchKeyException {
-        String commandWord = commandTokens.remove();
+    private void processKeyboard() {
+        String commandWord = getNextCommand();
         if (commandWord.equals(TOGGLE_CMD)) {
             processKeyboardToggle();
         } else if (commandWord.equals(RELEASE_CMD)) {
@@ -124,21 +133,21 @@ public class TextualCommandInterpreter {
         }
     }
 
-    private void processKeyboardRelease() throws KeyboardInputControl.NoSuchKeyException {
+    private void processKeyboardRelease()  {
         while (!commandTokens.isEmpty()) {
             String key = processKeyboardKey();
             keyboardInputControl.keyRelease(key);
         }
     }
 
-    private void processKeyboardHold() throws KeyboardInputControl.NoSuchKeyException {
+    private void processKeyboardHold()  {
         while (!commandTokens.isEmpty()) {
             String key = processKeyboardKey();
             keyboardInputControl.keyHold(key);
         }
     }
 
-    private void processKeyboardToggle() throws KeyboardInputControl.NoSuchKeyException {
+    private void processKeyboardToggle()   {
         while (!commandTokens.isEmpty()) {
             String key = processKeyboardKey();
             keyboardInputControl.keyToggle(key);
@@ -147,12 +156,12 @@ public class TextualCommandInterpreter {
     }
 
     private String processKeyboardKey() {
-        return commandTokens.remove();
+        return getNextCommand();
     }
 
 
     private void processMouse() {
-        String commandWord = commandTokens.remove();
+        String commandWord = getNextCommand();
         if (commandWord.equals(MOVE_CMD)) {
             processMouseMove();
         } else if (commandWord.equals(TOGGLE_CMD)) {
@@ -168,7 +177,7 @@ public class TextualCommandInterpreter {
     }
 
     private void processMouseMove() {
-        String commandWord = commandTokens.remove();
+        String commandWord = getNextCommand();
         if (commandWord.equals(UP_DIRECTION_CMD)) {
             processMouseMoveUp();
         } else if (commandWord.equals(DOWN_DIRECTION_CMD)) {
@@ -182,7 +191,7 @@ public class TextualCommandInterpreter {
 
 
     private void processMouseToggle() {
-        String commandWord = commandTokens.remove();
+        String commandWord = getNextCommand();
         if (commandWord.equals(LEFT_CLICK_CMD)) {
             mouseInputControl.leftMouseButtonToggle();
         } else if (commandWord.equals((RIGHT_CLICK_CMD))) {
@@ -191,14 +200,14 @@ public class TextualCommandInterpreter {
     }
 
     private void processMouseRelease() {
-        String commandWord = commandTokens.remove();
+        String commandWord = getNextCommand();
         if (commandWord.equals(LEFT_CLICK_CMD)) {
             mouseInputControl.leftMouseButtonRelease();
         }
     }
 
     private void processMouseHold() {
-        String commandWord = commandTokens.remove();
+        String commandWord = getNextCommand();
         if (commandWord.equals(LEFT_CLICK_CMD)) {
             mouseInputControl.leftMouseButtonHold();
         }
@@ -225,21 +234,36 @@ public class TextualCommandInterpreter {
     }
 
     private int processMagnitude() {
-        String commandWord = commandTokens.remove();
+        String commandWord = getNextCommand();
         return Integer.parseInt(commandWord);
     }
 
 
-    public class NoSuchCommandException extends Exception {
+    public class NoSuchCommandException extends RuntimeException {
         String errorMessage;
 
-        public NoSuchCommandException(String commandWord, String... acceptedCommands) {
+        public NoSuchCommandException(String... acceptedCommands) {
             StringBuilder acceptedCommandsGenerator = new StringBuilder();
-            acceptedCommandsGenerator.append(acceptedCommands[0]);
-            for (int i = 1; i < acceptedCommands.length; i++) {
-                acceptedCommandsGenerator.append(", " + acceptedCommands[i]);
+            StringBuilder commandThatFailedWhenParsedGenerator = new StringBuilder();
+            Iterator<String> commandLogIt = currentCommandTokensParsedLog.iterator();
+            String currCommand = "";
+
+            if (commandLogIt.hasNext()){
+                currCommand = commandLogIt.next();
+                commandThatFailedWhenParsedGenerator.append(currCommand);
             }
-            errorMessage = "Found :" + commandWord + " where " + acceptedCommandsGenerator.toString() + " was expected.";
+
+            while (commandLogIt.hasNext()) {
+                currCommand = commandLogIt.next();
+                                                                                commandThatFailedWhenParsedGenerator.append(", ");
+                commandThatFailedWhenParsedGenerator.append(currCommand);
+            }
+
+            for (int i = 1; i < acceptedCommands.length; i++) {
+                acceptedCommandsGenerator.append(Arrays.toString(acceptedCommands));
+            }
+            errorMessage = "Last command: '" + commandThatFailedWhenParsedGenerator.toString() + "' Found " + currCommand + " where " +  acceptedCommandsGenerator.toString() +  " was expected.";
+            System.out.println("\""+errorMessage+"\"");
         }
 
         public String getMessage() {

@@ -184,7 +184,7 @@ public class KeyboardInputControl {
 
     }
 
-    public class NoSuchKeyException extends Exception {
+    public class NoSuchKeyException extends RuntimeException {
         private NoSuchKeyException(char character) {
             super(character + "is not a valid character. Character must " +
                   "be in range [a-Z] or [1-9]");
