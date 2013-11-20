@@ -18,6 +18,13 @@ package inputControllers; /**
  *          CAPS
  *          ENTER
  *          BACKSPACE
+ *          F5
+ *          F6
+ *          RIGHTARROW
+ *          LEFTARROW
+ *          PAGEUP
+ *          PAGEDOWN
+ *          ESC
  */
 
 import java.awt.*;
@@ -120,7 +127,6 @@ public class KeyboardInputControl {
         }
     }
 
-    //TODO Add additonal fuctionality (Talk with Lee, Mo, David & Neil)
     //deals with string input. Throws exception if string not recognized
     private char returnKeyCodeForString(String string) throws NoSuchKeyException {
         if (string.equals("SHIFT")) {
@@ -146,6 +152,27 @@ public class KeyboardInputControl {
         }
         else if (string.equals("BACKSPACE")) {
             return KeyEvent.VK_BACK_SPACE;
+        }
+        else if (string.equals("F5")) {          ///TESTTESTTEST
+            return KeyEvent.VK_F5;
+        }
+        else if (string.equals("F6")) {
+            return KeyEvent.VK_F6;
+        }
+        else if (string.equals("RIGHTARROW")) {
+            return KeyEvent.VK_RIGHT;
+        }
+        else if (string.equals("LEFTARROW")) {
+            return KeyEvent.VK_LEFT;
+        }
+        else if (string.equals("PAGEUP")) {
+            return KeyEvent.VK_PAGE_UP;
+        }
+        else if (string.equals("PAGEDOWN")) {
+            return KeyEvent.VK_PAGE_DOWN;
+        }
+        else if (string.equals("ESC")) {
+            return KeyEvent.VK_ESCAPE;
         }
         else {
             throw new NoSuchKeyException(string);
