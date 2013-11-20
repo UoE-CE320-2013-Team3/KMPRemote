@@ -4,27 +4,33 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Set;
+import java.util.UUID;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.widget.Toast;
 
 public class RemoteBluetoothClient{
+	UUID uuid = new UUID(0, 80087355);
+	
+	
 	private	BluetoothAdapter deviceBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 	private	Set<BluetoothDevice> pairedDevices = deviceBluetoothAdapter.getBondedDevices();
 	//threads
 	private ConnectThread ct;
 	private ConnectedThread cnt;
+	
 	public RemoteBluetoothClient(){			
 			if(hasBluetoothAdapter()){
 				if(!isBluetoothEnabled()){
-					turnBluetoothOn();	
+					//warning mes
+					//Toast.makeText(this, "Turn Bluetooth on", Toast.LENGTH_SHORT).show();
 				}
 			}else{
 				//display message
 			}			
-			checkForPairedDevices();
 	}
 	private boolean hasBluetoothAdapter(){
 		if (deviceBluetoothAdapter == null) {
@@ -33,40 +39,47 @@ public class RemoteBluetoothClient{
 		return true;
 	}
 		
-	private boolean isBluetoothEnabled(){	
+	public boolean isBluetoothEnabled(){	
 		return deviceBluetoothAdapter.isEnabled();
 	}
 	
-	private void turnBluetoothOn(){
-		if (!isBluetoothEnabled()) {
-			Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-			startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-		}
-	}	
-	
-	private void checkForPairedDevices(){	
-		if (pairedDevices.size() > 0) {
-			for (BluetoothDevice device : pairedDevices) {
-				mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
-			}
-		}	
-	}
-	
+//	public void turnBluetoothOn(){
+//		if (!isBluetoothEnabled()) {
+//			Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+//			startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+//		}
+//	}	
+
 	public void connect(BluetoothDevice device){
 		// check if there is a connection : terminate
+		if(ct != null) {
+			ct.cancel();
+		}
 		ct = new ConnectThread(device);
 		ct.start();
 	}
 	
-	public void connected(BluetoothDevice device, BluetoothSocket socket){
+	private void connected(BluetoothDevice device, BluetoothSocket socket){
 		// if to cancel the connection thread
+		if(cnt != null) {
+			cnt.cancel();
+		}
 		// if to cancel any thread running a connection
 		cnt = new ConnectedThread(socket);
 		cnt.start();
 	}
 	
+	public void send(byte[] buffer) {
+		if(cnt != null) {
+			cnt.write(buffer);
+		}else{
+			//TODO message: no connectedThread. (connect() to start a new connection)
+		}		
+	}
 	
 	
+	
+	//creates a socket and connects to the server
 	private class ConnectThread extends Thread{
 		private BluetoothDevice btDevice;
 		private BluetoothSocket btSocket;
@@ -74,7 +87,7 @@ public class RemoteBluetoothClient{
 		public ConnectThread(BluetoothDevice device){
 			btDevice = device;
 			try{
-				btSocket = btDevice.createInsecureRfcommSocketToServiceRecord(UUID);
+				btSocket = btDevice.createInsecureRfcommSocketToServiceRecord(uuid);
 				
 			}catch(IOException e){
 		
@@ -107,6 +120,7 @@ public class RemoteBluetoothClient{
 
 	}
 
+	//uses the created 
 	private class ConnectedThread extends Thread{
 		BluetoothSocket btSocket;
 		OutputStream os;
@@ -115,15 +129,15 @@ public class RemoteBluetoothClient{
 			btSocket = socket;
 			os = null;
 			try{
-			os = socket.getOutputStream();
+				os = socket.getOutputStream();
 			}catch(IOException e){
-			//fill me out!	
+				//fill me out!	
 			}
 		}
 		public void run(){
 			byte[] buffer = new byte[1024];
 			int bytes;
-		}// imagine I have drawn some bats here!
+		}
 		public void write(byte[] buffer){
 			try {
 				os.write(buffer);
