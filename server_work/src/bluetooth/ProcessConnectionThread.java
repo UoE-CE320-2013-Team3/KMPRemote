@@ -24,7 +24,7 @@ public class ProcessConnectionThread implements Runnable {
     private StreamConnection mConnection;
 
     private static final String LOGOUT_CMD = "LOGOUT";
-    private static final String END_CMD = "ENDCMD";
+    private static final int END_CMD = -1;
 
 
     //Keyboard constants
@@ -51,12 +51,14 @@ public class ProcessConnectionThread implements Runnable {
             System.out.println("waiting for input");
             while (true) {
                 String commandWord = scan.next();
-
-                if (commandWord == (END_CMD)) {
+                List<Byte> stream = new ArrayList<Byte>();
+                byte commandByte = (byte) inputStream.read();
+                if (commandByte == (END_CMD)) {
                     try {
                         //TODO parse the command into a string, print out errors.
+
                         try {
-                            new TextualCommandInterpreter("todo").processCommand();
+                            new TextualCommandInterpreter(stream.toString()).processCommand();
                         } catch (KeyboardInputControl.NoSuchKeyException e) {
                             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                         }
@@ -70,7 +72,7 @@ public class ProcessConnectionThread implements Runnable {
 
                 }
                 else {
-                    commands.add(commandWord);
+                    stream.add(commandByte);
                 }
 
             }
