@@ -17,7 +17,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class RemoteBluetoothClient{
-	UUID uuid = new UUID(0, 80087355);
+	static UUID uuid = new UUID(0, 80087355);
 	
 	
 	private	BluetoothAdapter deviceBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -51,7 +51,13 @@ public class RemoteBluetoothClient{
 	public void getDevice() {
 		boolean discovered = deviceBluetoothAdapter.startDiscovery();
 		
-		final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+		if(!discovered) {
+			while(!discovered){
+				Log.d("NULL", "Discovered is null: " +discovered);
+			}
+		}else{
+			Log.d("FOUND", "Discovered: " +discovered);
+			final BroadcastReceiver mReceiver = new BroadcastReceiver() {
 		    public void onReceive(Context context, Intent intent) {
 		        String action = intent.getAction();
 		        // When discovery finds a device
@@ -64,9 +70,11 @@ public class RemoteBluetoothClient{
 		            //mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
 		        }
 		    }
-		};
+		};			
+		}
+		
 		// Register the BroadcastReceiver
-		//IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+		//IntentFilter filter = new IntentFilter(BluetoothDevicxxe.ACTION_FOUND);
 		//registerReceiver(mReceiver, filter); // Don't forget to unregister during onDestroy
 		
 	}
@@ -115,7 +123,7 @@ public class RemoteBluetoothClient{
 		public ConnectThread(BluetoothDevice device){
 			btDevice = device;
 			try{
-				btSocket = btDevice.createInsecureRfcommSocketToServiceRecord(uuid);
+				btSocket = btDevice.createInsecureRfcommSocketToServiceRecord(uuid.fromString("04c6093b-0000-1000-8000-00805f9b34fb"));
 				
 			}catch(IOException e){
 		
