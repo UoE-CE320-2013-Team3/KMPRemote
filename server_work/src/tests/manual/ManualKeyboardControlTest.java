@@ -9,7 +9,7 @@ package tests.manual;
  */
 
 /**
- * Test Purpose:
+ * First Test:
  *      This test is designed to test the methods of the KeyboardControl class
  *      To use this test:
  *          open notepad and type in a word
