@@ -19,7 +19,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="58dp"
         android:text="@string/left_click"
-        android:onclick="leftClick" />
+        android:onClick="leftClick" />
 
     <Button
         android:id="@+id/button2"
@@ -31,7 +31,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="25dp"
         android:text="@string/right_click"
-        android:onclick="rightClick" />
+        android:onClick="rightClick" />
 
     <Button
         android:id="@+id/button5"
@@ -41,7 +41,7 @@
         android:layout_alignBottom="@+id/button4"
         android:layout_toRightOf="@+id/button3"
         android:background="@drawable/right"
-        android:onclick="moveRight" />
+        android:onClick="moveRight" />
 
     <Button
         android:id="@+id/button6"
@@ -51,7 +51,7 @@
         android:layout_below="@+id/button5"
         android:layout_marginTop="15dp"
         android:background="@drawable/down"
-        android:onclick="moveDown" />
+        android:onClick="moveDown" />
 
     <Button
         android:id="@+id/button3"
@@ -61,7 +61,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
         android:background="@drawable/up"
-        android:onclick="moveUp" />
+        android:onClick="moveUp" />
 
     <Button
         android:id="@+id/button4"
@@ -71,6 +71,6 @@
         android:layout_marginTop="16dp"
         android:layout_toLeftOf="@+id/button6"
         android:background="@drawable/left"
-        android:onclick="moveLeft" />
+        android:onClick="moveLeft" />
 
 </RelativeLayout>
