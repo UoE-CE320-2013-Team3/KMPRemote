@@ -43,8 +43,14 @@
     <string name="CTRL">CTRL</string>
     <string name="SHIFT">SHIFT</string>
     <string name="BACKSPACE">Delete</string>
-     <string name="SPACE">SPACE</string>
-    
-    
+    <string name="SPACE">SPACE</string>
+    	<string name="A_Toast">You have just pressed A</string> 
+    	<string name="B_Toast">You have just pressed B</string>
+    	<string name="C_Toast">You have just pressed C</string>
+    	<string name="D_Toast">You have just pressed D</string>
+   		<string name="E_Toast">You have just pressed E</string>
+   		<string name="ONE_Toast">You have just pressed 1</string>
+   		
+     
 
 </resources>
