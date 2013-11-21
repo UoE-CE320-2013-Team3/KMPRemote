@@ -30,208 +30,267 @@ public class DisplayKeyboard extends Activity {
     //need to still implement these methods to send data to the bluetooth client class!
 	
 	String cmd;
-    public void keyboardToggle(View v){
+    public void keyboardSend(View v){
 		byte[] buffer = cmd.getBytes();
     	kClient.send(buffer);
     }
     
 	public void KeyboardToggleA(View v) {
         cmd = "KEYBOARD TOGGLE a";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleB(View v) {
         cmd = "KEYBOARD TOGGLE b";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleC(View v) {
         cmd = "KEYBOARD TOGGLE c";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleD(View v) {
         cmd = "KEYBOARD TOGGLE d";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleE(View v) {
         cmd = "KEYBOARD TOGGLE e";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleF(View v) {
         cmd = "KEYBOARD TOGGLE f";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleG(View v) {
         cmd = "KEYBOARD TOGGLE g";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleH(View v) {
         cmd = "KEYBOARD TOGGLE h";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleI(View v) {
         cmd = "KEYBOARD TOGGLE i";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleJ(View v) {
         cmd = "KEYBOARD TOGGLE j";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleK(View v) {
         cmd = "KEYBOARD TOGGLE k";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleL(View v) {
         cmd = "KEYBOARD TOGGLE l";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleM(View v) {
         cmd = "KEYBOARD TOGGLE m";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleN(View v) {
         cmd = "KEYBOARD TOGGLE n";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleO(View v) {
         cmd = "KEYBOARD TOGGLE o";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleP(View v) {
         cmd = "KEYBOARD TOGGLE p";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleQ(View v) {
         cmd = "KEYBOARD TOGGLE q";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleR(View v) {
         cmd = "KEYBOARD TOGGLE r";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleS(View v) {
         cmd = "KEYBOARD TOGGLE s";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleT(View v) {
         cmd = "KEYBOARD TOGGLE t";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleU(View v) {
         cmd = "KEYBOARD TOGGLE u";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleV(View v) {
         cmd = "KEYBOARD TOGGLE v";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleW(View v) {
         cmd = "KEYBOARD TOGGLE w";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleX(View v) {
         cmd = "KEYBOARD TOGGLE x";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleY(View v) {
         cmd = "KEYBOARD TOGGLE y";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleZ(View v) {
         cmd = "KEYBOARD TOGGLE z";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleSPACE(View v) {
         cmd = "KEYBOARD TOGGLE SPACE";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
+    public void KeyboardToggleCAPS(View v) {
+        cmd = "KEYBOARD TOGGLE CAPS";
+        keyboardSend(v);
+    }
+    
     public void KeyboardToggleBACKSPACE(View v) {
         cmd = "KEYBOARD TOGGLE BACKSPACE";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleF5(View v) {
         cmd = "KEYBOARD TOGGLE F5";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleF6(View v) {
         cmd = "KEYBOARD TOGGLE F6";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleRIGHTARROW(View v) {
         cmd = "KEYBOARD TOGGLE RIGHTARROW";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleLEFTARROW(View v) {
         cmd = "KEYBOARD TOGGLE LEFTARROW";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardTogglePAGEUP(View v) {
         cmd = "KEYBOARD TOGGLE PAGEUP";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardTogglePAGEDOWN(View v) {
         cmd = "KEYBOARD TOGGLE PAGEDOWN";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleESC(View v) {
         cmd = "KEYBOARD TOGGLE ESC";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleENTER(View v) {
         cmd = "KEYBOARD TOGGLE ENTER";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardToggleTAB(View v) {
         cmd = "KEYBOARD TOGGLE TAB";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
+    public void KeyboardToggle1(View v) {
+        cmd = "KEYBOARD TOGGLE 1";
+        keyboardSend(v);
+    }
+    
+    public void KeyboardToggle2(View v) {
+        cmd = "KEYBOARD TOGGLE 2";
+        keyboardSend(v);
+    }
+    
+    public void KeyboardToggle3(View v) {
+        cmd = "KEYBOARD TOGGLE 3";
+        keyboardSend(v);
+    }
+    
+    public void KeyboardToggle4(View v) {
+        cmd = "KEYBOARD TOGGLE 4";
+        keyboardSend(v);
+    }
+    
+    public void KeyboardToggle5(View v) {
+        cmd = "KEYBOARD TOGGLE 5";
+        keyboardSend(v);
+    }
+    
+    public void KeyboardToggle6(View v) {
+        cmd = "KEYBOARD TOGGLE 6";
+        keyboardSend(v);
+    }
+    
+    public void KeyboardToggle7(View v) {
+        cmd = "KEYBOARD TOGGLE 7";
+        keyboardSend(v);
+    }
+    
+    public void KeyboardToggle8(View v) {
+        cmd = "KEYBOARD TOGGLE 8";
+        keyboardSend(v);
+    }
+    
+    public void KeyboardToggle9(View v) {
+        cmd = "KEYBOARD TOGGLE 9";
+        keyboardSend(v);
+    }
+    
+    public void KeyboardToggle0(View v) {
+        cmd = "KEYBOARD TOGGLE 0";
+        keyboardSend(v);
+    }
+    
+    
+    
+    /* Will be needed for Iteration 2
     public void KeyboardHoldALT(View v) {
         cmd = "KEYBOARD HOLD ALT";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardHoldCTRL(View v) {
         cmd = "KEYBOARD HOLD CTRL";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
 
     public void KeyboardHoldSHIFT(View v) {
         cmd = "KEYBOARD HOLD SHIFT";
-        keyboardToggle(v);
+        keyboardSend(v);
     }
+    */
 }
