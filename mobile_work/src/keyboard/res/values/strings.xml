@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">keyboard</string>
+    <string name="action_settings">Settings</string>
+    <string name="A">A</string>
+    <string name="B">B</string>
+    <string name="C">C</string>
+    <string name="D">D</string>
+    <string name="E">E</string>
+    <string name="F">F</string>
+    <string name="G">G</string>
+    <string name="H">H</string>
+    <string name="I">I</string>
+    <string name="J">J</string>
+    <string name="K">K</string>
+    <string name="L">L</string>
+    <string name="M">M</string>
+    <string name="N">N</string>
+    <string name="O">O</string>
+    <string name="P">P</string>
+    <string name="Q">Q</string>
+    <string name="R">R</string>
+    <string name="S">S</string>
+    <string name="T">T</string>
+    <string name="U">U</string>
+    <string name="V">V</string>
+    <string name="W">W</string>
+    <string name="X">X</string>
+    <string name="Y">Y</string>
+    <string name="Z">Z</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">7</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="zero">0</string>
+    <string name="RETURN">RETURN</string>
+    <string name="CTRL">CTRL</string>
+    <string name="SHIFT">SHIFT</string>
+    <string name="BACKSPACE">Delete</string>
+     <string name="SPACE">SPACE</string>
+    
+    
+
+</resources>
