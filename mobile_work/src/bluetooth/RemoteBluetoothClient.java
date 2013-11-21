@@ -182,13 +182,12 @@ public class RemoteBluetoothClient extends Activity{
 	}
 	
 	public void send(byte[] buffer) {
+		try {
+			Thread.sleep(1000);
+		}
+		catch (InterruptedException e) {}
 		if(cnt != null) {
-			try {
-			//Thread.sleep(5000);
 			cnt.write(buffer);
-			//Thread.sleep(5000);
-			}
-			catch (Exception e) {}
 		}else{
 			//TODO message: no connectedThread. (connect() to start a new connection)
 		}		
@@ -261,7 +260,6 @@ public class RemoteBluetoothClient extends Activity{
 		public void write(byte[] buffer) {
 			try {
 				os.write(buffer);
-			
 				os.flush();
 			} catch (IOException e) { 
 				Log.w("com.example.bluetoothconnection", e.toString());}
