@@ -21,6 +21,7 @@ package tests.manual;
  *              TEST
  *              test	TEST
  *              TEST
+ *
  *              1234
  *              !"£$
  *          Once printed, after 2 seconds the $ and £ sounds should be deleted

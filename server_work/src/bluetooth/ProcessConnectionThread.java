@@ -24,7 +24,8 @@ public class ProcessConnectionThread implements Runnable {
     private StreamConnection mConnection;
 
     private static final String LOGOUT_CMD = "LOGOUT";
-    private static final int END_CMD = -1;
+    private static final int END_CMD = -2;
+    private static final int END_SESSION = -1;
 
 
     //Keyboard constants
@@ -47,18 +48,27 @@ public class ProcessConnectionThread implements Runnable {
         try {
             // prepare to receive data
             InputStream inputStream = mConnection.openInputStream();
-            Scanner scan = new Scanner(inputStream);
             System.out.println("waiting for input");
+            List<Byte> stream = new ArrayList<Byte>();
             while (true) {
-                String commandWord = scan.next();
-                List<Byte> stream = new ArrayList<Byte>();
                 byte commandByte = (byte) inputStream.read();
+                System.out.println("Received byte: "+commandByte);
                 if (commandByte == (END_CMD)) {
                     try {
                         //TODO parse the command into a string, print out errors.
+                        //TODO handle end of session
 
                         try {
-                            new TextualCommandInterpreter(stream.toString()).processCommand();
+                            byte[] commandBytes = new byte[stream.size()];
+                            int i = 0;
+                            for (Byte aByte : stream) {
+                                commandBytes[i++] = aByte;
+                            }
+
+                            String parsedCommand = new String(commandBytes);
+                            System.out.println("Command about to be parsed: "+parsedCommand);
+                            new TextualCommandInterpreter(parsedCommand).processCommand();
+                            stream = new ArrayList<Byte>();
                         } catch (KeyboardInputControl.NoSuchKeyException e) {
                             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                         }
@@ -67,18 +77,18 @@ public class ProcessConnectionThread implements Runnable {
                     }
                     System.out.println("End of command.");
                 }
-                if (commandWord == (LOGOUT_CMD)) {
-                    System.out.println("Terminating connection to client.");
-
+                else if (commandByte == END_SESSION) {
+                    break;
                 }
                 else {
+                    System.out.println("Adding command byte to stream: "+commandByte);
                     stream.add(commandByte);
                 }
-
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("Socket closing...");
     }
 
 
