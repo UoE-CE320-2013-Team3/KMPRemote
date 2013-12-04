@@ -2,11 +2,11 @@ package inputControllers;
 
 /**
  * Created with IntelliJ IDEA.
- * User: mhpric, john
+ * User: mhpric
  * Date: 04/12/13
- * Time: 10:33
+ * Time: 11:21
  * To change this template use File | Settings | File Templates.
  */
-public class presentationInputControl {
-    //TODO have this class return the notes from a powerpoint
+public class PresentationInputControl {
+    //TODO return the text contained in powerpoints note section
 }
