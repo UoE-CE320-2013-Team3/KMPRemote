@@ -34,14 +34,20 @@ public class TextualCommandInterpreter {
     private static final String SCROLL_CMD = "SCROLL";
     private static final String LEFT_CLICK_CMD = "leftclick";
     private static final String RIGHT_CLICK_CMD = "rightclick";
-    private static final String END_OF_LINK_CMD = "ENDOFLINK";
+    private static final String END_OF_LINK_CMD = "END_LINK";
+    
+    private static final String LINK_CMD = "LINK";
+    private static final String NOTES_CMD = "NOTES";
+            
 
     private Queue<String> commandTokens;
     private MouseInputControl mouseInputControl;
     private KeyboardInputControl keyboardInputControl;
+    private PresentationInputControl presentationInputControl;
 
     private Stack<String> currentCommandTokensParsedLog;
-    private String presentationLink;
+    private String result;
+    private Object presentationNotes;
 
     //TODO keyboard instance variables.
 //TODO refactor order of methods.
@@ -77,6 +83,17 @@ public class TextualCommandInterpreter {
     MOUSE SCROLL UP 10 // Scrolls the mouse 10 notches upwards.
     MOUSE SCROLL DOWN 10 // Scrolls the mouse 10 notches downwards.
 
+    PRESENTATION LINK link_here ENDOFLINK // Presentation to which all commands below should be applied too.
+    PRESENTATION NOTES // Return all notes form the presentation in the following json form:
+    [
+     {
+        1 : "Notes here.",
+        ...,
+        N-1 : "Notes here.", N : "Notes here."
+     }
+
+    ]
+
     */
 
 
@@ -95,10 +112,11 @@ public class TextualCommandInterpreter {
         }
     }
 
-    public TextualCommandInterpreter(String commands, MouseInputControl mouseInputControl, KeyboardInputControl keyboardInputControl) {
+    public TextualCommandInterpreter(String commands, MouseInputControl mouseInputControl, KeyboardInputControl keyboardInputControl, PresentationInputControl presentationInputControl) {
         initCommands(commands);
         this.mouseInputControl = mouseInputControl;
         this.keyboardInputControl = keyboardInputControl;
+        this.presentationInputControl = presentationInputControl;
     }
 
     private String getNextCommand() {
@@ -107,8 +125,9 @@ public class TextualCommandInterpreter {
         return commandWord;
     }
 
-    public void processCommand() throws NoSuchCommandException, KeyboardInputControl.NoSuchKeyException {
-        while (!commandTokens.isEmpty()) {
+    public String processCommand() throws NoSuchCommandException, KeyboardInputControl.NoSuchKeyException {
+        result = "";
+        if (!commandTokens.isEmpty()) {
             currentCommandTokensParsedLog = new Stack<String>();
             String commandWord = getNextCommand();
             if (commandWord.equals(MOUSE_CMD)) {
@@ -121,14 +140,22 @@ public class TextualCommandInterpreter {
                 throw new NoSuchCommandException(MOUSE_CMD, KEYBOARD_CMD);
             }
         }
+        return result;
 
     }
 
     private void processPresentation() {
+        String commandWord = getNextCommand();
+        if (commandWord.equals(LINK_CMD)) {
+            processPresentationLink();
+        } else if (commandWord.equals(NOTES_CMD)) {
+            outputPresentationNotesAsResult();
+        }
+    }
+    
+    private void processPresentationLink() {
         String link = getPresentationLink();
-
-        PresentationInputControl presentationInputControl = new PresentationInputControl(link);
-
+        presentationInputControl = new PresentationInputControl(link);
     }
 
     private void processKeyboard() {
@@ -292,6 +319,10 @@ public class TextualCommandInterpreter {
         }
         //TODO Parse link into stuff.
         return presentationLink;
+    }
+
+    public String outputPresentationNotesAsResult() {
+        return presentationInputControl.getNotesAsJSON();
     }
 
 

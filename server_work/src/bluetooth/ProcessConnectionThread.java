@@ -6,6 +6,7 @@ import javax.microedition.io.StreamConnection;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -48,8 +49,13 @@ public class ProcessConnectionThread implements Runnable {
         try {
             // prepare to receive data
             InputStream inputStream = mConnection.openInputStream();
+            OutputStream outputStream = mConnection.openOutputStream();
             System.out.println("waiting for input");
-            List<Byte> stream = new ArrayList<Byte>();
+
+
+
+            List<Byte> inputStreamsBytes = new ArrayList<Byte>();
+
             while (true) {
                 byte commandByte = (byte) inputStream.read();
                 System.out.println("Received byte: "+commandByte);
@@ -59,16 +65,19 @@ public class ProcessConnectionThread implements Runnable {
                         //TODO handle end of session
 
                         try {
-                            byte[] commandBytes = new byte[stream.size()];
+                            byte[] commandBytes = new byte[inputStreamsBytes.size()];
                             int i = 0;
-                            for (Byte aByte : stream) {
+                            for (Byte aByte : inputStreamsBytes) {
                                 commandBytes[i++] = aByte;
                             }
 
                             String parsedCommand = new String(commandBytes);
-                            System.out.println("Command about to be parsed: "+parsedCommand);
-                            new TextualCommandInterpreter(parsedCommand).processCommand();
-                            stream = new ArrayList<Byte>();
+                            System.out.println("Command about to be parsed: " + parsedCommand);
+                            String response = new TextualCommandInterpreter(parsedCommand).processCommand();
+                            if (!response.equals("")){
+                                 outputStream.write(response.getBytes());
+                            }
+                            inputStreamsBytes = new ArrayList<Byte>();
                         } catch (KeyboardInputControl.NoSuchKeyException e) {
                             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                         }
@@ -81,8 +90,8 @@ public class ProcessConnectionThread implements Runnable {
                     break;
                 }
                 else {
-                    System.out.println("Adding command byte to stream: "+commandByte);
-                    stream.add(commandByte);
+                    System.out.println("Adding command byte to inputStreamsBytes: "+commandByte);
+                    inputStreamsBytes.add(commandByte);
                 }
             }
         } catch (Exception e) {

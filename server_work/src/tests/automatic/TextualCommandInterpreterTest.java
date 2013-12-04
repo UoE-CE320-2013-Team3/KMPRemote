@@ -3,6 +3,7 @@ package tests.automatic;
 import bluetooth.TextualCommandInterpreter;
 import inputControllers.KeyboardInputControl;
 import inputControllers.MouseInputControl;
+import inputControllers.PresentationInputControl;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -25,8 +26,12 @@ public class TextualCommandInterpreterTest {
     MouseInputControl mouseInputControlMock;
     @Mock
     KeyboardInputControl keyboardInputControlMock;
+    @Mock
+    PresentationInputControl presentationInputControlMock;
+
     InOrder mouseInputControlMockMethodInvocationOrderChecker;
     InOrder keyboardInputControlMockMethodInvocationOrderChecker;
+    InOrder presentationInputControlMockMethodInvocationOrderChecker;
 
     @Rule
     public ExpectedException expectedExSpecifier;
@@ -38,11 +43,12 @@ public class TextualCommandInterpreterTest {
         ArgumentCaptor<KeyboardInputControl> keyboardInputControlArgumentCaptor = ArgumentCaptor.forClass(KeyboardInputControl.class);
         mouseInputControlMockMethodInvocationOrderChecker = inOrder(mouseInputControlMock);
         keyboardInputControlMockMethodInvocationOrderChecker = inOrder(keyboardInputControlMock);
+        presentationInputControlMockMethodInvocationOrderChecker = inOrder(presentationInputControlMock);
         expectedExSpecifier = ExpectedException.none();
     }
 
     private TextualCommandInterpreter textualCommandInterpreterFactory(String command) {
-        return new TextualCommandInterpreter(command, mouseInputControlMock, keyboardInputControlMock);
+        return new TextualCommandInterpreter(command, mouseInputControlMock, keyboardInputControlMock, presentationInputControlMock);
     }
 
     @Test
@@ -116,8 +122,6 @@ public class TextualCommandInterpreterTest {
         textualCommandInterpreterFactory("MOUSE SCROLL DOWN 10").processCommand();
         mouseInputControlMockMethodInvocationOrderChecker.verify(mouseInputControlMock).rollMouseWheelDown(10);
     }
-
-
 
     @Test
     public void testKeyboardToggleMultipleLetters()   {
@@ -195,4 +199,13 @@ public class TextualCommandInterpreterTest {
         textualCommandInterpreterFactory("KEYBOARD RELEASE_ALL").processCommand();
         Mockito.verify(keyboardInputControlMock).keyReleaseAll();
     }
+
+    // "M:\\_Year 3\\CE320\\PowerpointAPITest\\TesterPowerpoint.ppt"
+    @Test
+    public void shouldReceiveNotesFromPresentation()   {
+        //textualCommandInterpreterFactory("PRESENTATION LINK M:\\_Year 3\\CE320\\PowerpointAPITest\\TesterPowerpoint.ppt END_LINK").processCommand();
+        textualCommandInterpreterFactory("PRESENTATION NOTES").processCommand();
+        presentationInputControlMockMethodInvocationOrderChecker.verify(presentationInputControlMock).getNotesAsJSON();
+    }
+
 }
