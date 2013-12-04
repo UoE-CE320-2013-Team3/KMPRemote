@@ -5,6 +5,8 @@ import java.io.OutputStream;
 import java.util.Set;
 import java.util.UUID;
 
+import com.example.kmpremote.R;
+
 import android.widget.AdapterView.OnItemClickListener;
 
 import android.app.Activity;
