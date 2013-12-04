@@ -51,6 +51,7 @@ public class PresentationInputControl {
         for (Slide slide : slides) {
             //get the notes for this slide
             Notes notes = slide.getNotesSheet();
+            if (notes != null) {
             //get the "text runs" that are part of this slide
             TextRun[] textRuns = notes.getTextRuns();
             //build a string with the text from all the runs in the slide
@@ -60,9 +61,14 @@ public class PresentationInputControl {
             }
             //add the resulting string to the results
             String alteredNotes = stringBuilder.toString();
-            alteredNotes = alteredNotes.replaceAll("\\r", System.getProperty("line.separator"));
-            results.add(alteredNotes);
+            alteredNotes = alteredNotes.replaceAll("\\r\\n", "\n");
+            alteredNotes = alteredNotes.replaceAll("\\r", "\n");
+            results.add(alteredNotes.substring(0, alteredNotes.length()-1));
 
+            }
+            else {
+                results.add("No notes");
+            }
         }
 
         return results;
@@ -73,7 +79,7 @@ public class PresentationInputControl {
 
         int i = 0;
         for (String note : notes) {
-            myMap.put(++i, note.substring(0, note.length()-1));
+            myMap.put(++i, note);
         }
 
         Gson gson = new GsonBuilder().create();

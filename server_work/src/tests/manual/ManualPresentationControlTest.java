@@ -17,7 +17,12 @@ import inputControllers.PresentationInputControl;
  *  JSON format
  *
  *  To use:
- *      Add the
+ *      Add the filepath of the powerpoint (must be 2007 or earlier (e.g. ppt))
+ *      Run the program and you should see an output to the standard output stream
+ *      in the following JSON format:
+ *          {"1":"This is a test","2":"This is a second test"}
+ *      Where the number is the slide number and the text is the text contained
+ *      within the notes for that page
  */
 public class ManualPresentationControlTest {
     public static void main(String args[]) {
