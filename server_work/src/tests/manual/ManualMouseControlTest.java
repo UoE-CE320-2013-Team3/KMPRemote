@@ -19,7 +19,13 @@ package tests.manual;
  *          Right click
  *          Move cursor down and then right
  *          Left click
- *
+ * Added Test:
+ *      This test is designed to check the functionality of the rollMouseWheelUp and rollMouseWheelDown
+ *      methods.
+ *      To run:
+ *          Comment out the intitial test shown above
+ *          Run and click on a window large enough to be scrolled up and down
+ *          The window should scroll down and then up
  */
 
 import inputControllers.KeyboardInputControl;
@@ -33,7 +39,7 @@ public class ManualMouseControlTest {
     public static void main(String args[]) throws AWTException {
         inputControllers.MouseInputControl mouseControl = new MouseInputControl();
         inputControllers.KeyboardInputControl keyControl = new KeyboardInputControl();
-
+    /*
         keyControl.wait(2000);
 
         mouseControl.leftMouseButtonHold();
@@ -78,8 +84,18 @@ public class ManualMouseControlTest {
         }
 
         mouseControl.leftMouseButtonToggle();
+     */
+        //comment out everything above this if testing the mouse scroll functionality
+        keyControl.wait(2000);
 
+        for (int x = 0; x <30; x++) {
+            mouseControl.rollMouseWheelDown(1);
+            keyControl.wait(50);
+        }
 
+        for (int x = 0; x < 30; x++) {
+            mouseControl.rollMouseWheelUp(1);
+            keyControl.wait(50);
+        }
     }
-
 }

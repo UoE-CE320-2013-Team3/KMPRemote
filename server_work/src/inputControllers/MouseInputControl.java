@@ -9,6 +9,8 @@ package inputControllers; /**
 import java.awt.*;
 import java.awt.event.InputEvent;
 
+//TODO Implement mouse scroll
+
 public class MouseInputControl {
 
     Robot robot;
@@ -74,5 +76,14 @@ public class MouseInputControl {
         robot.mousePress(InputEvent.BUTTON3_MASK);
         robot.mouseRelease(InputEvent.BUTTON3_MASK);
 
+    }
+
+    public void rollMouseWheelDown(int numberOfNotches) {
+        robot.mouseWheel(numberOfNotches);
+    }
+
+    public void rollMouseWheelUp(int numberOfNotches) {
+        numberOfNotches = numberOfNotches*(-1);
+        robot.mouseWheel(numberOfNotches);
     }
 }
