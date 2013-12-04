@@ -106,6 +106,20 @@ public class TextualCommandInterpreterTest {
     }
 
     @Test
+    public void shouldInterpretMouseScrollUpCommands()   {
+        textualCommandInterpreterFactory("MOUSE SCROLL UP 10").processCommand();
+        mouseInputControlMockMethodInvocationOrderChecker.verify(mouseInputControlMock).rollMouseWheelUp(10);
+    }
+
+    @Test
+    public void shouldInterpretMouseScrollDownCommands()   {
+        textualCommandInterpreterFactory("MOUSE SCROLL DOWN 10").processCommand();
+        mouseInputControlMockMethodInvocationOrderChecker.verify(mouseInputControlMock).rollMouseWheelDown(10);
+    }
+
+
+
+    @Test
     public void testKeyboardToggleMultipleLetters()   {
         textualCommandInterpreterFactory("KEYBOARD TOGGLE c a t").processCommand();
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyToggle("c");

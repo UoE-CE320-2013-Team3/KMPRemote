@@ -29,6 +29,7 @@ public class TextualCommandInterpreter {
     private static final String HOLD_CMD = "HOLD";
     private static final String RELEASE_CMD = "RELEASE";
     private static final String RELEASE_ALL_CMD = "RELEASE_ALL";
+    private static final String SCROLL_CMD = "SCROLL";
     private static final String LEFT_CLICK_CMD = "leftclick";
     private static final String RIGHT_CLICK_CMD = "rightclick";
 
@@ -39,7 +40,7 @@ public class TextualCommandInterpreter {
     private Stack<String> currentCommandTokensParsedLog;
 
     //TODO keyboard instance variables.
-
+//TODO refactor order of methods.
     // Examples of Parsable messages.
   /*
   Allowable keyboard commands:
@@ -67,8 +68,10 @@ public class TextualCommandInterpreter {
     MOUSE MOVE RIGHT 30 // Moves the cursor right 30 pixels
     MOUSE TOGGLE leftclick // Presses and releases left mouse button.
     MOUSE HOLD leftclick // Holds left mouse button indefinitely.
-    MOUSE RELEASE leftclick // Releases left mouse button
-    MOUSE TOGGLE rightclick // Presses and releases right mouse button
+    MOUSE RELEASE leftclick // Releases left mouse button.
+    MOUSE TOGGLE rightclick // Presses and releases right mouse button.
+    MOUSE SCROLL UP 10 // Scrolls the mouse 10 notches upwards.
+    MOUSE SCROLL DOWN 10 // Scrolls the mouse 10 notches downwards.
 
     */
 
@@ -133,6 +136,7 @@ public class TextualCommandInterpreter {
         }
     }
 
+
     private void processKeyboardRelease()  {
         while (!commandTokens.isEmpty()) {
             String key = processKeyboardKey();
@@ -164,7 +168,10 @@ public class TextualCommandInterpreter {
         String commandWord = getNextCommand();
         if (commandWord.equals(MOVE_CMD)) {
             processMouseMove();
-        } else if (commandWord.equals(TOGGLE_CMD)) {
+        } else if (commandWord.equals(SCROLL_CMD)) {
+            processMouseScroll();
+        }
+        else if (commandWord.equals(TOGGLE_CMD)) {
             processMouseToggle();
         } else if (commandWord.equals(RELEASE_CMD)) {
             processMouseRelease();
@@ -174,6 +181,33 @@ public class TextualCommandInterpreter {
             //TODO refactor error checking.
         }
 
+    }
+
+    private void processMouseScroll() {
+        String commandWord = getNextCommand();
+         if (commandWord.equals(UP_DIRECTION_CMD)) {
+            processMouseScrollUp();
+        } else if (commandWord.equals(DOWN_DIRECTION_CMD)) {
+            processMouseScrollDown();
+        }  else {
+            //TODO refactor error checking.
+        }
+    }
+
+    private void processMouseScrollDown() {
+        int notches = getMouseNotches();
+        mouseInputControl.rollMouseWheelDown(notches);
+    }
+
+    private void processMouseScrollUp() {
+        int notches = getMouseNotches();
+        mouseInputControl.rollMouseWheelUp(notches);
+    }
+
+    private int getMouseNotches() {
+        String commandWord = getNextCommand();
+        return Integer.parseInt(commandWord);
+        //TODO HANDLE INCORRECT VALUE.
     }
 
     private void processMouseMove() {
