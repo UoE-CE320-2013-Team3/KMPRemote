@@ -51,6 +51,7 @@ public class ProcessConnectionThread implements Runnable {
             InputStream inputStream = mConnection.openInputStream();
             OutputStream outputStream = mConnection.openOutputStream();
             System.out.println("waiting for input");
+            TextualCommandInterpreter textualCommandInterpreter = new TextualCommandInterpreter("");
 
 
 
@@ -73,7 +74,8 @@ public class ProcessConnectionThread implements Runnable {
 
                             String parsedCommand = new String(commandBytes);
                             System.out.println("Command about to be parsed: " + parsedCommand);
-                            String response = new TextualCommandInterpreter(parsedCommand).processCommand();
+                            textualCommandInterpreter.setCommands(parsedCommand);
+                            String response = textualCommandInterpreter.processCommand();
                             if (!response.equals("")){
                                  outputStream.write(response.getBytes());
                             }

@@ -112,6 +112,10 @@ public class TextualCommandInterpreter {
         }
     }
 
+    public void setCommands(String commands) {
+        initCommands(commands);
+    }
+
     public TextualCommandInterpreter(String commands, MouseInputControl mouseInputControl, KeyboardInputControl keyboardInputControl, PresentationInputControl presentationInputControl) {
         initCommands(commands);
         this.mouseInputControl = mouseInputControl;

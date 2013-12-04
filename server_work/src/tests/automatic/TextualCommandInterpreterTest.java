@@ -8,11 +8,18 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
 import org.mockito.*;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.awt.*;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -58,73 +65,73 @@ public class TextualCommandInterpreterTest {
 
     //TODO: Fix exception handling in textualCommandInterpreter
     @Test
-    public void testMouseUp()   {
+    public void testMouseUp() {
         textualCommandInterpreterFactory("MOUSE MOVE UP 30").processCommand();
         Mockito.verify(mouseInputControlMock).moveMouseUp(30);
     }
 
     @Test
-    public void testMouseLeft()   {
+    public void testMouseLeft() {
         textualCommandInterpreterFactory("MOUSE MOVE LEFT 50").processCommand();
         Mockito.verify(mouseInputControlMock).moveMouseLeft(50);
     }
 
     @Test
-    public void testMouseRight()   {
+    public void testMouseRight() {
         textualCommandInterpreterFactory("MOUSE MOVE RIGHT 300").processCommand();
         Mockito.verify(mouseInputControlMock).moveMouseRight(300);
     }
 
     @Test
-    public void testMouseDown()   {
+    public void testMouseDown() {
         textualCommandInterpreterFactory("MOUSE MOVE DOWN 9").processCommand();
         Mockito.verify(mouseInputControlMock).moveMouseDown(9);
     }
 
     @Test
-    public void testMouseLeftClickToggle()   {
+    public void testMouseLeftClickToggle() {
         textualCommandInterpreterFactory("MOUSE TOGGLE leftclick").processCommand();
         Mockito.verify(mouseInputControlMock).leftMouseButtonToggle();
     }
 
     @Test
-    public void testMouseRightClickToggle()   {
+    public void testMouseRightClickToggle() {
         textualCommandInterpreterFactory("MOUSE TOGGLE rightclick").processCommand();
         Mockito.verify(mouseInputControlMock).rightMouseButtonToggle();
     }
 
     @Test
-    public void testMouseLeftClickHold()   {
+    public void testMouseLeftClickHold() {
         textualCommandInterpreterFactory("MOUSE HOLD leftclick").processCommand();
         Mockito.verify(mouseInputControlMock).leftMouseButtonHold();
     }
 
     @Test
-    public void testMouseLeftClickRelease()   {
+    public void testMouseLeftClickRelease() {
         textualCommandInterpreterFactory("MOUSE RELEASE leftclick").processCommand();
         Mockito.verify(mouseInputControlMock).leftMouseButtonRelease();
     }
 
     @Test
-    public void testKeyboardToggleSingleLetter()   {
+    public void testKeyboardToggleSingleLetter() {
         textualCommandInterpreterFactory("KEYBOARD TOGGLE c").processCommand();
         Mockito.verify(keyboardInputControlMock).keyToggle("c");
     }
 
     @Test
-    public void shouldInterpretMouseScrollUpCommands()   {
+    public void shouldInterpretMouseScrollUpCommands() {
         textualCommandInterpreterFactory("MOUSE SCROLL UP 10").processCommand();
         mouseInputControlMockMethodInvocationOrderChecker.verify(mouseInputControlMock).rollMouseWheelUp(10);
     }
 
     @Test
-    public void shouldInterpretMouseScrollDownCommands()   {
+    public void shouldInterpretMouseScrollDownCommands() {
         textualCommandInterpreterFactory("MOUSE SCROLL DOWN 10").processCommand();
         mouseInputControlMockMethodInvocationOrderChecker.verify(mouseInputControlMock).rollMouseWheelDown(10);
     }
 
     @Test
-    public void testKeyboardToggleMultipleLetters()   {
+    public void testKeyboardToggleMultipleLetters() {
         textualCommandInterpreterFactory("KEYBOARD TOGGLE c a t").processCommand();
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyToggle("c");
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyToggle("a");
@@ -132,13 +139,13 @@ public class TextualCommandInterpreterTest {
     }
 
     @Test
-    public void testKeyboardToggleSingleNumber()   {
+    public void testKeyboardToggleSingleNumber() {
         textualCommandInterpreterFactory("KEYBOARD TOGGLE 7").processCommand();
         Mockito.verify(keyboardInputControlMock).keyToggle("7");
     }
 
     @Test
-    public void testKeyboardToggleMultipleNumbers()   {
+    public void testKeyboardToggleMultipleNumbers() {
         textualCommandInterpreterFactory("KEYBOARD TOGGLE 7 8 9").processCommand();
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyToggle("7");
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyToggle("8");
@@ -146,13 +153,13 @@ public class TextualCommandInterpreterTest {
     }
 
     @Test
-    public void testKeyboardToggleSingleString()   {
+    public void testKeyboardToggleSingleString() {
         textualCommandInterpreterFactory("KEYBOARD TOGGLE BACKSPACE").processCommand();
         Mockito.verify(keyboardInputControlMock).keyToggle("BACKSPACE");
     }
 
     @Test
-    public void testKeyboardToggleMultipleStrings()   {
+    public void testKeyboardToggleMultipleStrings() {
         textualCommandInterpreterFactory("KEYBOARD TOGGLE BACKSPACE ENTER TAB").processCommand();
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyToggle("BACKSPACE");
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyToggle("ENTER");
@@ -160,7 +167,7 @@ public class TextualCommandInterpreterTest {
     }
 
     @Test
-    public void testKeyboardToggleMultipleStringsNumbersLetters()   {
+    public void testKeyboardToggleMultipleStringsNumbersLetters() {
         textualCommandInterpreterFactory("KEYBOARD TOGGLE c ENTER 7").processCommand();
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyToggle("c");
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyToggle("ENTER");
@@ -168,26 +175,26 @@ public class TextualCommandInterpreterTest {
     }
 
     @Test
-    public void testKeyboardHoldOneKey()   {
+    public void testKeyboardHoldOneKey() {
         textualCommandInterpreterFactory("KEYBOARD HOLD SHIFT").processCommand();
         Mockito.verify(keyboardInputControlMock).keyHold("SHIFT");
     }
 
     @Test
-    public void testKeyboardHoldMultipleKeys()   {
+    public void testKeyboardHoldMultipleKeys() {
         textualCommandInterpreterFactory("KEYBOARD HOLD CTRL ALT").processCommand();
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyHold("CTRL");
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyHold("ALT");
     }
 
     @Test
-    public void testKeyboardReleaseOneKey()   {
+    public void testKeyboardReleaseOneKey() {
         textualCommandInterpreterFactory("KEYBOARD RELEASE CTRL").processCommand();
         Mockito.verify(keyboardInputControlMock).keyRelease("CTRL");
     }
 
     @Test
-    public void testKeyboardReleaseMultipleKeys()   {
+    public void testKeyboardReleaseMultipleKeys() {
         textualCommandInterpreterFactory("KEYBOARD RELEASE CTRL ALT SHIFT").processCommand();
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyRelease("CTRL");
         keyboardInputControlMockMethodInvocationOrderChecker.verify(keyboardInputControlMock).keyRelease("ALT");
@@ -195,14 +202,36 @@ public class TextualCommandInterpreterTest {
     }
 
     @Test
-    public void testKeyboardReleaseAll()   {
+    public void testKeyboardReleaseAll() {
         textualCommandInterpreterFactory("KEYBOARD RELEASE_ALL").processCommand();
         Mockito.verify(keyboardInputControlMock).keyReleaseAll();
     }
 
+    /*
+    @Test
+    public void shouldCreatePresentationObjectWhenGivenLink() {
+        PresentationInputControl presentationInputCont = mock(PresentationInputControl.class);
+        when(presentationInputCont.getNotesAsJSON()).thenReturn("SUCCESS");
+        try {
+            PowerMockito.whenNew(PresentationInputControl.class).withArguments("M:\\_Year 3\\CE320\\PowerpointAPITest\\TesterPowerpoint.ppt").thenReturn(presentationInputCont);
+        } catch (Exception e) {
+            System.out.println("BLAH BLAH");
+            e.printStackTrace();
+
+        }
+        TextualCommandInterpreter textualCommandInterpreter = textualCommandInterpreterFactory("PRESENTATION LINK M:\\_Year 3\\CE320\\PowerpointAPITest\\TesterPowerpoint.ppt END_LINK");
+        textualCommandInterpreter.processCommand();
+        textualCommandInterpreter.setCommands("PRESENTATION NOTES");
+        assertEquals("SUCCESS", textualCommandInterpreter.processCommand());
+
+        //textualCommandInterpreterFactory("PRESENTATION LINK M:\\_Year 3\\CE320\\PowerpointAPITest\\TesterPowerpoint.ppt END_LINK").processCommand();
+
+    }
+    */
+
     // "M:\\_Year 3\\CE320\\PowerpointAPITest\\TesterPowerpoint.ppt"
     @Test
-    public void shouldReceiveNotesFromPresentation()   {
+    public void shouldReceiveNotesFromPresentation() {
         //textualCommandInterpreterFactory("PRESENTATION LINK M:\\_Year 3\\CE320\\PowerpointAPITest\\TesterPowerpoint.ppt END_LINK").processCommand();
         textualCommandInterpreterFactory("PRESENTATION NOTES").processCommand();
         presentationInputControlMockMethodInvocationOrderChecker.verify(presentationInputControlMock).getNotesAsJSON();
