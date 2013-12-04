@@ -1,4 +1,4 @@
-package com.bignerdranch.android.presentation;
+package com.example.kmpremote.presentation;
 
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
