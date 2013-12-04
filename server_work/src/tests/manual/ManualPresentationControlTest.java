@@ -28,7 +28,7 @@ public class ManualPresentationControlTest {
     public static void main(String args[]) {
     //insert filePath here
     inputControllers.PresentationInputControl presentationControl
-            = new PresentationInputControl("M:\\pc\\desktop\\test.ppt");
+            = new PresentationInputControl("M:\\pc\\desktop\\test.pptx");
     System.out.println(presentationControl.getNotesAsJSON());
     }
 }

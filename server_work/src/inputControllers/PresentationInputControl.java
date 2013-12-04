@@ -28,7 +28,7 @@ public class PresentationInputControl {
         notes = getNotes(filePath);
     }
 
-    private static LinkedList<String> getNotes(String filePath) throws InvalidPowerpointFileException {
+    private LinkedList<String> getNotes(String filePath) {
         LinkedList<String> results = new LinkedList<String>();
 
         //read the powerpoint
@@ -38,7 +38,9 @@ public class PresentationInputControl {
             slideShow = new SlideShow(new HSLFSlideShow(inputStream));
             inputStream.close();
         } catch (IOException e) {
-            throw new InvalidPowerpointFileException(filePath);
+            results.add(filePath + " is not a valid input. Please use a powerpoint version " +
+                    "from 2007 or earlier (.ppt is guaranteed to be 2003 or earlier");
+            return results;
         }
         slideShow.getNotes();
 
@@ -88,13 +90,6 @@ public class PresentationInputControl {
 
     public String getNotesAsJSON() {
         return applyJSONFormatToArray(notes);
-    }
-
-    public static class InvalidPowerpointFileException extends RuntimeException {
-        private InvalidPowerpointFileException(String filePath) {
-            super(filePath + " is not a valid powerpoint file. Please use a powerpoint version " +
-                    "from 2007 or earlier (.ppt is guaranteed to be 2003 or earlier)");
-        }
     }
 
 }
