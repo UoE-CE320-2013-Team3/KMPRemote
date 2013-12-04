@@ -24,8 +24,6 @@
     <string name="current_slide">Start presentation on current slide</string>
     <string name="from_beginning">Start presentation from beginning</string>
     
-    <string name="app_name">RemoteMouse</string>
-    <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="left_click">Left Button</string>
     <string name="right_click">Right Button</string>
