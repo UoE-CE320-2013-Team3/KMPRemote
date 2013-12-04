@@ -2,6 +2,7 @@ package bluetooth;
 
 import inputControllers.KeyboardInputControl;
 import inputControllers.MouseInputControl;
+import inputControllers.PresentationInputControl;
 
 import java.awt.*;
 import java.util.*;
@@ -33,12 +34,14 @@ public class TextualCommandInterpreter {
     private static final String SCROLL_CMD = "SCROLL";
     private static final String LEFT_CLICK_CMD = "leftclick";
     private static final String RIGHT_CLICK_CMD = "rightclick";
+    private static final String END_OF_LINK_CMD = "ENDOFLINK";
 
     private Queue<String> commandTokens;
     private MouseInputControl mouseInputControl;
     private KeyboardInputControl keyboardInputControl;
 
     private Stack<String> currentCommandTokensParsedLog;
+    private String presentationLink;
 
     //TODO keyboard instance variables.
 //TODO refactor order of methods.
@@ -122,7 +125,10 @@ public class TextualCommandInterpreter {
     }
 
     private void processPresentation() {
-        String
+        String link = getPresentationLink();
+
+        PresentationInputControl presentationInputControl = new PresentationInputControl(link);
+
     }
 
     private void processKeyboard() {
@@ -277,6 +283,15 @@ public class TextualCommandInterpreter {
     private int processMagnitude() {
         String commandWord = getNextCommand();
         return Integer.parseInt(commandWord);
+    }
+
+    public String getPresentationLink() {
+        String presentationLink = "";
+        while (!commandTokens.peek().equals(END_OF_LINK_CMD)) {
+           presentationLink += getNextCommand();
+        }
+        //TODO Parse link into stuff.
+        return presentationLink;
     }
 
 
