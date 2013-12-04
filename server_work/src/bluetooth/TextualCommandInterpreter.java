@@ -18,6 +18,7 @@ public class TextualCommandInterpreter {
     // Constant that indicate command from devices
     private static final String MOUSE_CMD = "MOUSE";
     private static final String KEYBOARD_CMD = "KEYBOARD";
+    private static final String PRESENTATION_CMD = "PRESENTATION";
     private static final String UP_CMD = "UP";
     private static final String DOWN_CMD = "DOWN";
     private static final String DOWN_DIRECTION_CMD = "DOWN";
@@ -111,11 +112,17 @@ public class TextualCommandInterpreter {
                 processMouse();
             } else if (commandWord.equals(KEYBOARD_CMD)) {
                 processKeyboard();
-            } else {
+            } else if (commandWord.equals(PRESENTATION_CMD)) {
+                processPresentation();
+            }else {
                 throw new NoSuchCommandException(MOUSE_CMD, KEYBOARD_CMD);
             }
         }
 
+    }
+
+    private void processPresentation() {
+        String
     }
 
     private void processKeyboard() {
