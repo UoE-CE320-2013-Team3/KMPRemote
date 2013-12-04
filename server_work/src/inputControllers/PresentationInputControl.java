@@ -2,12 +2,10 @@ package inputControllers;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.security.PublicKey;
 import java.util.*;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.apache.poi.hslf.extractor.PowerPointExtractor;
 import org.apache.poi.hslf.HSLFSlideShow;
 import org.apache.poi.hslf.model.Slide;
 import org.apache.poi.hslf.model.Notes;
@@ -30,7 +28,7 @@ public class PresentationInputControl {
         notes = getNotes(filePath);
     }
 
-    public static LinkedList<String> getNotes(String filePath) {
+    private static LinkedList<String> getNotes(String filePath) throws InvalidPowerpointFileException {
         LinkedList<String> results = new LinkedList<String>();
 
         //read the powerpoint
@@ -40,7 +38,7 @@ public class PresentationInputControl {
             slideShow = new SlideShow(new HSLFSlideShow(inputStream));
             inputStream.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new InvalidPowerpointFileException(filePath);
         }
         slideShow.getNotes();
 
@@ -74,7 +72,7 @@ public class PresentationInputControl {
         return results;
     }
 
-    String applyJSONFormatToArray(List<String> notes) {
+    private String applyJSONFormatToArray(List<String> notes) {
         Map<Integer, String> myMap = new TreeMap<Integer, String>();
 
         int i = 0;
@@ -92,5 +90,11 @@ public class PresentationInputControl {
         return applyJSONFormatToArray(notes);
     }
 
+    public static class InvalidPowerpointFileException extends RuntimeException {
+        private InvalidPowerpointFileException(String filePath) {
+            super(filePath + " is not a valid powerpoint file. Please use a powerpoint version " +
+                    "from 2007 or earlier (.ppt is guaranteed to be 2003 or earlier)");
+        }
+    }
 
 }
