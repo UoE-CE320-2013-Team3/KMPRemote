@@ -2,10 +2,11 @@ package inputControllers;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.security.PublicKey;
+import java.util.*;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.apache.poi.hslf.extractor.PowerPointExtractor;
 import org.apache.poi.hslf.HSLFSlideShow;
 import org.apache.poi.hslf.model.Slide;
@@ -23,11 +24,10 @@ import org.apache.poi.hslf.model.TextRun;
 public class PresentationInputControl {
     //TODO return the text contained in powerpoints note section
 
+    List<String> notes;
+
     public PresentationInputControl(String filePath) {
-        List<String> notes = getNotes(filePath);
-        for (String note : notes) {
-            System.out.println(note);
-        }
+        notes = getNotes(filePath);
     }
 
     public static LinkedList<String> getNotes(String filePath) {
@@ -68,12 +68,23 @@ public class PresentationInputControl {
         return results;
     }
 
-    void applyJsonFormatToArray(String[] stringArray) {
+    String applyJSONFormatToArray(List<String> notes) {
+        Map<Integer, String> myMap = new TreeMap<Integer, String>();
+
+        int i = 0;
+        for (String note : notes) {
+            myMap.put(++i, note.substring(0, note.length()-1));
+        }
+
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(myMap);
+
 
     }
 
-    void sendStringToClient(String string) {
-
+    public String getNotesAsJSON() {
+        return applyJSONFormatToArray(notes);
     }
+
 
 }
