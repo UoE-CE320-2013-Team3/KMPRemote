@@ -1,5 +1,7 @@
 package com.example.kmpremote.presentation;
 
+import com.example.kmpremote.R;
+
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
