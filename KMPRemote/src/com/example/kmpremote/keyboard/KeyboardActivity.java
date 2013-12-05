@@ -10,6 +10,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -17,7 +19,6 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class KeyboardActivity extends Activity {
-	private Spinner spinner1;
 	//RemoteBluetoothClient kClient;
 	//ConnectedThread t;
     @Override
@@ -25,45 +26,31 @@ public class KeyboardActivity extends Activity {
     	this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.keyboard_display);
-        //kClient = new RemoteBluetoothClient();
-        //kClient.connect();      
+        getActionBar().setDisplayHomeAsUpEnabled(true);      
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    	MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
     }	
     //need to still implement these methods to send data to the bluetooth client class!
-    public void addListenerOnSpinnerItemSelection() {
-    	spinner1 = (Spinner) findViewById(R.id.spinner1);
-    	spinner1.setOnItemSelectedListener(new OnItemSelectedListener(){
-
-			@Override
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				// TODO Auto-generated method stub
-				String selected = arg0.getItemAtPosition(arg2).toString();
-				if(selected.equals("Presentation")){
-					Intent m = new Intent(getApplicationContext(),PresentationActivity.class);
-					startActivity(m);
-				}
-				
-				if(selected.equals("Mouse")){
-					Intent m = new Intent(getApplicationContext(),DisplayMousePad.class);
-				}
-				
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-    		
-    	});
-      }
-    
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.mouse:
+                Intent keyAct = new Intent(this, DisplayMousePad.class);
+                startActivity(keyAct);
+                return true;
+            case R.id.presentation:
+                Intent presAct = new Intent(this, PresentationActivity.class);
+                startActivity(presAct);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 	String cmd;
 	/*
     public void keyboardSend(View v){
