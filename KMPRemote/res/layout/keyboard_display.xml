@@ -268,10 +268,4 @@
         android:onClick="KeyboardToggleM"
         android:text="@string/M" />
 
-    <RelativeLayout
-        android:layout_column="2"
-        android:layout_gravity="left|top"
-        android:layout_row="1" >
-    </RelativeLayout>
-
 </GridLayout>
