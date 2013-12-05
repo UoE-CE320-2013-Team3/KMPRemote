@@ -73,4 +73,15 @@
         android:background="@drawable/left"
         android:onClick="moveLeft" />
 
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/tasks"
+        android:background="@color/spin"
+        android:textColor="#FFFFFF"
+        android:prompt="@string/task_prompt" />
+
 </RelativeLayout>

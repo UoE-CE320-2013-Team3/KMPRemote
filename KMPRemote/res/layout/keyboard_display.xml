@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:columnCount="10"
+    android:rowCount="9" >
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_row="1"
+        android:onClick="KeyboardToggle1"
+        android:text="@string/one" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggle2"
+        android:text="@string/two" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggle3"
+        android:text="@string/three" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggle4"
+        android:text="@string/four" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggle5"
+        android:text="@string/five" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggle6"
+        android:text="@string/six" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggle7"
+        android:text="@string/seven" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggle8"
+        android:text="@string/eight" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggle9"
+        android:text="@string/nine" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggle0"
+        android:text="@string/zero" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleQ"
+        android:text="@string/Q" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleW"
+        android:text="@string/W" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleE"
+        android:text="@string/E" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleR"
+        android:text="@string/R" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleT"
+        android:text="@string/T" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleY"
+        android:text="@string/Y" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleU"
+        android:text="@string/U" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleI"
+        android:text="@string/I" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleO"
+        android:text="@string/O" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleP"
+        android:text="@string/P" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleA"
+        android:text="@string/A" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleS"
+        android:text="@string/S" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleD"
+        android:text="@string/D" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleF"
+        android:text="@string/F" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleG"
+        android:text="@string/G" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleH"
+        android:text="@string/H" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleJ"
+        android:text="@string/J" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleK"
+        android:text="@string/K" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleL"
+        android:text="@string/L" />
+
+    <Space
+        android:layout_column="9"
+        android:layout_gravity="left|top"
+        android:layout_row="4" />
+
+    <Space
+        android:layout_column="1"
+        android:layout_gravity="left|top"
+        android:layout_row="5" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleZ"
+        android:text="@string/Z" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleX"
+        android:text="@string/X" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleC"
+        android:text="@string/C" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleV"
+        android:text="@string/V" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleB"
+        android:text="@string/B" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleN"
+        android:text="@string/N" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleM"
+        android:text="@string/M" />
+
+    <RelativeLayout
+        android:layout_column="2"
+        android:layout_gravity="left|top"
+        android:layout_row="1" >
+    </RelativeLayout>
+
+</GridLayout>

@@ -6,6 +6,9 @@ import java.util.Set;
 import java.util.UUID;
 
 import com.example.kmpremote.R;
+import com.example.kmpremote.keyboard.KeyboardActivity;
+import com.example.kmpremote.mouse.DisplayMousePad;
+import com.example.kmpremote.presentation.PresentationActivity;
 
 import android.widget.AdapterView.OnItemClickListener;
 
@@ -35,7 +38,7 @@ public class RemoteBluetoothClient extends Activity{
 	private	BluetoothAdapter deviceBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 	private BluetoothDevice btDevice;
 	private BluetoothSocket btSocket;
-	private byte[] testcmdBytes; 
+	private static String testcmdBytes= ""; 
 	private	Set<BluetoothDevice> pairedDevices = deviceBluetoothAdapter.getBondedDevices();	
 	Context context;
 	
@@ -47,6 +50,20 @@ public class RemoteBluetoothClient extends Activity{
 	private ConnectThread makeCnt; //thread that creates the connection
 	private static ConnectedThread maintainCnt; //thread that manages the connection
 	
+	public void mouseActivity(View v){
+		Intent mouse = new Intent(this, DisplayMousePad.class);
+		startActivity(mouse);
+	}
+	
+	public void keyboardActivity(View v){
+		Intent keyboard = new Intent(this, KeyboardActivity.class);
+		startActivity(keyboard);
+	}
+	
+	public void presentationActivity(View v){
+		Intent pres = new Intent(this, PresentationActivity.class);
+		startActivity(pres);
+	}
 	public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bluetooth);
@@ -175,11 +192,14 @@ public class RemoteBluetoothClient extends Activity{
 	}
 	
 	//Public send method for other classes to use when sending over to the server
-	public static void send(byte[] buffer) {
+	public static void send(String cmd) {
 		//If there is a connection : send
+		byte[] commandBuffer = cmd.getBytes();
+		byte[] commandBufferWithEnding= new byte[commandBuffer.length+1];
+		System.arraycopy(commandBuffer, 0, commandBufferWithEnding, 0, commandBuffer.length);
 		if(maintainCnt != null) {
-		    buffer[buffer.length-1] = -2;
-			maintainCnt.write(buffer);
+		    commandBufferWithEnding[commandBufferWithEnding.length-1] = -2;
+			maintainCnt.write(commandBufferWithEnding);
 		}else{
 //			Toast.makeText(getApplicationContext(), "No active connection", Toast.LENGTH_SHORT).show();
 		}		
