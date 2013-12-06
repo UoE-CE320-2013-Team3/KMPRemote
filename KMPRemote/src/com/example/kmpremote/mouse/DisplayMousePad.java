@@ -32,6 +32,7 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 	private float[] mRotationMatrix = new float[16];
 	private float[] mRemapedRotationMatrix = new float[16];
 	private float[] mOrientation = new float[3];
+	public static boolean ActiveSensor;
 	//ConnectedThread t;
 	public static String cmd;
 	@Override
@@ -39,7 +40,8 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 		super.onCreate(savedInstanceState);
 		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		setContentView(R.layout.mousepad_display);
-		getActionBar().setDisplayHomeAsUpEnabled(true);   
+		ActiveSensor = true;
+		getActionBar().setDisplayHomeAsUpEnabled(true); 
 		mSensorManager = (SensorManager)this.getSystemService(Context.SENSOR_SERVICE);
 		mSensorManager.registerListener(this,
 				mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
@@ -51,60 +53,61 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 
 	public void onSensorChanged(SensorEvent event)
 	{
-		switch (event.sensor.getType())
-		{
-		case Sensor.TYPE_ACCELEROMETER:
-		{
-			mAccelerometerReading = event.values.clone();
-			break;
-		}
-		case Sensor.TYPE_MAGNETIC_FIELD:
-		{
-			mMagneticFieldReading = event.values.clone();
-			break;
-		}
-		}
-		if(mAccelerometerReading != null && mMagneticFieldReading != null &&
-				SensorManager.getRotationMatrix(mRotationMatrix, null, mAccelerometerReading, mMagneticFieldReading))
-		{
-			SensorManager.remapCoordinateSystem(mRotationMatrix,
-					SensorManager.AXIS_Y, SensorManager.AXIS_MINUS_X, mRemapedRotationMatrix);
-			SensorManager.getOrientation(mRemapedRotationMatrix, mOrientation);
-		}
+		if(ActiveSensor == true){
+			switch (event.sensor.getType())
+			{
+			case Sensor.TYPE_ACCELEROMETER:
+			{
+				mAccelerometerReading = event.values.clone();
+				break;
+			}
+			case Sensor.TYPE_MAGNETIC_FIELD:
+			{
+				mMagneticFieldReading = event.values.clone();
+				break;
+			}
+			}
+			if(mAccelerometerReading != null && mMagneticFieldReading != null &&
+					SensorManager.getRotationMatrix(mRotationMatrix, null, mAccelerometerReading, mMagneticFieldReading))
+			{
+				SensorManager.remapCoordinateSystem(mRotationMatrix,
+						SensorManager.AXIS_Y, SensorManager.AXIS_MINUS_X, mRemapedRotationMatrix);
+				SensorManager.getOrientation(mRemapedRotationMatrix, mOrientation);
+			}
 
 
-		//Where you want to read the orientation
-		if(mOrientation != null)
-		{
-			if(mOrientation[1]> 0.1){
-				int amount = (int)mOrientation[1]*10;
-				moveRight(amount+3);
-				mOrientation[1]=0;
+			//Where you want to read the orientation
+			if(mOrientation != null && ActiveSensor == true)
+			{
+				if(mOrientation[1]> 0.1){
+					int amount = (int)mOrientation[1]*10;
+					moveRight(amount+3);
+					mOrientation[1]=0;
+				}
+				if(mOrientation[1]< -0.1){
+					int amount = Math.abs((int)mOrientation[1]*10);
+					moveLeft(amount+3);
+					mOrientation[1]=0;
+				}
+				if(mOrientation[2] > 0.1){
+					int amount = (int)mOrientation[2]*10;
+					moveUp(amount+3);
+					mOrientation[2]=0;
+				}
+				if(mOrientation[2] < -0.1){
+					int amount = Math.abs((int)mOrientation[2]*10);
+					moveDown(amount+3);
+					mOrientation[2]=0;
+				}
+				//do stuff with mOrientation[0]
+				//do stuff with mOrientation[1]
+				//do stuff with mOrientation[2]
+				//to control a ball i used
+				//mOrientation[2] for horizontal movement and
+				//- mOrientation[1] for vertical movement
 			}
-			if(mOrientation[1]< -0.1){
-				int amount = Math.abs((int)mOrientation[1]*10);
-				moveLeft(amount+3);
-				mOrientation[1]=0;
-			}
-			if(mOrientation[2] > 0.1){
-				int amount = (int)mOrientation[2]*10;
-				moveUp(amount+3);
-				mOrientation[2]=0;
-			}
-			if(mOrientation[2] < -0.1){
-				int amount = Math.abs((int)mOrientation[2]*10);
-				moveDown(amount+3);
-				mOrientation[2]=0;
-			}
-			//do stuff with mOrientation[0]
-			//do stuff with mOrientation[1]
-			//do stuff with mOrientation[2]
-			//to control a ball i used
-			//mOrientation[2] for horizontal movement and
-			//- mOrientation[1] for vertical movement
 		}
 	}
-
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -119,11 +122,15 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 		switch (item.getItemId()) {
 		case R.id.keyboard:
 			Intent keyAct = new Intent(this, KeyboardActivity.class);
+			ActiveSensor = false;
 			startActivity(keyAct);
+			finish();
 			return true;
 		case R.id.presentation:
 			Intent presAct = new Intent(this, PresentationActivity.class);
+			ActiveSensor = false;
 			startActivity(presAct);
+			finish();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

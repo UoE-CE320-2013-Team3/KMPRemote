@@ -26,6 +26,7 @@ public class PresentationActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		super.onCreate(savedInstanceState);
+		DisplayMousePad.ActiveSensor = false;
 		setContentView(R.layout.activity_presentation);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
@@ -44,10 +45,12 @@ public class PresentationActivity extends Activity {
             case R.id.keyboard:
                 Intent keyAct = new Intent(this, KeyboardActivity.class);
                 startActivity(keyAct);
+                finish();
                 return true;
             case R.id.mouse:
                 Intent presAct = new Intent(this, DisplayMousePad.class);
                 startActivity(presAct);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
