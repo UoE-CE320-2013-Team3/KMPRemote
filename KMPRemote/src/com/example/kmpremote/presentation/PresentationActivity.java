@@ -77,9 +77,13 @@ public class PresentationActivity extends Activity {
 	public void swipe(View v) {
 		v.setOnTouchListener(new OnSwipeTouchListener() {
 			public void onSwipeRight() {
+				String theKey = "KEYBOARD TOGGLE LEFTARROW ";
+				RemoteBluetoothClient.send(theKey);
 			}
 
 			public void onSwipeLeft() {
+				String theKey = "KEYBOARD TOGGLE RIGHTARROW ";
+				RemoteBluetoothClient.send(theKey);
 			}
 		});
 	}
