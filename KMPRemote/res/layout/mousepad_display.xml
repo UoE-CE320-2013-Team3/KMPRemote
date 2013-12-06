@@ -73,4 +73,14 @@
         android:background="@drawable/left"
         android:onClick="moveLeft" />
 
+    <ImageButton
+        android:id="@+id/buttonhome"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@+id/button4"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/sensor"
+        android:focusable="true"
+        android:onClick="activateSensor" />
+
 </RelativeLayout>

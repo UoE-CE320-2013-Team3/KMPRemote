@@ -80,23 +80,23 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 			if(mOrientation != null && ActiveSensor == true)
 			{
 				if(mOrientation[1]> 0.1){
-					int amount = (int)mOrientation[1]*10;
-					moveRight(amount+3);
+					//int amount = (int)mOrientation[1]*10;
+					moveRight(null);
 					mOrientation[1]=0;
 				}
 				if(mOrientation[1]< -0.1){
-					int amount = Math.abs((int)mOrientation[1]*10);
-					moveLeft(amount+3);
+					//int amount = Math.abs((int)mOrientation[1]*10);
+					moveLeft(null);
 					mOrientation[1]=0;
 				}
 				if(mOrientation[2] > 0.1){
-					int amount = (int)mOrientation[2]*10;
-					moveUp(amount+3);
+					//int amount = (int)mOrientation[2]*10;
+					moveUp(null);
 					mOrientation[2]=0;
 				}
 				if(mOrientation[2] < -0.1){
-					int amount = Math.abs((int)mOrientation[2]*10);
-					moveDown(amount+3);
+					//int amount = Math.abs((int)mOrientation[2]*10);
+					moveDown(null);
 					mOrientation[2]=0;
 				}
 				//do stuff with mOrientation[0]
@@ -137,28 +137,59 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 		}
 	}
 
+	public void activateSensor(View v){
+		ActiveSensor = !ActiveSensor;
+	}
 
 	//need to still implement these methods to send data to the bluetooth client class!
-	public void moveUp(int x){
-		String a = String.valueOf(x);
+	public void moveUp(View v){
+		String a;
+		if(v != null){
+			a = "10";
+		}
+		else{
+			a = String.valueOf((int)(mOrientation[2]*10)+3);
+			mOrientation[2] = 0;
+		}
 		cmd = "MOUSE MOVE UP "+a;
 		RemoteBluetoothClient.send(cmd);    	
 	}
 
-	public void moveDown(int x){
-		String a = String.valueOf(x);
+	public void moveDown(View v){
+		String a;
+		if(v != null){
+			a = "10";
+		}
+		else{
+			a = String.valueOf(Math.abs((int)mOrientation[2]*10)+3);
+			mOrientation[2] = 0;
+		}
 		cmd = "MOUSE MOVE DOWN "+a;
 		RemoteBluetoothClient.send(cmd);    	
 	}
 
-	public void moveLeft(int x){
-		String a = String.valueOf(x);
+	public void moveLeft(View v){
+		String a;
+		if(v != null){
+			a = "10";
+		}
+		else{
+			a = String.valueOf(Math.abs((int)mOrientation[1]*10)+3);
+			mOrientation[1] = 0;
+		}
 		String cmd = "MOUSE MOVE LEFT "+a;    	
 		RemoteBluetoothClient.send(cmd);	
 	}
 
-	public void moveRight(int x){
-		String a = String.valueOf(x);
+	public void moveRight(View v){
+		String a;
+		if(v != null){
+			a = "10";
+		}
+		else{
+			a = String.valueOf((int)(mOrientation[1]*10)+3);
+			mOrientation[1] = 0;
+		}
 		String cmd = "MOUSE MOVE RIGHT "+a;    	
 		RemoteBluetoothClient.send(cmd);	
 	}
