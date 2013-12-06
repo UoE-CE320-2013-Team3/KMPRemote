@@ -17,10 +17,13 @@ import android.hardware.SensorManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -33,6 +36,7 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 	private float[] mRemapedRotationMatrix = new float[16];
 	private float[] mOrientation = new float[3];
 	public static boolean ActiveSensor;
+	
 	//ConnectedThread t;
 	public static String cmd;
 	@Override
@@ -49,7 +53,38 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 		mSensorManager.registerListener(this,
 				mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
 				SensorManager.SENSOR_DELAY_NORMAL);
+		Button hold = (Button)findViewById(R.id.button1);
+		hold.setOnTouchListener(new OnTouchListener(){
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				String cmd;
+				switch(event.getAction()){
+				
+				case MotionEvent.ACTION_DOWN:
+					ActiveSensor = true;
+					cmd = "MOUSE HOLD leftclick";
+					RemoteBluetoothClient.send(cmd);
+					break;
+				case MotionEvent.ACTION_UP:
+					ActiveSensor = false;
+					cmd = "MOUSE RELEASE leftclick";
+					RemoteBluetoothClient.send(cmd);
+					break;
+					
+				}
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+		});
+		
 	}
+	
+	
+	
+	
+	
 
 	public void onSensorChanged(SensorEvent event)
 	{
