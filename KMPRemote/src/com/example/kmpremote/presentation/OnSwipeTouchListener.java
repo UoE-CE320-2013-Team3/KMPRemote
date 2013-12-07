@@ -1,5 +1,7 @@
 package com.example.kmpremote.presentation;
 
+//Built on demonstration code found here: http://stackoverflow.com/questions/4139288/android-how-to-handle-right-to-left-swipe-gestures
+
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
@@ -9,8 +11,7 @@ import android.view.View.OnTouchListener;
 public class OnSwipeTouchListener implements OnTouchListener {
 
 	@SuppressWarnings("deprecation")
-	private final GestureDetector gestureDetector = new GestureDetector(
-			new GestureListener());
+	private final GestureDetector gestureDetector = new GestureDetector(new GestureListener());
 
 	public boolean onTouch(final View view, final MotionEvent motionEvent) {
 		return gestureDetector.onTouchEvent(motionEvent);
@@ -42,15 +43,6 @@ public class OnSwipeTouchListener implements OnTouchListener {
 							onSwipeLeft();
 						}
 					}
-				} else {
-					if (Math.abs(diffY) > SWIPE_THRESHOLD
-							&& Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
-						if (diffY > 0) {
-							onSwipeBottom();
-						} else {
-							onSwipeTop();
-						}
-					}
 				}
 			} catch (Exception exception) {
 				exception.printStackTrace();
@@ -58,16 +50,8 @@ public class OnSwipeTouchListener implements OnTouchListener {
 			return result;
 		}
 	}
-
 	public void onSwipeRight() {
 	}
-
 	public void onSwipeLeft() {
-	}
-
-	public void onSwipeTop() {
-	}
-
-	public void onSwipeBottom() {
 	}
 }
