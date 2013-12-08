@@ -18,10 +18,22 @@ package inputControllers; /**
  *          CAPS
  *          ENTER
  *          BACKSPACE
+ *			F1
+ *			F2
+ *			F3
+ *			F4
  *          F5
  *          F6
+ *			F7
+ *			F8
+ *			F9
+ *			F10
+ *			F11
+ *			F12
  *          RIGHTARROW
  *          LEFTARROW
+ *			UPARROW
+ *			DOWNARROW
  *          PAGEUP
  *          PAGEDOWN
  *          ESC
@@ -157,17 +169,53 @@ public class KeyboardInputControl {
         else if (string.equals("BACKSPACE")) {
             return KeyEvent.VK_BACK_SPACE;
         }
-        else if (string.equals("F5")) {
+        else if (string.equals("F1")) {
+            return KeyEvent.VK_F1;
+        }
+		else if (string.equals("F2")) {
+            return KeyEvent.VK_F2;
+        }
+		else if (string.equals("F3")) {
+            return KeyEvent.VK_F3;
+        }
+		else if (string.equals("F4")) {
+            return KeyEvent.VK_F4;
+        }
+		else if (string.equals("F5")) {
             return KeyEvent.VK_F5;
         }
-        else if (string.equals("F6")) {
+		else if (string.equals("F6")) {
             return KeyEvent.VK_F6;
+        }
+		else if (string.equals("F7")) {
+            return KeyEvent.VK_F7;
+        }
+		else if (string.equals("F8")) {
+            return KeyEvent.VK_F8;
+        }
+		else if (string.equals("F9")) {
+            return KeyEvent.VK_F9;
+        }
+		else if (string.equals("F10")) {
+            return KeyEvent.VK_F10;
+        }
+		else if (string.equals("F11")) {
+            return KeyEvent.VK_F11;
+        }
+		else if (string.equals("F12")) {
+            return KeyEvent.VK_F12;
         }
         else if (string.equals("RIGHTARROW")) {
             return KeyEvent.VK_RIGHT;
         }
         else if (string.equals("LEFTARROW")) {
             return KeyEvent.VK_LEFT;
+        }
+		else if (string.equals("UPARROW")) {
+            return KeyEvent.VK_UP;
+        }
+        else if (string.equals("DOWNARROW")) {
+            return KeyEvent.VK_DOWN;
         }
         else if (string.equals("PAGEUP")) {
             return KeyEvent.VK_PAGE_UP;
@@ -177,6 +225,21 @@ public class KeyboardInputControl {
         }
         else if (string.equals("ESC")) {
             return KeyEvent.VK_ESCAPE;
+        }
+		else if (string.equals(".")) {
+            return KeyEvent.VK_PERIOD;
+        }
+		else if (string.equals(",")) {
+            return KeyEvent.VK_COMMA;
+        }
+		else if (string.equals("/")) {
+            return KeyEvent.VK_SLASH;
+        }
+		else if (string.equals("\\")) {
+            return KeyEvent.VK_BACK_SLASH;
+        }
+		else if (string.equals(":")) {
+            return KeyEvent.VK_COLON;
         }
         else {
             throw new NoSuchKeyException(string);
