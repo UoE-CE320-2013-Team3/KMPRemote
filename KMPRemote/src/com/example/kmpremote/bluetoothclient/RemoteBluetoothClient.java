@@ -312,13 +312,8 @@ public class RemoteBluetoothClient extends Activity{
 		
 		public void write(byte[] buffer) {
 			
-			String test = "<link>C:/Users/Pete/Desktop/test.pptx</link>";
-			byte[] bytes = test.getBytes();
-			
 			try {
 				os.write(buffer);
-				os.flush();
-				os.write(bytes);
 				os.flush();
 			} catch (IOException e) { 
 				Toast.makeText(getApplicationContext(), "Error at writing", Toast.LENGTH_SHORT).show();
