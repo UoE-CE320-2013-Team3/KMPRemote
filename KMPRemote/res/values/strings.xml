@@ -68,6 +68,19 @@
     <string name="SHIFT">SHIFT</string>
     <string name="BACKSPACE">Delete</string>
     <string name="SPACE">SPACE</string>
+	
+	 <string name="f1">F1</string>
+	<string name="f2">F2</string>
+	<string name="f3">F3</string>
+	<string name="f4">F4</string>
+	<string name="f5">F5</string>
+	<string name="f6">F6</string>
+	<string name="f7">F7</string>
+	<string name="f8">F8</string>
+	<string name="f9">F9</string>
+	<string name="f10">F10</string>
+	<string name="f11">F11</string>
+	<string name="f12">F12</string>
     	<string name="A_Toast">You have just pressed A</string> 
     	<string name="B_Toast">You have just pressed B</string>
     	<string name="C_Toast">You have just pressed C</string>
