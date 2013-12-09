@@ -73,26 +73,35 @@ public class ManualMouseControlTest {
 
         mouseControl.rightMouseButtonToggle();
 
-        for (int x = 0; x < 85; x++) {
-            mouseControl.moveMouseDown(1);
+        for (int x = 0; x < 200; x++) {
+            mouseControl.moveMouseLeft(1);
             keyControl.wait(20);
         }
 
-        for (int x = 0; x < 40; x++) {
-            mouseControl.moveMouseRight(1);
-            keyControl.wait(20);
-        }
 
         mouseControl.leftMouseButtonToggle();
-     */
-        //comment out everything above this if testing the mouse scroll functionality
-        keyControl.wait(2000);
-
-        for (int x = 0; x <30; x++) {
-            mouseControl.rollMouseWheelDown(1);
-            keyControl.wait(50);
-        }
-
+        keyControl.wait(1000);
+        keyControl.keyToggle("H");
+        keyControl.wait(500);
+        keyControl.keyToggle("e");
+        keyControl.wait(500);
+        keyControl.keyToggle("l");
+        keyControl.wait(500);
+        keyControl.keyToggle("l");
+        keyControl.wait(500);
+        keyControl.keyToggle("o");
+        keyControl.wait(500);
+        keyControl.keyToggle("ENTER");
+        keyControl.wait(500);
+        keyControl.keyToggle("W");
+        keyControl.wait(500);
+        keyControl.keyToggle("o");
+        keyControl.wait(500);
+        keyControl.keyToggle("r");
+        keyControl.wait(500);
+        keyControl.keyToggle("l");
+        keyControl.wait(500);
+        keyControl.keyToggle("d");
         for (int x = 0; x < 30; x++) {
             mouseControl.rollMouseWheelUp(1);
             keyControl.wait(50);
