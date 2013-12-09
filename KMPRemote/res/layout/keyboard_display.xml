@@ -10,7 +10,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggle1"
+     		android:onClick="KeyboardToggleF1"
      		android:text="@string/f1"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -20,7 +20,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/f2" 
-	        android:onClick="KeyboardToggle1"
+	        android:onClick="KeyboardToggleF2"
 	        android:textSize="12sp"/> 
 	        <Button 
 	        android:layout_width="50dp"
@@ -28,7 +28,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/f3" 
-	        android:onClick="KeyboardToggle1"
+	        android:onClick="KeyboardToggleF3"
 	        android:textSize="12sp"/> 
 	        <Button 
 	        android:layout_width="50dp"
@@ -36,7 +36,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/f4" 
-	        android:onClick="KeyboardToggle1"
+	        android:onClick="KeyboardToggleF4"
 	        android:textSize="12sp"/> 
 	        <Button 
 	        android:layout_width="50dp"
@@ -44,7 +44,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/f5" 
-	        android:onClick="KeyboardToggle1"
+	        android:onClick="KeyboardToggleF5"
 	        android:textSize="12sp"/> 
 	        <Button 
 	        android:layout_width="50dp"
@@ -52,7 +52,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/f6" 
-	        android:onClick="KeyboardToggle1"
+	        android:onClick="KeyboardToggleF6"
 	        android:textSize="12sp"/>
 	        <Button 
 	        android:layout_width="50dp"
@@ -60,7 +60,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/f7" 
-	        android:onClick="KeyboardToggle1"
+	        android:onClick="KeyboardToggleF7"
 	        android:textSize="12sp"/>
 	        <Button 
 	        android:layout_width="50dp"
@@ -68,7 +68,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/f8" 
-	        android:onClick="KeyboardToggle1"
+	        android:onClick="KeyboardToggleF8"
 	        android:textSize="12sp"/>
 	        <Button 
 	        android:layout_width="50dp"
@@ -76,14 +76,14 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/f9" 
-	        android:onClick="KeyboardToggle1"
+	        android:onClick="KeyboardToggleF9"
 	        android:textSize="12sp"/> 
      		<Button
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
      		android:textColor="#ffffff"
-     		android:onClick="KeyboardToggle1"
+     		android:onClick="KeyboardToggleF10"
      		android:text="@string/f10"
      		android:textSize="12sp" />
      		<Button
@@ -91,7 +91,7 @@
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
      		android:textColor="#ffffff"
-     		android:onClick="KeyboardToggle1"
+     		android:onClick="KeyboardToggleF11"
      		android:text="@string/f11"
      		android:textSize="12sp" />
      		<Button 
@@ -100,7 +100,7 @@
 	        android:layout_gravity="top"
 	        android:textColor="#ffffff"
 	        android:text="@string/f12" 
-	        android:onClick="KeyboardToggle1"
+	        android:onClick="KeyboardToggleF12"
 	        android:textSize="12sp"/>
      		
      		
@@ -181,7 +181,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:layout_columnSpan="2"
-	        android:onClick="KEYBOARD TOGGLE BACKSPACE" 
+	        android:onClick="KeyboardToggleBACKSPACE" 
 	        android:src="@drawable/sym_keyboard_delete" 
 	        android:contentDescription="@string/BACKSPACE"/>
 	        
@@ -341,7 +341,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="fill"
 	        android:layout_columnSpan="2"
-	        android:onClick="KEYBOARD TOGGLE ENTER" 
+	        android:onClick="KeyboardToggleENTER" 
 	        android:src="@drawable/sym_keyboard_return" 
 	        android:contentDescription="@string/RETURN"/>
 	        
@@ -350,7 +350,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="fill"
 	        android:layout_columnSpan="2"
-	        android:onClick="KEYBOARD TOGGLE SHIFT" 
+	        android:onClick="KeyboardToggleSHIFT" 
 	        android:src="@drawable/sym_keyboard_shift" 
 	        android:contentDescription="@string/SHIFT"/>
 			    
@@ -408,7 +408,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="fill"
 	        android:layout_columnSpan="3"
-	        android:onClick="KEYBOARD TOGGLE SHIFT" 
+	        android:onClick="KeyboardToggleSHIFT" 
 	        android:src="@drawable/sym_keyboard_shift" 
 	        android:contentDescription="@string/SHIFT"/>
 	        
@@ -423,7 +423,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="fill"
 	        android:layout_columnSpan="6"
-	        android:onClick="KEYBOARD TOGGLE SPACE" 
+	        android:onClick="KeyboardToggleSPACE" 
 	        android:src="@drawable/sym_keyboard_space" 
 	        android:contentDescription="@string/SPACE"/>
 	         <Space
