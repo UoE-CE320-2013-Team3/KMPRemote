@@ -7,10 +7,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,6 +42,16 @@ public class ProcessConnectionThread implements Runnable {
         commands = new ArrayList<String>();
     }
 
+    private String byteArrayToString(byte[] byteArray) {
+        String byteString = "";
+
+        for (byte b : byteArray) {
+            byteString += b + " ";
+        }
+        return byteString;
+    }
+
+
     @Override
     public void run() {
         try {
@@ -75,12 +83,14 @@ public class ProcessConnectionThread implements Runnable {
                             textualCommandInterpreter.setCommands(parsedCommand);
                             String response = textualCommandInterpreter.processCommand();
                             if (!response.equals("")) {
-                                System.out.println("Sending response: "+response);
+                                System.out.println("Sending response: " + response);
                                 byte[] responseBytes = response.getBytes();
-                                System.out.println("Response as bytes: "+responseBytes);
+                                System.out.println("Response as bytes: " + byteArrayToString(responseBytes));
                                 byte[] responseBytesWithEnding = new byte[responseBytes.length + 1];
-                                System.out.println("Response as bytes with ending: "+responseBytesWithEnding);
+                                System.arraycopy(responseBytes, 0, responseBytesWithEnding, 0, responseBytes.length);
                                 responseBytesWithEnding[responseBytes.length] = -2;
+                                System.out.println("Response as bytes with ending: " + byteArrayToString(responseBytesWithEnding));
+
 
                                 outputStream.write(responseBytesWithEnding);
                             }

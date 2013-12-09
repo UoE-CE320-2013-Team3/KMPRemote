@@ -153,7 +153,7 @@ public class TextualCommandInterpreter {
         if (commandWord.equals(LINK_CMD)) {
             processPresentationLink();
         } else if (commandWord.equals(NOTES_CMD)) {
-            outputPresentationNotesAsResult();
+            result = outputPresentationNotesAsResult();
         }
     }
     
