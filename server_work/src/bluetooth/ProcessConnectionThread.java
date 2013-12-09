@@ -54,15 +54,13 @@ public class ProcessConnectionThread implements Runnable {
             TextualCommandInterpreter textualCommandInterpreter = new TextualCommandInterpreter("");
 
 
-
             List<Byte> inputStreamsBytes = new ArrayList<Byte>();
 
             while (true) {
                 byte commandByte = (byte) inputStream.read();
-                System.out.println("Received byte: "+commandByte);
+                System.out.println("Received byte: " + commandByte);
                 if (commandByte == (END_CMD)) {
                     try {
-                        //TODO parse the command into a string, print out errors.
                         //TODO handle end of session
 
                         try {
@@ -76,8 +74,11 @@ public class ProcessConnectionThread implements Runnable {
                             System.out.println("Command about to be parsed: " + parsedCommand);
                             textualCommandInterpreter.setCommands(parsedCommand);
                             String response = textualCommandInterpreter.processCommand();
-                            if (!response.equals("")){
-                                 outputStream.write(response.getBytes());
+                            if (!response.equals("")) {
+                                byte[] responseBytes = response.getBytes();
+                                byte[] responseBytesWithEnding = new byte[responseBytes.length + 1];
+                                responseBytesWithEnding[responseBytes.length] = -2;
+                                outputStream.write(responseBytesWithEnding);
                             }
                             inputStreamsBytes = new ArrayList<Byte>();
                         } catch (KeyboardInputControl.NoSuchKeyException e) {
@@ -87,12 +88,10 @@ public class ProcessConnectionThread implements Runnable {
                         e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                     }
                     System.out.println("End of command.");
-                }
-                else if (commandByte == END_SESSION) {
+                } else if (commandByte == END_SESSION) {
                     break;
-                }
-                else {
-                    System.out.println("Adding command byte to inputStreamsBytes: "+commandByte);
+                } else {
+                    System.out.println("Adding command byte to inputStreamsBytes: " + commandByte);
                     inputStreamsBytes.add(commandByte);
                 }
             }
