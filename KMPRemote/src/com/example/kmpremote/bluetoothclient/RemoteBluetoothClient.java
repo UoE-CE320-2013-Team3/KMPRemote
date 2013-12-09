@@ -1,16 +1,11 @@
 package com.example.kmpremote.bluetoothclient;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.Set;
 import java.util.UUID;
-
-import com.example.kmpremote.R;
-import com.example.kmpremote.keyboard.KeyboardActivity;
-import com.example.kmpremote.mouse.DisplayMousePad;
-import com.example.kmpremote.presentation.PresentationActivity;
-
-import android.widget.AdapterView.OnItemClickListener;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -21,15 +16,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.kmpremote.R;
+import com.example.kmpremote.keyboard.KeyboardActivity;
+import com.example.kmpremote.mouse.DisplayMousePad;
+import com.example.kmpremote.presentation.PresentationActivity;
+import com.google.gson.Gson;
 
 public class RemoteBluetoothClient extends Activity{
 	static UUID uuid = UUID.fromString("04c6093b-0000-1000-8000-00805f9b34fb");
@@ -262,11 +263,13 @@ public class RemoteBluetoothClient extends Activity{
 	private class ConnectedThread extends Thread{
 		BluetoothSocket btSocket;
 		OutputStream os;
+		InputStream is;
 		
 		ConnectedThread(BluetoothSocket socket){
 			btSocket = socket;
 			try{
 				os = socket.getOutputStream();
+				is = socket.getInputStream();
 			}catch(IOException e){
 				Toast.makeText(getApplicationContext(), "Error at outputing", Toast.LENGTH_SHORT).show();
 			}
@@ -277,12 +280,42 @@ public class RemoteBluetoothClient extends Activity{
 			deviceBluetoothAdapter.cancelDiscovery();
 		}
 			byte[] buffer = new byte[1024]; 
-			int bytes;
+			int bytes = 0;
+			Gson gson = new Gson();
+			
+			// Keep listening to the InputStream while connected
+            while(true) {
+				listen(buffer, bytes);
+			}
+		}
+		
+		public void listen(byte[] buffer, int bytes) {
+			Gson gson = new Gson();
+			String end = "-2";
+			
+			while(true) {
+				try {
+					bytes = is.read(buffer);
+					String input = gson.toJson(new String(buffer, "UTF-8"));
+					System.out.println("Input: " + input);
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+					break;
+				} 	
+			}
 		}
 		
 		public void write(byte[] buffer) {
+			
+			String test = "<link>C:/Users/Pete/Desktop/test.pptx</link>";
+			byte[] bytes = test.getBytes();
+			
 			try {
 				os.write(buffer);
+				os.flush();
+				os.write(bytes);
 				os.flush();
 			} catch (IOException e) { 
 				Toast.makeText(getApplicationContext(), "Error at writing", Toast.LENGTH_SHORT).show();
