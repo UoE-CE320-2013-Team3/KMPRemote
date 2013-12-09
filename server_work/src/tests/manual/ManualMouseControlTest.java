@@ -39,7 +39,7 @@ public class ManualMouseControlTest {
     public static void main(String args[]) throws AWTException {
         inputControllers.MouseInputControl mouseControl = new MouseInputControl();
         inputControllers.KeyboardInputControl keyControl = new KeyboardInputControl();
-    /*
+       /*
         keyControl.wait(2000);
 
         mouseControl.leftMouseButtonHold();
@@ -106,5 +106,6 @@ public class ManualMouseControlTest {
             mouseControl.rollMouseWheelUp(1);
             keyControl.wait(50);
         }
+        */
     }
 }
