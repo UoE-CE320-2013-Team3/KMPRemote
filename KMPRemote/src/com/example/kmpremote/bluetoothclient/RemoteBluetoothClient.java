@@ -7,6 +7,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.Set;
 import java.util.UUID;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -30,7 +33,6 @@ import com.example.kmpremote.R;
 import com.example.kmpremote.keyboard.KeyboardActivity;
 import com.example.kmpremote.mouse.DisplayMousePad;
 import com.example.kmpremote.presentation.PresentationActivity;
-import com.google.gson.Gson;
 
 public class RemoteBluetoothClient extends Activity{
 	static UUID uuid = UUID.fromString("04c6093b-0000-1000-8000-00805f9b34fb");
@@ -281,7 +283,6 @@ public class RemoteBluetoothClient extends Activity{
 		}
 			byte[] buffer = new byte[1024]; 
 			int bytes = 0;
-			Gson gson = new Gson();
 			
 			// Keep listening to the InputStream while connected
             while(true) {
@@ -290,19 +291,21 @@ public class RemoteBluetoothClient extends Activity{
 		}
 		
 		public void listen(byte[] buffer, int bytes) {
-			Gson gson = new Gson();
+			JSONObject jObj = new JSONObject();
 			String end = "-2";
 			
 			while(true) {
 				try {
 					bytes = is.read(buffer);
-					String input = gson.toJson(new String(buffer, "UTF-8"));
+					String input = jObj.getString(new String(buffer, "UTF-8"));
 					System.out.println("Input: " + input);
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
 					e.printStackTrace();
 					break;
+				} catch (JSONException e) {
+					e.printStackTrace();
 				} 	
 			}
 		}
