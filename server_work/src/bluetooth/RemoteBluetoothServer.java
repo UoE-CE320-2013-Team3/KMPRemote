@@ -9,7 +9,7 @@ package bluetooth;
  */
 // Built on demonstration code found here: http://luugiathuy.com/2011/02/android-java-bluetooth/comment-page-2/
 public class RemoteBluetoothServer {
-    public static void kkmain(String[] args) {
+    public static void main(String[] args) {
         Thread waitThread = new Thread(new WaitThread());
         waitThread.start();
 
