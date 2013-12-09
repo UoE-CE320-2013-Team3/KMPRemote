@@ -58,7 +58,7 @@ public class ProcessConnectionThread implements Runnable {
 
             while (true) {
                 byte commandByte = (byte) inputStream.read();
-                System.out.println("Received byte: " + commandByte);
+                //System.out.println("Received byte: " + commandByte); // Uncomment / comment depending on required depth of debugging.
                 if (commandByte == (END_CMD)) {
                     try {
                         //TODO handle end of session
@@ -75,9 +75,13 @@ public class ProcessConnectionThread implements Runnable {
                             textualCommandInterpreter.setCommands(parsedCommand);
                             String response = textualCommandInterpreter.processCommand();
                             if (!response.equals("")) {
+                                System.out.println("Sending response: "+response);
                                 byte[] responseBytes = response.getBytes();
+                                System.out.println("Response as bytes: "+responseBytes);
                                 byte[] responseBytesWithEnding = new byte[responseBytes.length + 1];
+                                System.out.println("Response as bytes with ending: "+responseBytesWithEnding);
                                 responseBytesWithEnding[responseBytes.length] = -2;
+
                                 outputStream.write(responseBytesWithEnding);
                             }
                             inputStreamsBytes = new ArrayList<Byte>();

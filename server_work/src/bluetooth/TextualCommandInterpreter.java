@@ -83,7 +83,7 @@ public class TextualCommandInterpreter {
     MOUSE SCROLL UP 10 // Scrolls the mouse 10 notches upwards.
     MOUSE SCROLL DOWN 10 // Scrolls the mouse 10 notches downwards.
 
-    PRESENTATION LINK link_here ENDOFLINK // Presentation to which all commands below should be applied too.
+    PRESENTATION LINK link_here END_LINK // Presentation to which all commands below should be applied too.
     PRESENTATION NOTES // Return all notes form the presentation in the following json form:
     [
      {
