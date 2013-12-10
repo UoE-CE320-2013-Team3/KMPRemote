@@ -87,5 +87,7 @@
     	<string name="D_Toast">You have just pressed D</string>
    		<string name="E_Toast">You have just pressed E</string>
    		<string name="ONE_Toast">You have just pressed 1</string>
+   		<string name="scroll_up">Scroll Up</string><string name="scroll_down">Scroll Down</string>
+   		
 
 </resources>
