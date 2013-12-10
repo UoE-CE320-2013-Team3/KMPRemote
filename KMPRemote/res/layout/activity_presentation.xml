@@ -44,15 +44,17 @@
             android:onClick="nextSlide"
             android:text="@string/next_button"
             android:textColor="@color/white" />
+        
     </LinearLayout>
 
     <TextView
+        android:id="@+id/notes_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:text="@string/notes_text"
         android:textColor="@color/white" />
-
+    
     <android.gesture.GestureOverlayView
         android:id="@+id/gestureOverlayView1"
         android:layout_width="match_parent"
