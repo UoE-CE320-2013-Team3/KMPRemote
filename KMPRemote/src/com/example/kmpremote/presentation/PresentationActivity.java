@@ -1,9 +1,12 @@
 package com.example.kmpremote.presentation;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
@@ -11,7 +14,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.kmpremote.R;
 import com.example.kmpremote.bluetoothclient.RemoteBluetoothClient;
 import com.example.kmpremote.keyboard.KeyboardActivity;
@@ -42,17 +47,26 @@ public class PresentationActivity extends Activity {
 	@Override
 	public void onCreateContextMenu(ContextMenu startMenu, View v,
 			ContextMenuInfo startMenuChoice) {
+		// Holding the Start button will open a Context Menu. Here are the
+		// options found within that menu
 		super.onCreateContextMenu(startMenu, v, startMenuChoice);
-		startMenu.setHeaderTitle("Context Menu");
+		startMenu.setHeaderTitle("The Menu of decisions :) ");
 		startMenu.add(0, v.getId(), 0, "Start from first slide");
 		startMenu.add(0, v.getId(), 0, "Start from current slide");
+		startMenu.add(0, v.getId(), 0, "Request Notes via File Directory");
+		startMenu.add(0, v.getId(), 0, "Display Notes");
 	}
 
 	public boolean onContextItemSelected(MenuItem menuChoice) {
+		// Handles presses/choices on the context menu
 		if (menuChoice.getTitle() == "Start from first slide") {
 			startBeginning(menuChoice.getItemId());
 		} else if (menuChoice.getTitle() == "Start from current slide") {
 			startCurrent(menuChoice.getItemId());
+		} else if (menuChoice.getTitle() == "Request Notes via File Directory") {
+			requestNotes(menuChoice.getItemId());
+		} else if (menuChoice.getTitle() == "Display Notes") {
+			displayNotes(menuChoice.getItemId());
 		} else {
 			return false;
 		}
@@ -78,26 +92,32 @@ public class PresentationActivity extends Activity {
 	}
 
 	public void previousSlide(View v) {
+		// Action if the previous slide button is pressed
 		String theKey = "KEYBOARD TOGGLE LEFTARROW ";
 		RemoteBluetoothClient.send(theKey);
 	}
 
 	public void startPresentation(View v) {
+		// Action if the start presentation button is pressed
 		String theKey = "KEYBOARD TOGGLE F5 ";
 		RemoteBluetoothClient.send(theKey);
 	}
 
 	public void exitPresentation(View v) {
+		// Action if the exit presentation button is pressed
 		String theKey = "KEYBOARD TOGGLE ESC ";
 		RemoteBluetoothClient.send(theKey);
 	}
 
 	public void nextSlide(View v) {
+		// Action if the next slide button is pressed
 		String theKey = "KEYBOARD TOGGLE RIGHTARROW ";
 		RemoteBluetoothClient.send(theKey);
 	}
 
 	public void startBeginning(int id) {
+		// Action if the start from beginning option is pressed within the
+		// context menu
 		String theKey = "KEYBOARD TOGGLE F5 ";
 		RemoteBluetoothClient.send(theKey);
 		Toast.makeText(this, "Started Presentation from the beginning slide",
@@ -105,6 +125,8 @@ public class PresentationActivity extends Activity {
 	}
 
 	public void startCurrent(int id) {
+		// Action if the start from current option is pressed within the context
+		// menu
 		String theKey = "KEYBOARD HOLD SHIFT ";
 		RemoteBluetoothClient.send(theKey);
 		String theKey1 = "KEYBOARD TOGGLE F5 ";
@@ -115,7 +137,41 @@ public class PresentationActivity extends Activity {
 				Toast.LENGTH_SHORT).show();
 	}
 
+	public void requestNotes(int id) {
+		// Action if the request notes option is pressed within the context menu
+		AlertDialog.Builder promptForFile = new AlertDialog.Builder(this);
+		promptForFile.setTitle("FILE DIRECTORY");
+		promptForFile.setTitle("Please Insert file directory");
+		final EditText userInput = new EditText(this);
+		promptForFile.setView(userInput);
+		promptForFile.setPositiveButton("Ok",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface userInputDialog,
+							int aButton) {
+						Editable value = userInput.getText();
+						String strValue = value.toString();
+						RemoteBluetoothClient.send(strValue);
+						String theKey = "PRESENTATION NOTES";
+						RemoteBluetoothClient.send(theKey);
+					}
+				});
+		promptForFile.setNegativeButton("Cancel",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface UserInputDialog,
+							int aButton) {
+					}
+				});
+		promptForFile.show();
+	}
+
+	public void displayNotes(int id) {
+		// Action if the display notes option is pressed within the context menu
+		Toast.makeText(this, "Displaying the presentations notes on the GUI",
+				Toast.LENGTH_SHORT).show();
+	}
+
 	public void swipeGestures(View v) {
+		// Uses OnSwipeTouchListener & handles left and right swipe gestures
 		v.setOnTouchListener(new OnSwipeTouchListener() {
 			public void onSwipeRight() {
 				String theKey = "KEYBOARD TOGGLE LEFTARROW ";
