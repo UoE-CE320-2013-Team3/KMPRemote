@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kmpremote.R;
@@ -166,8 +168,13 @@ public class PresentationActivity extends Activity {
 
 	public void displayNotes(int id) {
 		// Action if the display notes option is pressed within the context menu
+		RemoteBluetoothClient.getJSONObject();
+		String theText = RemoteBluetoothClient.getJSONObject().toString();
 		Toast.makeText(this, "Displaying the presentations notes on the GUI",
 				Toast.LENGTH_SHORT).show();
+		TextView textView = (TextView)findViewById(R.id.notes_text);
+		textView.setText(theText);
+		
 	}
 
 	public void swipeGestures(View v) {
