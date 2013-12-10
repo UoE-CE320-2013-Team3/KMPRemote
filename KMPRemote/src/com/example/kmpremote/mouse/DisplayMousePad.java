@@ -240,6 +240,16 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 		RemoteBluetoothClient.send(cmd);	
 	}
 
+	public void scrollUp(View v){
+		String cmd = "MOUSE SCROLL UP 10";  
+		RemoteBluetoothClient.send(cmd);	
+	}
+	
+	public void scrollDown(View v){
+		String cmd = "MOUSE SCROLL DOWN 10";  
+		RemoteBluetoothClient.send(cmd);	
+	}
+	
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
 		// TODO Auto-generated method stub
