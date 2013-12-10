@@ -83,4 +83,26 @@
         android:focusable="true"
         android:onClick="activateSensor" />
 
+    <Button
+        android:id="@+id/buttonScrollDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/button2"
+        android:background="#DED8DE"
+        android:onClick="scrollDown"
+        android:text="@string/scroll_down" />
+
+    <Button
+        android:id="@+id/buttonScrollUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonScrollDown"
+        android:layout_alignBottom="@+id/buttonScrollDown"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignRight="@+id/button1"
+        android:background="#DED8DE"
+        android:onClick="scrollUp"
+        android:text="@string/scroll_up" />
+
 </RelativeLayout>
