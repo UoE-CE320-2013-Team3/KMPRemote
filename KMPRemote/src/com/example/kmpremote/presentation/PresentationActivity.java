@@ -15,10 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.kmpremote.R;
 import com.example.kmpremote.bluetoothclient.RemoteBluetoothClient;
 import com.example.kmpremote.keyboard.KeyboardActivity;
@@ -52,11 +50,12 @@ public class PresentationActivity extends Activity {
 		// Holding the Start button will open a Context Menu. Here are the
 		// options found within that menu
 		super.onCreateContextMenu(startMenu, v, startMenuChoice);
-		startMenu.setHeaderTitle("The Menu of decisions :) ");
+		startMenu.setHeaderTitle("Features");
 		startMenu.add(0, v.getId(), 0, "Start from first slide");
 		startMenu.add(0, v.getId(), 0, "Start from current slide");
 		startMenu.add(0, v.getId(), 0, "Request Notes via File Directory");
 		startMenu.add(0, v.getId(), 0, "Display Notes");
+		startMenu.add(0, v.getId(), 0, "Clear Notes");
 	}
 
 	public boolean onContextItemSelected(MenuItem menuChoice) {
@@ -69,6 +68,8 @@ public class PresentationActivity extends Activity {
 			requestNotes(menuChoice.getItemId());
 		} else if (menuChoice.getTitle() == "Display Notes") {
 			displayNotes(menuChoice.getItemId());
+		} else if (menuChoice.getTitle() == "Clear Notes") {
+			clearNotes(menuChoice.getItemId());
 		} else {
 			return false;
 		}
@@ -142,11 +143,11 @@ public class PresentationActivity extends Activity {
 	public void requestNotes(int id) {
 		// Action if the request notes option is pressed within the context menu
 		AlertDialog.Builder promptForFile = new AlertDialog.Builder(this);
-		promptForFile.setTitle("FILE DIRECTORY");
-		promptForFile.setTitle("Please Insert file directory");
+		promptForFile.setTitle("Requesting the notes");
+		promptForFile.setTitle("Please enter the file directory of your PowerPoint Presentation");
 		final EditText userInput = new EditText(this);
 		promptForFile.setView(userInput);
-		promptForFile.setPositiveButton("Ok",
+		promptForFile.setPositiveButton("Enter",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface userInputDialog,
 							int aButton) {
@@ -157,7 +158,7 @@ public class PresentationActivity extends Activity {
 						RemoteBluetoothClient.send(theKey);
 					}
 				});
-		promptForFile.setNegativeButton("Cancel",
+		promptForFile.setNegativeButton("Return",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface UserInputDialog,
 							int aButton) {
@@ -173,10 +174,17 @@ public class PresentationActivity extends Activity {
 		Toast.makeText(this, "Displaying the presentations notes on the GUI",
 				Toast.LENGTH_SHORT).show();
 		TextView textView = (TextView)findViewById(R.id.notes_text);
-		textView.setText(theText);
-		
+		textView.setText(theText);	
 	}
-
+	
+	
+	public void clearNotes(int id){
+		// Action if the clear notes option is pressed within the context menu
+		TextView textView = (TextView)findViewById(R.id.notes_text);
+		textView.setText("To get the notes, hold the START button, a menu will appear, select the request notes option and type in the address of the file, hit enter, then open the menu again and press display notes.");
+	}
+	
+	
 	public void swipeGestures(View v) {
 		// Uses OnSwipeTouchListener & handles left and right swipe gestures
 		v.setOnTouchListener(new OnSwipeTouchListener() {
