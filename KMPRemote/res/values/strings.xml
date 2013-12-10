@@ -15,7 +15,7 @@
     <string name="Left_Toast">You have just sent the code for the Left Arrow key to the keyboard</string>
     <string name="Right_Toast">You have just sent the code for the Right Arrow key to the keyboard</string>
     <color name="white">#FFFFFF</color>
-    <string name="notes_text">Notes.</string>
+    <string name="notes_text"> To get the notes, hold the START button, a menu will appear, select the request notes option and type in the address of the file, hit enter, then open the menu again and press display notes. </string>
     <string name="mode_slide">Mode</string>
     <string name="current_slide">Start presentation on current slide</string>
     <string name="from_beginning">Start presentation from beginning</string>
