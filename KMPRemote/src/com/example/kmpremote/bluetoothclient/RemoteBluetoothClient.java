@@ -319,7 +319,7 @@ public class RemoteBluetoothClient extends Activity{
 //			String notes = "PRESENTATION NOTES";			
 			try {
 				// working code
-				os.write(stringToDelimitedBytes(buffer));
+				os.write(buffer);
 				os.flush();
 
 				// testing code
