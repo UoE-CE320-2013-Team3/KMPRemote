@@ -1,5 +1,6 @@
 package com.example.kmpremote.presentation;
 
+import org.json.JSONException;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -67,7 +68,12 @@ public class PresentationActivity extends Activity {
 		} else if (menuChoice.getTitle() == "Request Notes via File Directory") {
 			requestNotes(menuChoice.getItemId());
 		} else if (menuChoice.getTitle() == "Display Notes") {
-			displayNotes(menuChoice.getItemId());
+			try {
+				displayNotes(menuChoice.getItemId());
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else if (menuChoice.getTitle() == "Clear Notes") {
 			clearNotes(menuChoice.getItemId());
 		} else {
@@ -144,16 +150,20 @@ public class PresentationActivity extends Activity {
 		// Action if the request notes option is pressed within the context menu
 		AlertDialog.Builder promptForFile = new AlertDialog.Builder(this);
 		promptForFile.setTitle("Requesting the notes");
-		promptForFile.setTitle("Please enter the file directory of your PowerPoint Presentation");
+		promptForFile
+				.setTitle("Please enter the file directory of your PowerPoint Presentation");
 		final EditText userInput = new EditText(this);
 		promptForFile.setView(userInput);
 		promptForFile.setPositiveButton("Enter",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface userInputDialog,
 							int aButton) {
+						String firstBit = "PRESENTATION LINK ";
+						String secondBit = " END_LINK";
 						Editable value = userInput.getText();
 						String strValue = value.toString();
-						RemoteBluetoothClient.send(strValue);
+						String strFinal = firstBit + strValue + secondBit;
+						RemoteBluetoothClient.send(strFinal);
 						String theKey = "PRESENTATION NOTES";
 						RemoteBluetoothClient.send(theKey);
 					}
@@ -167,24 +177,26 @@ public class PresentationActivity extends Activity {
 		promptForFile.show();
 	}
 
-	public void displayNotes(int id) {
+	public void displayNotes(int id) throws JSONException {
 		// Action if the display notes option is pressed within the context menu
 		RemoteBluetoothClient.getJSONObject();
-		String theText = RemoteBluetoothClient.getJSONObject().toString();
-		Toast.makeText(this, "Displaying the presentations notes on the GUI",
-				Toast.LENGTH_SHORT).show();
-		TextView textView = (TextView)findViewById(R.id.notes_text);
-		textView.setText(theText);	
+		int abc = RemoteBluetoothClient.getJSONObject().length();
+		TextView textView = (TextView) findViewById(R.id.notes_text);
+		String theText = "";
+		textView.setText("");
+		for (int i = 1; i <= abc; i++) {
+			theText = RemoteBluetoothClient.getJSONObject().getString(
+					String.valueOf(i));
+			textView.append("Slide " + i + ":" + " " + theText + "\n\n");
+		}
 	}
-	
-	
-	public void clearNotes(int id){
+
+	public void clearNotes(int id) {
 		// Action if the clear notes option is pressed within the context menu
-		TextView textView = (TextView)findViewById(R.id.notes_text);
+		TextView textView = (TextView) findViewById(R.id.notes_text);
 		textView.setText("To get the notes, hold the START button, a menu will appear, select the request notes option and type in the address of the file, hit enter, then open the menu again and press display notes.");
 	}
-	
-	
+
 	public void swipeGestures(View v) {
 		// Uses OnSwipeTouchListener & handles left and right swipe gestures
 		v.setOnTouchListener(new OnSwipeTouchListener() {
