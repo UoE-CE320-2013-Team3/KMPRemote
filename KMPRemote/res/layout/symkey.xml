@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000"
+    android:columnCount="12"
+    android:rowCount="7">
+     		
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/f1"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/f2" 
+	        android:onClick="KeyboardToggleF2"
+	        android:textSize="12sp"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/f3" 
+	        android:onClick="KeyboardToggleF3"
+	        android:textSize="12sp"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/f4" 
+	        android:onClick="KeyboardToggleF4"
+	        android:textSize="12sp"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/f5" 
+	        android:onClick="KeyboardToggleF5"
+	        android:textSize="12sp"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/f6" 
+	        android:onClick="KeyboardToggleF6"
+	        android:textSize="12sp"/>
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/f7" 
+	        android:onClick="KeyboardToggleF7"
+	        android:textSize="12sp"/>
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/f8" 
+	        android:onClick="KeyboardToggleF8"
+	        android:textSize="12sp"/>
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/f9" 
+	        android:onClick="KeyboardToggleF9"
+	        android:textSize="12sp"/> 
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:textColor="#ffffff"
+     		android:onClick="KeyboardToggleF10"
+     		android:text="@string/f10"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:textColor="#ffffff"
+     		android:onClick="KeyboardToggleF11"
+     		android:text="@string/f11"
+     		android:textSize="12sp" />
+     		<Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="top"
+	        android:textColor="#ffffff"
+	        android:text="@string/f12" 
+	        android:onClick="KeyboardToggleF12"
+	        android:textSize="12sp"/>
+     		
+     		
+     		
+     		
+     		<Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/one" 
+	        android:onClick="KeyboardToggle1"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/two" 
+	        android:onClick="KeyboardToggle2"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/three" 
+	        android:onClick="KeyboardToggle3"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/four" 
+	        android:onClick="KeyboardToggle4"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/five" 
+	        android:onClick="KeyboardToggle5"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/six" 
+	        android:onClick="KeyboardToggle6"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/seven" 
+	        android:onClick="KeyboardToggle7"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/eight" 
+	        android:onClick="KeyboardToggle8"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/nine" 
+	        android:onClick="KeyboardToggle9"/> 
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/zero" 
+	        android:onClick="KeyboardToggle0"/>
+     		
+     		<ImageButton 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:layout_columnSpan="2"
+	        android:onClick="KeyboardToggleBACKSPACE" 
+	        android:src="@drawable/sym_keyboard_delete" 
+	        android:contentDescription="@string/BACKSPACE"/>
+     		<Space
+	        android:layout_width="50dp"
+	       	android:layout_height="wrap_content"
+	        android:layout_gravity="fill"/>
+     		
+     		
+	        <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/qt" 
+	        android:onClick="KeyboardToggle1"
+	        android:textSize="12sp"/>
+	         <Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/lw"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+	         
+	         <Button 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/gt" 
+	        android:onClick="KeyboardToggle1"
+	        android:textSize="12sp"/>
+	     
+	         <Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/amps"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+	         
+	       
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/exla"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/hash"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/dolla"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/pund"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		
+     		
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/equals"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/percent"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		
+     		<Space
+	        android:layout_width="50dp"
+	       	android:layout_height="wrap_content"
+	        android:layout_gravity="fill"/>
+     		 <Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/sqt"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/nbrako"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/nbrakc"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 	
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/times"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/plus"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/sqt"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/dash"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/fullstop"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		<ImageButton 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:layout_columnSpan="4"
+	        android:onClick="KeyboardToggleENTER" 
+	        android:src="@drawable/sym_keyboard_return" 
+	        android:contentDescription="@string/RETURN"/>
+     		<Space
+	        android:layout_width="50dp"
+	       	android:layout_height="wrap_content"
+	        android:layout_gravity="fill"/>
+
+     		
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/fwslash"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/bkslash"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/sqbrako"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/sqbrakc"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/under"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/curlbko"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/curlbkc"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/eqv"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/copy"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/copy"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		
+     	
+     		<ImageButton 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:layout_columnSpan="1"
+	        android:layout_rowSpan="2"
+	        android:onClick="KeyboardSWITCH" 
+	        android:src="@drawable/sym_keyboard_done" 
+	        android:contentDescription="@string/SWITCH"/>
+     	
+     		
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/ESC"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/ALT"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Space
+	        android:layout_width="50dp"
+	       	android:layout_height="wrap_content"
+	        android:layout_gravity="fill"/>
+ 
+     		
+	       
+	        <ImageButton 
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:layout_columnSpan="6"
+	        android:onClick="KeyboardToggleSPACE" 
+	        android:src="@drawable/sym_keyboard_space" 
+	        android:contentDescription="@string/SPACE"/>
+	       
+
+	        
+     		       
+     		     
+     	
+     		
+     		
+
+     		
+     		
+	      
+</GridLayout>
