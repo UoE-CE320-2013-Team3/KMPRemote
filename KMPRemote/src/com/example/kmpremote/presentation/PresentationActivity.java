@@ -179,15 +179,19 @@ public class PresentationActivity extends Activity {
 
 	public void displayNotes(int id) throws JSONException {
 		// Action if the display notes option is pressed within the context menu
-		RemoteBluetoothClient.getJSONObject();
-		int abc = RemoteBluetoothClient.getJSONObject().length();
-		TextView textView = (TextView) findViewById(R.id.notes_text);
-		String theText = "";
-		textView.setText("");
-		for (int i = 1; i <= abc; i++) {
-			theText = RemoteBluetoothClient.getJSONObject().getString(
-					String.valueOf(i));
-			textView.append("Slide " + i + ":" + " " + theText + "\n\n");
+		try {
+			RemoteBluetoothClient.getJSONObject();
+			int abc = RemoteBluetoothClient.getJSONObject().length();
+			TextView textView = (TextView) findViewById(R.id.notes_text);
+			String theText = "";
+			textView.setText("");
+			for (int i = 1; i <= abc; i++) {
+				theText = RemoteBluetoothClient.getJSONObject().getString(String.valueOf(i));
+				textView.append("Slide " + i + ":" + " " + theText + "\n\n");
+			}
+		} catch (Exception e) {
+			Toast.makeText(this, "No notes to display, please request the notes first",
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
