@@ -25,6 +25,9 @@
     <string name="right_click">Right Button</string>
     <string name="task_prompt">Choose a task</string>
 
+     <string name="scroll_down">Choose a task</string>
+     <string name="scroll_up">Choose a task</string>
+     
     <string-array name="tasks">
         <item>Keyboard</item>
         <item>Mouse</item>
