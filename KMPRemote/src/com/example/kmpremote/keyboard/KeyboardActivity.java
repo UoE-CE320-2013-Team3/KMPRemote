@@ -340,12 +340,10 @@ public class KeyboardActivity extends Activity {
         cmd = "KEYBOARD TOGGLE ,";
         RemoteBluetoothClient.send(cmd);
     }
-
     public void KeyboardToggleSLASH(View v) {
         cmd = "KEYBOARD TOGGLE /";
         RemoteBluetoothClient.send(cmd);
     }
-
     public void KeyboardToggleBSLASH(View v) {
         cmd = "KEYBOARD TOGGLE \\";
         RemoteBluetoothClient.send(cmd);
@@ -355,7 +353,7 @@ public class KeyboardActivity extends Activity {
         RemoteBluetoothClient.send(cmd);
     }    
     public void KeyboardToggleQUOTE(View v) {
-        cmd = "KEYBOARD TOGGLE "";
+        cmd = "KEYBOARD TOGGLE \"";
         RemoteBluetoothClient.send(cmd);
     }    
     public void KeyboardToggleLOWERTHAN(View v) {
@@ -382,18 +380,18 @@ public class KeyboardActivity extends Activity {
         cmd = "KEYBOARD TOGGLE $";
         RemoteBluetoothClient.send(cmd);
     } 
-    public void KeyboardTogglePOUND(View v) {
-        cmd = "KEYBOARD TOGGLE £";
-        RemoteBluetoothClient.send(cmd);
-    } 
+//    public void KeyboardTogglePOUND(View v) {
+//        cmd = "KEYBOARD TOGGLE £";
+//        RemoteBluetoothClient.send(cmd);
+//    } 
     public void KeyboardToggleEQUALS(View v) {
         cmd = "KEYBOARD TOGGLE =";
         RemoteBluetoothClient.send(cmd);
     } 
-    public void KeyboardTogglePERCENT(View v) {
-        cmd = "KEYBOARD TOGGLE %";
-        RemoteBluetoothClient.send(cmd);
-    } 
+//    public void KeyboardTogglePERCENT(View v) {
+//        cmd = "KEYBOARD TOGGLE %";
+//        RemoteBluetoothClient.send(cmd);
+//    } 
     public void KeyboardToggleSINGLEQUOTE(View v) {
         cmd = "KEYBOARD TOGGLE '";
         RemoteBluetoothClient.send(cmd);
@@ -412,10 +410,6 @@ public class KeyboardActivity extends Activity {
     } 
     public void KeyboardTogglePLUS(View v) {
         cmd = "KEYBOARD TOGGLE +";
-        RemoteBluetoothClient.send(cmd);
-    } 
-    public void KeyboardToggleCOMMA(View v) {
-        cmd = "KEYBOARD TOGGLE ,";
         RemoteBluetoothClient.send(cmd);
     } 
     public void KeyboardToggleDASH(View v) {
@@ -438,18 +432,18 @@ public class KeyboardActivity extends Activity {
         cmd = "KEYBOARD TOGGLE _";
         RemoteBluetoothClient.send(cmd);
     } 
-    public void KeyboardToggleCRBRACKETOPEN(View v) {
-        cmd = "KEYBOARD TOGGLE {";
-        RemoteBluetoothClient.send(cmd);
-    } 
-    public void KeyboardToggleCRBRACKETCLOSE(View v) {
-        cmd = "KEYBOARD TOGGLE }";
-        RemoteBluetoothClient.send(cmd);
-    } 
-    public void KeyboardToggleEQV(View v) {
-        cmd = "KEYBOARD TOGGLE ~";
-        RemoteBluetoothClient.send(cmd);
-    } 
+//    public void KeyboardToggleCRBRACKETOPEN(View v) {
+//        cmd = "KEYBOARD TOGGLE {";
+//        RemoteBluetoothClient.send(cmd);
+//    } 
+//    public void KeyboardToggleCRBRACKETCLOSE(View v) {
+//        cmd = "KEYBOARD TOGGLE }";
+//        RemoteBluetoothClient.send(cmd);
+//    } 
+//    public void KeyboardToggleEQV(View v) {
+//        cmd = "KEYBOARD TOGGLE ~";
+//        RemoteBluetoothClient.send(cmd);
+//    } 
     
     
     
