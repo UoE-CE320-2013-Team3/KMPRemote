@@ -241,7 +241,7 @@ public class KeyboardInputControl {
 		else if (string.equals(":")) {
             return KeyEvent.VK_COLON;
         }
-		else if (string.equals(""")) {
+		else if (string.equals("\"")) {
             return KeyEvent.VK_QUOTEDBL;
         }
     	//**v
@@ -279,7 +279,7 @@ public class KeyboardInputControl {
 		else if (string.equals("%")) {
             return KeyEvent.VK_COLON;
         }
-		else if (string.equals("'")) {
+		else if (string.equals("\'")) {
             return KeyEvent.VK_QUOTE;
         }
 		else if (string.equals("(")) {
