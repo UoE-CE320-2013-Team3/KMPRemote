@@ -241,19 +241,26 @@ public class KeyboardInputControl {
 		else if (string.equals(":")) {
             return KeyEvent.VK_COLON;
         }
+		else if (string.equals(";")) {
+            return KeyEvent.VK_SEMICOLON;
+        }
+		else if (string.equals("=")) {
+            return KeyEvent.VK_EQUALS;
+        }
 		else if (string.equals("\"")) {
             return KeyEvent.VK_QUOTEDBL;
         }
-    	//**v
 		else if (string.equals("<")) {
             return KeyEvent.VK_LESS;
         }
-		//**v
 		else if (string.equals(">")) {
-            return KeyEvent.VK_COLON;
+            return KeyEvent.VK_GREATER;
         }
 		else if (string.equals("&")) {
             return KeyEvent.VK_AMPERSAND;
+        }
+		else if (string.equals("@")) {
+            return KeyEvent.VK_AT;
         }
 		else if (string.equals("!")) {
             return KeyEvent.VK_EXCLAMATION_MARK;
@@ -261,42 +268,23 @@ public class KeyboardInputControl {
 		else if (string.equals("#")) {
             return KeyEvent.VK_NUMBER_SIGN;
         }
-		else if (string.equals("$")) {
-            return KeyEvent.VK_DOLLAR;
-        }
-		//**v
-		else if (string.equals("£")) {
-            return KeyEvent.VK_COLON;
-        }
-		//**v
-		else if (string.equals("?")) {
-            return KeyEvent.VK_COLON;
-        }
-		else if (string.equals("=")) {
-            return KeyEvent.VK_EQUALS;
-        }
-		//**v
-		else if (string.equals("%")) {
-            return KeyEvent.VK_COLON;
-        }
 		else if (string.equals("\'")) {
             return KeyEvent.VK_QUOTE;
         }
-		else if (string.equals("(")) {
+		else if (string.equals("(") {
             return KeyEvent.VK_LEFT_PARENTHESIS;
         }
-		else if (string.equals(")")) {
+		else if (string.equals(")") {
             return KeyEvent.VK_RIGHT_PARENTHESIS;
         }
-		//**v
 		else if (string.equals("*")) {
-            return KeyEvent.VK_COLON;
+            return KeyEvent.VK_ASTERISK;
         }
 		else if (string.equals("+")) {
             return KeyEvent.VK_PLUS;
         }
 		else if (string.equals("-")) {
-            return KeyEvent.VK_COLON;
+            return KeyEvent.VK_MINUS;
         }
 		else if (string.equals("[")) {
             return KeyEvent.VK_OPEN_BRACKET;
@@ -307,20 +295,8 @@ public class KeyboardInputControl {
 		else if (string.equals("_")) {
             return KeyEvent.VK_UNDERSCORE;
         }
-		//**v
-		else if (string.equals("{")) {
-            return KeyEvent.VK_COLON;
-        }
-		//**v
-		else if (string.equals("}")) {
-            return KeyEvent.VK_COLON;
-        }
-		//**v
-		else if (string.equals("~")) {
-            return KeyEvent.VK_COLON;
-        }
-		else if (string.equals("COPY")) {
-            return KeyEvent.VK_COPY;
+		else if (string.equals("$")) {
+            return KeyEvent.VK_DOLLAR;
         }
         else {
             throw new NoSuchKeyException(string);
