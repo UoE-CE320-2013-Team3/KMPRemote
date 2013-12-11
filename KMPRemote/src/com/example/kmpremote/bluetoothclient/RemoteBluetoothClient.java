@@ -42,8 +42,8 @@ public class RemoteBluetoothClient extends Activity{
 	private	Set<BluetoothDevice> pairedDevices = deviceBluetoothAdapter.getBondedDevices();	
 	Context context;
 
-	public ArrayAdapter<String> newArrayAdapter;
 	public ArrayAdapter<String> pairedArrayAdapter;
+	public ArrayAdapter<String> newArrayAdapter;
 
 	//threads
 	private ConnectThread makeCnt; //thread that creates the connection
@@ -67,14 +67,14 @@ public class RemoteBluetoothClient extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bluetooth);
 		//Initialise array containing newly found devices devices
-		newArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
 		pairedArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
+		newArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
 
 		//Creating ListView for the two arrays
-		ListView pairedDevicesListView = (ListView) findViewById(R.id.listView2);
+		ListView pairedDevicesListView = (ListView) findViewById(R.id.listView1);
 		pairedDevicesListView.setAdapter(pairedArrayAdapter);
 
-		ListView newDevicesListView = (ListView)findViewById(R.id.listView1);
+		ListView newDevicesListView = (ListView)findViewById(R.id.listView2);
 		newDevicesListView.setAdapter(newArrayAdapter);
 
 		//creating two intents and registers
@@ -95,6 +95,19 @@ public class RemoteBluetoothClient extends Activity{
 		getDevice();
 
 		newDevicesListView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+
+				//Get the mac address of the selected device.
+				String info = ((TextView) arg1).getText().toString();
+				String address = info.substring(info.length() - 17);
+
+				btDevice = deviceBluetoothAdapter.getRemoteDevice(address);
+				connect();			
+			}			
+		});
+		
+		pairedDevicesListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 
@@ -127,11 +140,13 @@ public class RemoteBluetoothClient extends Activity{
 			// Loop through paired devices
 			for (BluetoothDevice device : pairedDevices) {
 				// Add the name and address to an array adapter to show in a ListView
-				newArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+//				newArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+			pairedArrayAdapter.add(device.getName() + "\n" + device.getAddress());
 			}
 		}else {
 			String noDevices = getResources().getText(R.string.none_paired).toString();
-			newArrayAdapter.add(noDevices);
+//			newArrayAdapter.add(noDevices);
+			pairedArrayAdapter.add(noDevices);
 		}
 	}
 
