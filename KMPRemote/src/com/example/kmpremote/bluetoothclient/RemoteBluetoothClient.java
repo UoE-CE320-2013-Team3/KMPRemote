@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -43,6 +42,7 @@ public class RemoteBluetoothClient extends Activity{
 	private	Set<BluetoothDevice> pairedDevices = deviceBluetoothAdapter.getBondedDevices();	
 	Context context;
 
+	// Arrays containing new and paired devices
 	public ArrayAdapter<String> pairedArrayAdapter;
 	public ArrayAdapter<String> newArrayAdapter;
 
@@ -50,6 +50,7 @@ public class RemoteBluetoothClient extends Activity{
 	private ConnectThread makeCnt; //thread that creates the connection
 	private static ConnectedThread maintainCnt; //thread that manages the connection
 
+	// Buttons to choose between activities
 	public void mouseActivity(View v){
 		Intent mouse = new Intent(this, DisplayMousePad.class);
 		startActivity(mouse);
@@ -64,6 +65,7 @@ public class RemoteBluetoothClient extends Activity{
 		Intent pres = new Intent(this, PresentationActivity.class);
 		startActivity(pres);
 	}
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bluetooth);
@@ -85,14 +87,19 @@ public class RemoteBluetoothClient extends Activity{
 		filter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
 		registerReceiver(mReceiver, filter);
 
+		// Intial checkers
 		if(hasBluetoothAdapter()){
 			if(!isBluetoothEnabled()){
 				Toast.makeText(getApplicationContext(), "No Bluetooth enabled", Toast.LENGTH_SHORT).show();
 			}			
+
+			// If checkers pass, scan for devices
 			discoverDevices();			
 		}else{
 			Toast.makeText(getApplicationContext(), "The device has no Bluetooth", Toast.LENGTH_SHORT).show();				
-		}			
+		}		
+
+
 		getDevice();
 
 		newDevicesListView.setOnItemClickListener(new OnItemClickListener() {
@@ -107,7 +114,7 @@ public class RemoteBluetoothClient extends Activity{
 				connect();			
 			}			
 		});
-		
+
 		pairedDevicesListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
@@ -122,6 +129,7 @@ public class RemoteBluetoothClient extends Activity{
 		});
 	}
 
+	// Check for Bluetooth Adapter
 	private boolean hasBluetoothAdapter(){
 		if (deviceBluetoothAdapter == null) {
 			return false;
@@ -129,25 +137,32 @@ public class RemoteBluetoothClient extends Activity{
 		return true;
 	}
 
+	// Check if Bluetooth is enabled
 	public boolean isBluetoothEnabled(){	
 		return deviceBluetoothAdapter.isEnabled();
 	}	
 
+	// Add devices to the two lists
 	public void getDevice() {	
 
 		// If there are paired devices
 		if (pairedDevices.size() > 0) {
 			findViewById(R.id.title_paired_devices).setVisibility(View.VISIBLE);
+
 			// Loop through paired devices
 			for (BluetoothDevice device : pairedDevices) {
+
 				// Add the name and address to an array adapter to show in a ListView
-//				newArrayAdapter.add(device.getName() + "\n" + device.getAddress());
-			pairedArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+				pairedArrayAdapter.add(device.getName() + "\n" + device.getAddress());
 			}
 		}else {
 			String noDevices = getResources().getText(R.string.none_paired).toString();
-//			newArrayAdapter.add(noDevices);
-			pairedArrayAdapter.add(noDevices);
+			if(pairedArrayAdapter == null){
+				pairedArrayAdapter.add(noDevices);
+			}
+			if(newArrayAdapter == null){
+				newArrayAdapter.add(noDevices);
+			}
 		}
 	}
 
@@ -177,7 +192,7 @@ public class RemoteBluetoothClient extends Activity{
 
 	//Method that maintains the connection
 	private void connected(BluetoothDevice device, BluetoothSocket socket){
-		// if to cancel the connection thread
+		// check if there is a maintain connection thread : terminate
 		if(maintainCnt != null) {
 			maintainCnt.cancel();
 		}
@@ -211,7 +226,7 @@ public class RemoteBluetoothClient extends Activity{
 			return maintainCnt.jObj;
 		}
 	}
-	
+
 	//BroadcastReceiver for ACTION_Found
 	private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
 		public void onReceive(Context context, Intent intent) {
@@ -271,8 +286,8 @@ public class RemoteBluetoothClient extends Activity{
 		BluetoothSocket btSocket;
 		OutputStream os;
 		InputStream is;
-		JSONObject jObj = new JSONObject();
-		
+		JSONObject jObj;
+
 		ConnectedThread(BluetoothSocket socket){
 			btSocket = socket;
 			try{
@@ -299,7 +314,7 @@ public class RemoteBluetoothClient extends Activity{
 		public void listen(byte[] buffer, int bytes) {
 			int end = -2;
 			int bye = -1;
-			
+
 			List<Byte> isBytes = new ArrayList<Byte>();
 			while(true){
 				try{
@@ -312,8 +327,8 @@ public class RemoteBluetoothClient extends Activity{
 								arrBytes[i++] = b;
 							}
 							String serverInput = new String(arrBytes);
-							jObj.put("notes", serverInput);
-//							System.out.println("Server sent: " + serverInput);
+							jObj = new JSONObject(serverInput);
+							//							System.out.println("Server sent: " + serverInput);
 							System.out.println("Server sent (jObj): " + jObj.getString("notes"));
 						}catch(Exception e){
 							e.printStackTrace();
@@ -328,21 +343,21 @@ public class RemoteBluetoothClient extends Activity{
 				}
 			}
 		}
-		
+
 		// Send byte array to the server
 		public void write(byte[] buffer) {			
-//			String test = "PRESENTATION LINK C:\\Users\\Pete\\Desktop\\test.ppt END_LINK";
-//			String notes = "PRESENTATION NOTES";			
+			//			String test = "PRESENTATION LINK C:\\Users\\Pete\\Desktop\\test.ppt END_LINK";
+			//			String notes = "PRESENTATION NOTES";			
 			try {
 				// working code
 				os.write(buffer);
 				os.flush();
 
 				// testing code
-//				os.write(stringToDelimitedBytes(test));
-//				os.flush();
-//				os.write(stringToDelimitedBytes(notes));
-//				os.flush();
+				//				os.write(stringToDelimitedBytes(test));
+				//				os.flush();
+				//				os.write(stringToDelimitedBytes(notes));
+				//				os.flush();
 			} catch (IOException e) { 
 				Toast.makeText(getApplicationContext(), "Error at writing", Toast.LENGTH_SHORT).show();
 			}
