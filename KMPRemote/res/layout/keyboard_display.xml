@@ -269,10 +269,16 @@
 	        android:layout_gravity="fill"/>
 	        
 	        
-	        <Space
+	      
+	        <ImageButton 
 	        android:layout_width="50dp"
-	       	android:layout_height="wrap_content"
-	        android:layout_gravity="fill"/>
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:layout_columnSpan="1"
+	        android:layout_rowSpan="2"
+	        android:onClick="KeyboardSWITCH" 
+	        android:src="@drawable/sym_keyboard_done" 
+	        android:contentDescription="@string/SWITCH"/>
 	        <Button 
 	        android:layout_width="50dp"
 	        android:layout_height="wrap_content"
@@ -345,14 +351,7 @@
 	        android:src="@drawable/sym_keyboard_return" 
 	        android:contentDescription="@string/RETURN"/>
 	        
-	        <ImageButton 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:layout_columnSpan="2"
-	        android:onClick="KeyboardToggleSHIFT" 
-	        android:src="@drawable/sym_keyboard_shift" 
-	        android:contentDescription="@string/SHIFT"/>
+	        
 			    
 	        <Button 
 	        android:layout_width="50dp"
@@ -411,13 +410,35 @@
 	        android:onClick="KeyboardToggleSHIFT" 
 	        android:src="@drawable/sym_keyboard_shift" 
 	        android:contentDescription="@string/SHIFT"/>
-	        
 	        <Space
 	        android:layout_width="50dp"
 	       	android:layout_height="wrap_content"
-	       	android:layout_columnSpan="3"
 	        android:layout_gravity="fill"/>
-	       
+	        
+	       <Button 
+	        android:layout_width="50dp"
+	        android:textSize="12sp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/ESC" 
+	        android:onClick="KeyboardToggleM"/>
+	       <Button 
+	        android:layout_width="50dp"
+	        android:textSize="10sp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/CTRL" 
+	        android:onClick="KeyboardToggleM"/>
+	       <Button 
+	        android:layout_width="50dp"
+	        android:textSize="12sp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/ALT" 
+	        android:onClick="KeyboardToggleM"/>
 	        <ImageButton 
 	        android:layout_width="50dp"
 	        android:layout_height="wrap_content"
@@ -426,11 +447,31 @@
 	        android:onClick="KeyboardToggleSPACE" 
 	        android:src="@drawable/sym_keyboard_space" 
 	        android:contentDescription="@string/SPACE"/>
-	         <Space
+	        <Button 
 	        android:layout_width="50dp"
-	       	android:layout_height="wrap_content"
-	       	android:layout_columnSpan="3"
-	        android:layout_gravity="fill"/>
+	        android:textSize="12sp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/copy" 
+	        android:onClick="KeyboardToggleM"/>
+	        <Button 
+	        android:layout_width="50dp"
+	        android:textSize="12sp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/fullstop" 
+	        android:onClick="KeyboardToggleM"/>
+	        <Button 
+	        android:layout_width="50dp"
+	        android:textSize="12sp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/under" 
+	        android:onClick="KeyboardToggleM"/>
+	        
 	        
 	      
 	        

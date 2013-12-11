@@ -11,6 +11,7 @@ import java.util.UUID;
 
 import org.json.JSONObject;
 
+
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -28,7 +29,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.kmpremote.R;
+
 import com.example.kmpremote.keyboard.KeyboardActivity;
 import com.example.kmpremote.mouse.DisplayMousePad;
 import com.example.kmpremote.presentation.PresentationActivity;

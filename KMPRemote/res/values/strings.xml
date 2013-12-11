@@ -2,31 +2,47 @@
 <resources>
 
     <string name="app_name">KMPRemote</string>
-    <string name="action_settings">Settings</string>  
+    <string name="action_settings">Settings</string>
     <string name="title_paired_devices">Paired Devices</string>
     <string name="title_other_devices">Other Available Devices</string>
     <string name="none_paired">No Available Devices</string>
+    <string name="notes_text">Notes.</string>
     <string name="previous_button">Previous</string>
     <string name="START_button">Start</string>
-    <string name="END_button">End</string>  
+    <string name="END_button">End</string>
     <string name="next_button">Next</string>
     <string name="F5_Toast">You have just sent the code for the F5 key to the keyboard</string>
     <string name="ESC_Toast">You have just sent the code for the ESC key to the keyboard</string>
     <string name="Left_Toast">You have just sent the code for the Left Arrow key to the keyboard</string>
     <string name="Right_Toast">You have just sent the code for the Right Arrow key to the keyboard</string>
+
     <color name="white">#FFFFFF</color>
-    <string name="notes_text"> To get the notes, hold the START button, a menu will appear, select the request notes option and type in the address of the file, hit enter, then open the menu again and press display notes. </string>
+
     <string name="mode_slide">Mode</string>
     <string name="current_slide">Start presentation on current slide</string>
     <string name="from_beginning">Start presentation from beginning</string>
     <string name="left_click">Left Button</string>
     <string name="right_click">Right Button</string>
     <string name="task_prompt">Choose a task</string>
+
     <string-array name="tasks">
         <item>Keyboard</item>
         <item>Mouse</item>
         <item>Presentation</item>
     </string-array>
+
+    <string name="f1">F1</string>
+    <string name="f2">F2</string>
+    <string name="f3">F3</string>
+    <string name="f4">F4</string>
+    <string name="f5">F5</string>
+    <string name="f6">F6</string>
+    <string name="f7">F7</string>
+    <string name="f8">F8</string>
+    <string name="f9">F9</string>
+    <string name="f10">F10</string>
+    <string name="f11">F11</string>
+    <string name="f12">F12</string>
     <string name="A">A</string>
     <string name="B">B</string>
     <string name="C">C</string>
@@ -63,31 +79,47 @@
     <string name="eight">8</string>
     <string name="nine">9</string>
     <string name="zero">0</string>
+    <string name="qt">&#8243;</string>
+    <string name="amps">&#38;</string>
+    <string name="gt">&#62;</string>
+    <string name="lw">&#60;</string>
+    <string name="exla">&#33;</string>
+    <string name="hash">&#35;</string>
+    <string name="dolla">&#36;</string>
+    <string name="pund">&#163;</string>
+    <string name="euro">&#8364;</string>
+    <string name="percent">&#37;</string>
+    <string name="equals">&#61;</string>
+    <string name="nbrako">&#40;</string>
+    <string name="nbrakc">&#41;</string>
+    <string name="times">&#42;</string>
+    <string name="plus">&#43;</string>
+    <string name="sqt">&#44;</string>
+    <string name="dash">&#45;</string>
+    <string name="fullstop">&#46;</string>
+    <string name="fwslash">&#47;</string>
+    <string name="bkslash">&#92;</string>
+    <string name="sqbrako">&#91;</string>
+    <string name="sqbrakc">&#93;</string>
+    <string name="under">&#95;</string>
+    <string name="curlbko">&#123;</string>
+    <string name="curlbkc">&#125;</string>
+    <string name="eqv">&#126;</string>
+    <string name="copy">&#169;</string>
+   
     <string name="RETURN">RETURN</string>
     <string name="CTRL">CTRL</string>
     <string name="SHIFT">SHIFT</string>
     <string name="BACKSPACE">Delete</string>
     <string name="SPACE">SPACE</string>
-	
-	 <string name="f1">F1</string>
-	<string name="f2">F2</string>
-	<string name="f3">F3</string>
-	<string name="f4">F4</string>
-	<string name="f5">F5</string>
-	<string name="f6">F6</string>
-	<string name="f7">F7</string>
-	<string name="f8">F8</string>
-	<string name="f9">F9</string>
-	<string name="f10">F10</string>
-	<string name="f11">F11</string>
-	<string name="f12">F12</string>
-    	<string name="A_Toast">You have just pressed A</string> 
-    	<string name="B_Toast">You have just pressed B</string>
-    	<string name="C_Toast">You have just pressed C</string>
-    	<string name="D_Toast">You have just pressed D</string>
-   		<string name="E_Toast">You have just pressed E</string>
-   		<string name="ONE_Toast">You have just pressed 1</string>
-   		<string name="scroll_up">Scroll Up</string><string name="scroll_down">Scroll Down</string>
-   		
+    <string name="ALT">Alt</string>
+    <string name="ESC">ESC</string>
+    <string name="SWITCH">SWITCH</string>
+    <string name="A_Toast">You have just pressed A</string>
+    <string name="B_Toast">You have just pressed B</string>
+    <string name="C_Toast">You have just pressed C</string>
+    <string name="D_Toast">You have just pressed D</string>
+    <string name="E_Toast">You have just pressed E</string>
+    <string name="ONE_Toast">You have just pressed 1</string>
 
 </resources>

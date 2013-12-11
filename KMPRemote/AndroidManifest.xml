@@ -38,6 +38,10 @@
             android:name="com.example.kmpremote.keyboard.KeyboardActivity"
             android:label="@string/app_name" >
         </activity>
+         <activity
+            android:name="com.example.kmpremote.keyboard.Symbolkey"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>
