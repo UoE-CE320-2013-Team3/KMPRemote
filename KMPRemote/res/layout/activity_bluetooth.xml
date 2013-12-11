@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_weight="1"
-        android:stackFromBottom="true" />
+        android:stackFromBottom="false" />
 
     <TextView
         android:id="@+id/title_new_devices"
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_weight="2"
-        android:stackFromBottom="true" />
+        android:stackFromBottom="false" />
 
     <RelativeLayout
         android:layout_width="match_parent"
