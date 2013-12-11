@@ -6,7 +6,7 @@
     <string name="title_paired_devices">Paired Devices</string>
     <string name="title_other_devices">Other Available Devices</string>
     <string name="none_paired">No Available Devices</string>
-    <string name="notes_text">Notes.</string>
+    <string name="notes_text">To get the notes, hold the START button, a menu will appear, select the request notes option and type in the address of the file, hit enter, then open the menu again and press display notes.</string>
     <string name="previous_button">Previous</string>
     <string name="START_button">Start</string>
     <string name="END_button">End</string>
