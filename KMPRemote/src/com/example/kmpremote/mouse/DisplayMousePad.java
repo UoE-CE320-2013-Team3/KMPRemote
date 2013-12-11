@@ -4,7 +4,6 @@ import com.example.kmpremote.R;
 import com.example.kmpremote.bluetoothclient.RemoteBluetoothClient;
 import com.example.kmpremote.keyboard.KeyboardActivity;
 import com.example.kmpremote.presentation.PresentationActivity;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -20,14 +19,14 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.Toast;
 
+/***
+ * Class for mousepad_display.xml enabling the functions of 
+ * a mouse using Bluetooth.
+ * @author lgoodl
+ *
+ */
 public class DisplayMousePad extends Activity implements SensorEventListener {
 	private SensorManager mSensorManager;
 	private float[] mAccelerometerReading;
@@ -36,14 +35,17 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 	private float[] mRemapedRotationMatrix = new float[16];
 	private float[] mOrientation = new float[3];
 	public static boolean ActiveSensor;
-	
-	//ConnectedThread t;
 	public static String cmd;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		//set layout to portrait
 		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		setContentView(R.layout.mousepad_display);
+
+		//boolean for enabling/disabling sensor detection
 		ActiveSensor = true;
 		getActionBar().setDisplayHomeAsUpEnabled(true); 
 		mSensorManager = (SensorManager)this.getSystemService(Context.SENSOR_SERVICE);
@@ -55,12 +57,14 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 				SensorManager.SENSOR_DELAY_NORMAL);
 		Button hold = (Button)findViewById(R.id.button1);
 		hold.setOnTouchListener(new OnTouchListener(){
-
+			/***
+			 * listener for enabling drag and drop functionality
+			 */
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				String cmd;
 				switch(event.getAction()){
-				
+
 				case MotionEvent.ACTION_DOWN:
 					ActiveSensor = true;
 					cmd = "MOUSE HOLD leftclick";
@@ -71,21 +75,19 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 					cmd = "MOUSE RELEASE leftclick";
 					RemoteBluetoothClient.send(cmd);
 					break;
-					
+
 				}
 				// TODO Auto-generated method stub
 				return false;
 			}
-			
-		});
-		
-	}
-	
-	
-	
-	
-	
 
+		});	
+	}	
+
+	/***
+	 * method to track the changes in the device's sensors and move the mouse cursor
+	 * accordingly
+	 */
 	public void onSensorChanged(SensorEvent event)
 	{
 		if(ActiveSensor == true){
@@ -109,37 +111,24 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 						SensorManager.AXIS_Y, SensorManager.AXIS_MINUS_X, mRemapedRotationMatrix);
 				SensorManager.getOrientation(mRemapedRotationMatrix, mOrientation);
 			}
-
-
-			//Where you want to read the orientation
 			if(mOrientation != null && ActiveSensor == true)
 			{
 				if(mOrientation[1]> 0.1){
-					//int amount = (int)mOrientation[1]*10;
 					moveRight(null);
 					mOrientation[1]=0;
 				}
 				if(mOrientation[1]< -0.1){
-					//int amount = Math.abs((int)mOrientation[1]*10);
 					moveLeft(null);
 					mOrientation[1]=0;
 				}
 				if(mOrientation[2] > 0.1){
-					//int amount = (int)mOrientation[2]*10;
 					moveUp(null);
 					mOrientation[2]=0;
 				}
 				if(mOrientation[2] < -0.1){
-					//int amount = Math.abs((int)mOrientation[2]*10);
 					moveDown(null);
 					mOrientation[2]=0;
 				}
-				//do stuff with mOrientation[0]
-				//do stuff with mOrientation[1]
-				//do stuff with mOrientation[2]
-				//to control a ball i used
-				//mOrientation[2] for horizontal movement and
-				//- mOrientation[1] for vertical movement
 			}
 		}
 	}
@@ -151,7 +140,10 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 		inflater.inflate(R.menu.main, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
-
+	/***
+	 * method to deal with options menu and switch between activities within the application
+	 * switching between keyboard and presentation mode
+	 */
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle presses on the action bar items
 		switch (item.getItemId()) {
@@ -172,11 +164,18 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 		}
 	}
 
+	/***
+	 * method to allow the user to enable or disable sensor tracking for mouse cursor movement
+	 * 
+	 */
 	public void activateSensor(View v){
 		ActiveSensor = !ActiveSensor;
 	}
 
-	//need to still implement these methods to send data to the bluetooth client class!
+	/***
+	 * method to send a String to move the cursor up
+	 *
+	 */
 	public void moveUp(View v){
 		String a;
 		if(v != null){
@@ -190,6 +189,10 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 		RemoteBluetoothClient.send(cmd);    	
 	}
 
+	/***
+	 * method to send a String to move the cursor down
+	 *
+	 */
 	public void moveDown(View v){
 		String a;
 		if(v != null){
@@ -203,6 +206,10 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 		RemoteBluetoothClient.send(cmd);    	
 	}
 
+	/***
+	 * method to send a String to move the cursor left
+	 *
+	 */
 	public void moveLeft(View v){
 		String a;
 		if(v != null){
@@ -216,6 +223,10 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 		RemoteBluetoothClient.send(cmd);	
 	}
 
+	/***
+	 * method to send a String to move the cursor right
+	 *
+	 */
 	public void moveRight(View v){
 		String a;
 		if(v != null){
@@ -229,27 +240,42 @@ public class DisplayMousePad extends Activity implements SensorEventListener {
 		RemoteBluetoothClient.send(cmd);	
 	}
 
+	/***
+	 * method to monitor left clicks to simulate left clicks
+	 */
 	public void leftClick(View v){
 
 		String cmd = "MOUSE TOGGLE leftclick";
 		RemoteBluetoothClient.send(cmd);	
 	}
 
+	/***
+	 * method to monitor right clicks to simulate right clicks
+	 */
 	public void rightClick(View v){
 		String cmd = "MOUSE TOGGLE rightclick";  
 		RemoteBluetoothClient.send(cmd);	
 	}
 
+	/***
+	 * method to allow the scrolling of a mouse wheel, scrolling up
+	 * implemented by naalek
+	 */
 	public void scrollUp(View v){
 		String cmd = "MOUSE SCROLL UP 1";  
 		RemoteBluetoothClient.send(cmd);	
 	}
-	
+
+	/***
+	 * method to allow the scrolling of a mouse wheel, scrolling down
+	 * implemented by naalek
+	 */
 	public void scrollDown(View v){
 		String cmd = "MOUSE SCROLL DOWN 1";  
 		RemoteBluetoothClient.send(cmd);	
 	}
-	
+
+	//overridden method imported but not implemented.
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
 		// TODO Auto-generated method stub
