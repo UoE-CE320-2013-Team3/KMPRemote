@@ -69,6 +69,7 @@ public class RemoteBluetoothClient extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bluetooth);
+		
 		//Initialise array containing newly found devices devices
 		pairedArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
 		newArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
@@ -87,7 +88,7 @@ public class RemoteBluetoothClient extends Activity{
 		filter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
 		registerReceiver(mReceiver, filter);
 
-		// Intial checkers
+		// Initial checkers
 		if(hasBluetoothAdapter()){
 			if(!isBluetoothEnabled()){
 				Toast.makeText(getApplicationContext(), "No Bluetooth enabled", Toast.LENGTH_SHORT).show();
@@ -168,6 +169,7 @@ public class RemoteBluetoothClient extends Activity{
 
 	//Method that searches for devices
 	private void discoverDevices() {
+	
 		// Turn on sub-title for new devices
 		findViewById(R.id.title_new_devices).setVisibility(View.VISIBLE);
 		findViewById(R.id.title_paired_devices).setVisibility(View.VISIBLE);
@@ -182,6 +184,7 @@ public class RemoteBluetoothClient extends Activity{
 
 	//Method that starts the connection thread
 	public void connect(){
+	
 		// check if there is a connection : terminate
 		if(makeCnt != null) {
 			makeCnt.cancel();
@@ -192,6 +195,7 @@ public class RemoteBluetoothClient extends Activity{
 
 	//Method that maintains the connection
 	private void connected(BluetoothDevice device, BluetoothSocket socket){
+	
 		// check if there is a maintain connection thread : terminate
 		if(maintainCnt != null) {
 			maintainCnt.cancel();
@@ -211,6 +215,7 @@ public class RemoteBluetoothClient extends Activity{
 
 	//Public send method for other classes to use when sending over to the server
 	public static void send(String cmd) {
+	
 		//If there is a connection : send
 		byte[] commandBufferWithEnding= stringToDelimitedBytes(cmd);
 		if(maintainCnt != null) {
@@ -231,10 +236,13 @@ public class RemoteBluetoothClient extends Activity{
 	private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
 		public void onReceive(Context context, Intent intent) {
 			String action = intent.getAction();
+			
 			// When discovery finds a device
 			if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+			
 				// Get the BluetoothDevice object from the Intent
 				BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+				
 				// Add the name and address to an array adapter to show in a ListView
 				newArrayAdapter.add(device.getName() + "\n" + device.getAddress());
 			}
@@ -304,6 +312,7 @@ public class RemoteBluetoothClient extends Activity{
 			}
 			byte[] buffer = new byte[1024]; 
 			int bytes = 0;			
+			
 			// Keep listening to the InputStream while connected
 			while(true) {
 				listen(buffer, bytes);
@@ -328,8 +337,6 @@ public class RemoteBluetoothClient extends Activity{
 							}
 							String serverInput = new String(arrBytes);
 							jObj = new JSONObject(serverInput);
-							//							System.out.println("Server sent: " + serverInput);
-							System.out.println("Server sent (jObj): " + jObj.getString("notes"));
 						}catch(Exception e){
 							e.printStackTrace();
 						}
@@ -345,19 +352,10 @@ public class RemoteBluetoothClient extends Activity{
 		}
 
 		// Send byte array to the server
-		public void write(byte[] buffer) {			
-			//			String test = "PRESENTATION LINK C:\\Users\\Pete\\Desktop\\test.ppt END_LINK";
-			//			String notes = "PRESENTATION NOTES";			
+		public void write(byte[] buffer) {						
 			try {
-				// working code
 				os.write(buffer);
 				os.flush();
-
-				// testing code
-				//				os.write(stringToDelimitedBytes(test));
-				//				os.flush();
-				//				os.write(stringToDelimitedBytes(notes));
-				//				os.flush();
 			} catch (IOException e) { 
 				Toast.makeText(getApplicationContext(), "Error at writing", Toast.LENGTH_SHORT).show();
 			}
