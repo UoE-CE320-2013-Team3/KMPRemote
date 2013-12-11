@@ -462,7 +462,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/fullstop" 
-	        android:onClick="KeyboardToggleM"/>
+	        android:onClick="KeyboardToggleFULLSTOP"/>
 	        <Button 
 	        android:layout_width="50dp"
 	        android:textSize="12sp"
@@ -470,7 +470,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/under" 
-	        android:onClick="KeyboardToggleM"/>
+	        android:onClick="KeyboardToggleUNDERSCORE"/>
 	        
 	        
 	      
