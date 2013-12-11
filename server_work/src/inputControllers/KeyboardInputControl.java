@@ -8,7 +8,7 @@ package inputControllers; /**
 
 /*
  *  Allowable commands:
- *      Characters (not to be used for keyHold or keyRelease): [a-Z] [1-9]
+ *      Characters (not to be used for keyHold or keyRelease): [a-Z] [1-9] !"£$%&*()-_=+[]{}'#~.,
  *      Strings:
  *          SHIFT
  *          CTRL
@@ -240,6 +240,87 @@ public class KeyboardInputControl {
         }
 		else if (string.equals(":")) {
             return KeyEvent.VK_COLON;
+        }
+		else if (string.equals(""")) {
+            return KeyEvent.VK_QUOTEDBL;
+        }
+    	//**v
+		else if (string.equals("<")) {
+            return KeyEvent.VK_LESS;
+        }
+		//**v
+		else if (string.equals(">")) {
+            return KeyEvent.VK_COLON;
+        }
+		else if (string.equals("&")) {
+            return KeyEvent.VK_AMPERSAND;
+        }
+		else if (string.equals("!")) {
+            return KeyEvent.VK_EXCLAMATION_MARK;
+        }
+		else if (string.equals("#")) {
+            return KeyEvent.VK_NUMBER_SIGN;
+        }
+		else if (string.equals("$")) {
+            return KeyEvent.VK_DOLLAR;
+        }
+		//**v
+		else if (string.equals("£")) {
+            return KeyEvent.VK_COLON;
+        }
+		//**v
+		else if (string.equals("?")) {
+            return KeyEvent.VK_COLON;
+        }
+		else if (string.equals("=")) {
+            return KeyEvent.VK_EQUALS;
+        }
+		//**v
+		else if (string.equals("%")) {
+            return KeyEvent.VK_COLON;
+        }
+		else if (string.equals("'")) {
+            return KeyEvent.VK_QUOTE;
+        }
+		else if (string.equals("(")) {
+            return KeyEvent.VK_LEFT_PARENTHESIS;
+        }
+		else if (string.equals(")")) {
+            return KeyEvent.VK_RIGHT_PARENTHESIS;
+        }
+		//**v
+		else if (string.equals("*")) {
+            return KeyEvent.VK_COLON;
+        }
+		else if (string.equals("+")) {
+            return KeyEvent.VK_PLUS;
+        }
+		else if (string.equals("-")) {
+            return KeyEvent.VK_COLON;
+        }
+		else if (string.equals("[")) {
+            return KeyEvent.VK_OPEN_BRACKET;
+        }
+		else if (string.equals("]")) {
+            return KeyEvent.VK_CLOSE_BRACKET;
+        }
+		else if (string.equals("_")) {
+            return KeyEvent.VK_UNDERSCORE;
+        }
+		//**v
+		else if (string.equals("{")) {
+            return KeyEvent.VK_COLON;
+        }
+		//**v
+		else if (string.equals("}")) {
+            return KeyEvent.VK_COLON;
+        }
+		//**v
+		else if (string.equals("~")) {
+            return KeyEvent.VK_COLON;
+        }
+		else if (string.equals("COPY")) {
+            return KeyEvent.VK_COPY;
         }
         else {
             throw new NoSuchKeyException(string);
