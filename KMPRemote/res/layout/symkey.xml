@@ -198,13 +198,13 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/qt" 
-	        android:onClick="KeyboardToggle1"
+	        android:onClick="KeyboardToggleQUOTE"
 	        android:textSize="12sp"/>
 	         <Button
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleLOWERTHAN"
      		android:text="@string/lw"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
@@ -215,14 +215,14 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/gt" 
-	        android:onClick="KeyboardToggle1"
+	        android:onClick="KeyboardToggleGREATERTHAN"
 	        android:textSize="12sp"/>
 	     
 	         <Button
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleAMPERSANT"
      		android:text="@string/amps"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -232,7 +232,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleEXCLA"
      		android:text="@string/exla"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
@@ -240,7 +240,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleHASH"
      		android:text="@string/hash"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
@@ -248,7 +248,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleDOLLAR"
      		android:text="@string/dolla"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
@@ -256,7 +256,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardTogglePOUND"
      		android:text="@string/pund"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
@@ -266,7 +266,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleEQUALS"
      		android:text="@string/equals"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
@@ -274,7 +274,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardTogglePERCENT"
      		android:text="@string/percent"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
@@ -287,7 +287,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleSINGLEQUOTE"
      		android:text="@string/sqt"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
@@ -295,7 +295,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleBRACKETOPEN"
      		android:text="@string/nbrako"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -303,7 +303,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleBRACKETCLOSE"
      		android:text="@string/nbrakc"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 	
@@ -311,7 +311,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleTIMES"
      		android:text="@string/times"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
@@ -319,23 +319,27 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardTogglePLUS"
      		android:text="@string/plus"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
+     		
+     		<!-- string/sqt is not the right one  -->
      		<Button
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleCOMMA"
      		android:text="@string/sqt"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
+     		
+     		
      		<Button
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleDASH"
      		android:text="@string/dash"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
@@ -343,7 +347,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleFULLSTOP"
      		android:text="@string/fullstop"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
@@ -365,7 +369,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleSLAH"
      		android:text="@string/fwslash"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -374,7 +378,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleBSLASH"
      		android:text="@string/bkslash"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -382,7 +386,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleSQBRACKETOPEN"
      		android:text="@string/sqbrako"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -390,7 +394,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleSQBRACKETCLOSE"
      		android:text="@string/sqbrakc"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -398,7 +402,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleUNDERSCORE"
      		android:text="@string/under"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -406,7 +410,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleCRBRACKETOPEN"
      		android:text="@string/curlbko"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -414,7 +418,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleCRBRACKETCLOSE"
      		android:text="@string/curlbkc"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -422,7 +426,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleEQV"
      		android:text="@string/eqv"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -430,19 +434,23 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
-     		android:text="@string/copy"
-     		android:textColor="#ffffff"
-     		android:textSize="12sp" />
-     		<Button
-     		android:layout_width="50dp"
-     		android:layout_height="wrap_content"
-     		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleCOPY"
      		android:text="@string/copy"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
      		
+     		<!-- second copy button? -->
+     		
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleCOPY"
+     		android:text="@string/copy"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		
+     		<!-- add a question mark -->
      	
      		<ImageButton 
 	        android:layout_width="50dp"
@@ -459,7 +467,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardToggleESC"
      		android:text="@string/ESC"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -467,7 +475,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardHoldALT"
      		android:text="@string/ALT"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -488,14 +496,6 @@
 	        android:contentDescription="@string/SPACE"/>
 	       
 
-	        
-     		       
-     		     
-     	
-     		
-     		
-
-     		
      		
 	      
 </GridLayout>
