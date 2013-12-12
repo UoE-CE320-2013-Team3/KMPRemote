@@ -204,13 +204,10 @@
         android:src="@drawable/sym_keyboard_delete"
         android:textColor="#ffffff" />
 
-    <ToggleButton
-        android:id="@+id/toggleButton1"
+     <Space
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="fill"
-        android:text="ToggleButton"
-        android:textColor="#ffffff" />
+        android:layout_gravity="fill" />
 
     <Button
         android:layout_width="50dp"
@@ -449,8 +446,9 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="3"
         android:layout_gravity="fill"
-        android:contentDescription="@string/SHIFT"
+        android:contentDescription="@string/CAPS"
         android:onClick="KeyboardToggleCAPS"
+        android:textColor="#ffffff"
         android:text="CAPS" />
 
     <Space
