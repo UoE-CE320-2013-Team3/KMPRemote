@@ -18,7 +18,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class KeyboardActivity extends Activity {
+public class Symbolkey extends Activity {
 	//RemoteBluetoothClient kClient;
 	//ConnectedThread t;
     @Override
