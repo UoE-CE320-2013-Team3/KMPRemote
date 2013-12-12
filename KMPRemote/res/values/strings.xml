@@ -110,6 +110,8 @@
     <string name="copy">&#169;</string>
     <string name="COLON">&#58;</string>
     <string name="SEMICOLON">&#59;</string>
+     <string name="CAPS">CAPS</string>
+    
     <string name="RETURN">RETURN</string>
     <string name="CTRL">CTRL</string>
     <string name="SHIFT">SHIFT</string>
