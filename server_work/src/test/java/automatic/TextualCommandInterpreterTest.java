@@ -1,9 +1,9 @@
-package tests.automatic;
+package test.java.automatic;
 
-import bluetooth.TextualCommandInterpreter;
-import inputControllers.KeyboardInputControl;
-import inputControllers.MouseInputControl;
-import inputControllers.PresentationInputControl;
+import main.java.bluetooth.TextualCommandInterpreter;
+import main.java.inputControllers.KeyboardInputControl;
+import main.java.inputControllers.MouseInputControl;
+import main.java.inputControllers.PresentationInputControl;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

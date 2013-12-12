@@ -1,4 +1,4 @@
-package inputControllers; /**
+package main.java.inputControllers; /**
  * Created with IntelliJ IDEA.
  * User: john, mhpric
  * Date: 11/14/13
@@ -8,7 +8,7 @@ package inputControllers; /**
 
 /*
  *  Allowable commands:
- *      Characters (not to be used for keyHold or keyRelease): [a-Z] [1-9] !"£$%&*()-_=+[]{}'#~.,
+ *      Characters (not to be used for keyHold or keyRelease): [a-Z] [1-9] !"ï¿½$%&*()-_=+[]{}'#~.,
  *      Strings:
  *          SHIFT
  *          CTRL
@@ -271,10 +271,10 @@ public class KeyboardInputControl {
 		else if (string.equals("\'")) {
             return KeyEvent.VK_QUOTE;
         }
-		else if (string.equals("(") {
+		else if (string.equals("(")) {
             return KeyEvent.VK_LEFT_PARENTHESIS;
         }
-		else if (string.equals(")") {
+		else if (string.equals(")")) {
             return KeyEvent.VK_RIGHT_PARENTHESIS;
         }
 		else if (string.equals("*")) {

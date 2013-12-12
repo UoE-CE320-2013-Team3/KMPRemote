@@ -1,4 +1,4 @@
-package tests.manual;
+package nonautomatabletests.manual;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,7 +10,7 @@ package tests.manual;
 
 /**
  * Test Purpose:
- *      This test is designed to test all the methods of the inputControllers.MouseControl class.
+ *      This test is designed to test all the methods of the main.java.inputControllers.MouseControl class.
  *      Step by step it will:
  *          Hold left mouse button
  *          Move cursor up, left, down and right (ending up back in start location)
@@ -28,8 +28,8 @@ package tests.manual;
  *          The window should scroll down and then up
  */
 
-import inputControllers.KeyboardInputControl;
-import inputControllers.MouseInputControl;
+import main.java.inputControllers.KeyboardInputControl;
+import main.java.inputControllers.MouseInputControl;
 
 import java.awt.*;
 
@@ -37,8 +37,8 @@ public class ManualMouseControlTest {
 
 
     public static void main(String args[]) throws AWTException {
-        inputControllers.MouseInputControl mouseControl = new MouseInputControl();
-        inputControllers.KeyboardInputControl keyControl = new KeyboardInputControl();
+        main.java.inputControllers.MouseInputControl mouseControl = new MouseInputControl();
+        main.java.inputControllers.KeyboardInputControl keyControl = new KeyboardInputControl();
        /*
         keyControl.wait(2000);
 

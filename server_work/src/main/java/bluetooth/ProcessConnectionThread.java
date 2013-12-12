@@ -1,10 +1,8 @@
-package bluetooth;
+package main.java.bluetooth;
 
-import inputControllers.KeyboardInputControl;
+import main.java.inputControllers.KeyboardInputControl;
 
 import javax.microedition.io.StreamConnection;
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.*;

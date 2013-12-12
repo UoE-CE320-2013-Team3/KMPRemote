@@ -1,4 +1,4 @@
-package tests.manual;
+package nonautomatabletests.manual;
 
 /**
  * Created with IntelliJ IDEA.
@@ -40,7 +40,7 @@ package tests.manual;
  *      then exit and then restart on the second slide rather than the first
  */
 
-import inputControllers.KeyboardInputControl;
+import main.java.inputControllers.KeyboardInputControl;
 
 import java.awt.*;
 

@@ -1,4 +1,4 @@
-package bluetooth;
+package main.java.bluetooth;
 
 import javax.bluetooth.DiscoveryAgent;
 import javax.bluetooth.LocalDevice;

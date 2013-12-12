@@ -1,4 +1,4 @@
-package inputControllers;
+package main.java.inputControllers;
 
 import java.io.FileInputStream;
 import java.io.IOException;

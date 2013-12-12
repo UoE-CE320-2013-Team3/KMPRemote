@@ -1,6 +1,6 @@
-package tests.manual;
+package nonautomatabletests.manual;
 
-import inputControllers.PresentationInputControl;
+import main.java.inputControllers.PresentationInputControl;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,7 +27,7 @@ import inputControllers.PresentationInputControl;
 public class ManualPresentationControlTest {
     public static void main(String args[]) {
     //insert filePath here
-    inputControllers.PresentationInputControl presentationControl
+    main.java.inputControllers.PresentationInputControl presentationControl
             = new PresentationInputControl("M:\\pc\\desktop\\test.pptx");
     System.out.println(presentationControl.getNotesAsJSON());
     }

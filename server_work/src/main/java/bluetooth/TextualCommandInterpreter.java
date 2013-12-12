@@ -1,8 +1,8 @@
-package bluetooth;
+package main.java.bluetooth;
 
-import inputControllers.KeyboardInputControl;
-import inputControllers.MouseInputControl;
-import inputControllers.PresentationInputControl;
+import main.java.inputControllers.KeyboardInputControl;
+import main.java.inputControllers.MouseInputControl;
+import main.java.inputControllers.PresentationInputControl;
 
 import java.awt.*;
 import java.util.*;

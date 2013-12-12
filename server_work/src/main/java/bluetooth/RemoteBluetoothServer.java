@@ -1,4 +1,4 @@
-package bluetooth;
+package main.java.bluetooth;
 
 /**
  * Created with IntelliJ IDEA.

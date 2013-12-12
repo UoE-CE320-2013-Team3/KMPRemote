@@ -1,4 +1,4 @@
-package inputControllers; /**
+package main.java.inputControllers; /**
  * Created with IntelliJ IDEA.
  * User: john, mhpric
  * Date: 11/14/13

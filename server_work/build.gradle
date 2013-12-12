@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin:'application'
+
+mainClassName = "main.java.bluetooth.RemoteBluetoothServer"
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest.attributes("Main-Class": "main.java.bluetooth.RemoteBluetoothServer")
+}
+
+dependencies {
+    compile 'org.apache.poi:poi:3.9'
+    //compile 'net.sf.bluecove:bluecove:2.1.0'
+    //compile 'net.sf.bluecove:bluecove-gpl:2.1.0'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'org.mockito:mockito-all:1.9.5'
+    compile 'org.apache.poi:poi-scratchpad:3.9'
+    compile 'junit:junit:4.10'
+    compile 'org.ow2.chameleon.commons.bluecove:bluecove:2.1.1-63'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.9'
+}
+

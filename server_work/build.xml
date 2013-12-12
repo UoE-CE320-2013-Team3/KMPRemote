@@ -1,0 +1,32 @@
+<project  default="run">
+	<property  name="bld.dir"  value="build"/>
+	<property  name="lib.dir"  value="."/>
+
+        <path id="classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar"/>
+        </path>
+	
+
+	<target  name="clean">
+		<delete  dir="${bld.dir}"/>
+	</target>
+	<target  name="compile">
+		<mkdir  dir="${bld.dir}/classes"/>
+		<javac  includeantruntime="false" srcdir="src/main/java"  destdir="${bld.dir}/classes" classpathref="classpath"/>
+	</target>
+	<target  name="jar"  depends="compile">
+		<mkdir  dir="${bld.dir}/jar"/>
+		<jar destfile="${bld.dir}/jar/BluetoothClient.jar"
+			basedir="${bld.dir}/classes">	
+			<manifest>
+				<attribute  name="Main-Class"  value="main.java.bluetooth.RemoteBluetoothServer"/>
+			</manifest>
+			<fileset dir="${bld.dir}/classes" includes="**/*.class" />
+			<zipgroupfileset dir="${lib.dir}" includes="*.jar" />
+		</jar>
+
+	</target>
+	<target  name="run"  depends="jar">
+	</target>
+</project>
+
