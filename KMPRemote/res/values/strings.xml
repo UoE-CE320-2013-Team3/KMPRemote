@@ -24,8 +24,9 @@
     <string name="left_click">Left Button</string>
     <string name="right_click">Right Button</string>
     <string name="task_prompt">Choose a task</string>
-     <string name="scroll_down">Scroll Down</string>
-     <string name="scroll_up">Scroll Up</string>
+    <string name="scroll_down">Scroll Down</string>
+    <string name="scroll_up">Scroll Up</string>
+
     <string-array name="tasks">
         <item>Keyboard</item>
         <item>Mouse</item>
@@ -107,10 +108,8 @@
     <string name="curlbkc">&#125;</string>
     <string name="eqv">&#126;</string>
     <string name="copy">&#169;</string>
-	 <string name="question">&#63;</string>
     <string name="COLON">&#58;</string>
     <string name="SEMICOLON">&#59;</string>
-   
     <string name="RETURN">RETURN</string>
     <string name="CTRL">CTRL</string>
     <string name="SHIFT">SHIFT</string>
@@ -119,7 +118,7 @@
     <string name="ALT">Alt</string>
     <string name="ESC">ESC</string>
     <string name="SWITCH">SWITCH</string>
-	<string name="UP">&#8593;</string>
+    <string name="UP">&#8593;</string>
     <string name="DOWN">&#8595;</string>
     <string name="LEFT">&#8592;</string>
     <string name="RIGHT">&#8594;</string>

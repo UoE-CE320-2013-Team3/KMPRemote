@@ -4,478 +4,521 @@
     android:layout_height="fill_parent"
     android:background="#000000"
     android:columnCount="12"
-    android:rowCount="7">
-     		
-     		<Button
-     		android:layout_width="50dp"
-     		android:layout_height="wrap_content"
-     		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
-     		android:text="@string/f1"
-     		android:textColor="#ffffff"
-     		android:textSize="12sp" />
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/f2" 
-	        android:onClick="KeyboardToggleF2"
-	        android:textSize="12sp"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/f3" 
-	        android:onClick="KeyboardToggleF3"
-	        android:textSize="12sp"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/f4" 
-	        android:onClick="KeyboardToggleF4"
-	        android:textSize="12sp"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/f5" 
-	        android:onClick="KeyboardToggleF5"
-	        android:textSize="12sp"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/f6" 
-	        android:onClick="KeyboardToggleF6"
-	        android:textSize="12sp"/>
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/f7" 
-	        android:onClick="KeyboardToggleF7"
-	        android:textSize="12sp"/>
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/f8" 
-	        android:onClick="KeyboardToggleF8"
-	        android:textSize="12sp"/>
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/f9" 
-	        android:onClick="KeyboardToggleF9"
-	        android:textSize="12sp"/> 
-     		<Button
-     		android:layout_width="50dp"
-     		android:layout_height="wrap_content"
-     		android:layout_gravity="fill"
-     		android:textColor="#ffffff"
-     		android:onClick="KeyboardToggleF10"
-     		android:text="@string/f10"
-     		android:textSize="12sp" />
-     		<Button
-     		android:layout_width="50dp"
-     		android:layout_height="wrap_content"
-     		android:layout_gravity="fill"
-     		android:textColor="#ffffff"
-     		android:onClick="KeyboardToggleF11"
-     		android:text="@string/f11"
-     		android:textSize="12sp" />
-     		<Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="top"
-	        android:textColor="#ffffff"
-	        android:text="@string/f12" 
-	        android:onClick="KeyboardToggleF12"
-	        android:textSize="12sp"/>
-     		
-     		
-     		
-     		<Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/one" 
-	        android:onClick="KeyboardToggle1"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/two" 
-	        android:onClick="KeyboardToggle2"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/three" 
-	        android:onClick="KeyboardToggle3"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/four" 
-	        android:onClick="KeyboardToggle4"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/five" 
-	        android:onClick="KeyboardToggle5"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/six" 
-	        android:onClick="KeyboardToggle6"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/seven" 
-	        android:onClick="KeyboardToggle7"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/eight" 
-	        android:onClick="KeyboardToggle8"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/nine" 
-	        android:onClick="KeyboardToggle9"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/zero" 
-	        android:onClick="KeyboardToggle0"/>
-	        <ImageButton 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:layout_columnSpan="2"
-	        android:onClick="KeyboardToggleBACKSPACE" 
-	        android:src="@drawable/sym_keyboard_delete" 
-	        android:contentDescription="@string/BACKSPACE"/>
-	        
-	        <ToggleButton
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:id="@+id/toggleButton1"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="ToggleButton" />
-	   		
-        	<Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/Q" 
-	        android:onClick="KeyboardToggleQ"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/W" 
-	        android:onClick="KeyboardToggleW"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/E" 
-	        android:onClick="KeyboardToggleE"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/R" 
-	        android:onClick="KeyboardToggleR"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/T" 
-	        android:onClick="KeyboardToggleT"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/Y" 
-	        android:onClick="KeyboardToggleY"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/U" 
-	        android:onClick="KeyboardToggleU"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/I" 
-	        android:onClick="KeyboardToggleI"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/O" 
-	        android:onClick="KeyboardToggleO"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/P" 
-	        android:onClick="KeyboardToggleP"/> 
-	        <Space
-	        android:layout_width="50dp"
-	       	android:layout_height="wrap_content"
-	        android:layout_gravity="fill"/>
-	        
-	        
-	      
-	        <ImageButton 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:layout_columnSpan="1"
-	        android:layout_rowSpan="2"
-	        android:onClick="KeyboardSWITCH" 
-	        android:src="@drawable/sym_keyboard_done" 
-	        android:contentDescription="@string/SWITCH"/>
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/A" 
-	        android:onClick="KeyboardToggleA"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/S" 
-	        android:onClick="KeyboardToggleS"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/D" 
-	        android:onClick="KeyboardToggleD"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/F" 
-	        android:onClick="KeyboardToggleF"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/G" 
-	        android:onClick="KeyboardToggleG"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/H" 
-	        android:onClick="KeyboardToggleH"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/J" 
-	        android:onClick="KeyboardToggleJ"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/K" 
-	        android:onClick="KeyboardToggleK"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/L" 
-	        android:onClick="KeyboardToggleL"/> 
-	        <ImageButton 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:layout_columnSpan="2"
-	        android:onClick="KeyboardToggleENTER" 
-	        android:src="@drawable/sym_keyboard_return" 
-	        android:contentDescription="@string/RETURN"/>
-	        
-	        
-			    
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/Z" 
-	        android:onClick="KeyboardToggleZ"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/X" 
-	        android:onClick="KeyboardToggleX"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/C" 
-	        android:onClick="KeyboardToggleC"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/V" 
-	        android:onClick="KeyboardToggleV"/>
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/B" 
-	        android:onClick="KeyboardToggleB"/> 
-	       <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/N" 
-	        android:onClick="KeyboardToggleN"/> 
-	        <Button 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/M" 
-	        android:onClick="KeyboardToggleM"/>
-	        <ImageButton 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:layout_columnSpan="3"
-	        android:onClick="KeyboardToggleSHIFT" 
-	        android:src="@drawable/sym_keyboard_shift" 
-	        android:contentDescription="@string/SHIFT"/>
-	        <Space
-	        android:layout_width="50dp"
-	       	android:layout_height="wrap_content"
-	        android:layout_gravity="fill"/>
-	        
-	       <Button 
-	        android:layout_width="50dp"
-	        android:textSize="12sp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/ESC" 
-	        android:onClick="KeyboardToggleM"/>
-	       <Button 
-	        android:layout_width="50dp"
-	        android:textSize="10sp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/CTRL" 
-	        android:onClick="KeyboardToggleM"/>
-	       <Button 
-	        android:layout_width="50dp"
-	        android:textSize="12sp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/ALT" 
-	        android:onClick="KeyboardToggleM"/>
-	        <ImageButton 
-	        android:layout_width="50dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:layout_columnSpan="6"
-	        android:onClick="KeyboardToggleSPACE" 
-	        android:src="@drawable/sym_keyboard_space" 
-	        android:contentDescription="@string/SPACE"/>
-	        <Button 
-	        android:layout_width="50dp"
-	        android:textSize="12sp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/copy" 
-	        android:onClick="KeyboardToggleM"/>
-	        <Button 
-	        android:layout_width="50dp"
-	        android:textSize="12sp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/fullstop" 
-	        android:onClick="KeyboardToggleFULLSTOP"/>
-	        <Button 
-	        android:layout_width="50dp"
-	        android:textSize="12sp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
-	        android:text="@string/under" 
-	        android:onClick="KeyboardToggleUNDERSCORE"/>
-	        
-	        
-	      
-	        
+    android:rowCount="7" >
 
-	        
-	      
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF1"
+        android:text="@string/f1"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF2"
+        android:text="@string/f2"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF3"
+        android:text="@string/f3"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF4"
+        android:text="@string/f4"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF5"
+        android:text="@string/f5"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF6"
+        android:text="@string/f6"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF7"
+        android:text="@string/f7"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF8"
+        android:text="@string/f8"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF9"
+        android:text="@string/f9"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF10"
+        android:text="@string/f10"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF11"
+        android:text="@string/f11"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:onClick="KeyboardToggleF12"
+        android:text="@string/f12"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggle1"
+        android:text="@string/one"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggle2"
+        android:text="@string/two"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggle3"
+        android:text="@string/three"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggle4"
+        android:text="@string/four"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggle5"
+        android:text="@string/five"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggle6"
+        android:text="@string/six"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggle7"
+        android:text="@string/seven"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggle8"
+        android:text="@string/eight"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggle9"
+        android:text="@string/nine"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggle0"
+        android:text="@string/zero"
+        android:textColor="#ffffff" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill"
+        android:contentDescription="@string/BACKSPACE"
+        android:onClick="KeyboardToggleBACKSPACE"
+        android:src="@drawable/sym_keyboard_delete"
+        android:textColor="#ffffff" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton1"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:text="ToggleButton"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleQ"
+        android:text="@string/Q"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleW"
+        android:text="@string/W"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleE"
+        android:text="@string/E"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleR"
+        android:text="@string/R"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleT"
+        android:text="@string/T"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleY"
+        android:text="@string/Y"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleU"
+        android:text="@string/U"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleI"
+        android:text="@string/I"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleO"
+        android:text="@string/O"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleP"
+        android:text="@string/P"
+        android:textColor="#ffffff" />
+
+    <Space
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="1"
+        android:layout_gravity="fill"
+        android:layout_rowSpan="2"
+        android:contentDescription="@string/SWITCH"
+        android:onClick="KeyboardSWITCH"
+        android:src="@drawable/sym_keyboard_done" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleA"
+        android:text="@string/A"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleS"
+        android:text="@string/S"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleD"
+        android:text="@string/D"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleF"
+        android:text="@string/F"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleG"
+        android:text="@string/G"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleH"
+        android:text="@string/H"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleJ"
+        android:text="@string/J"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleK"
+        android:text="@string/K"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleL"
+        android:text="@string/L"
+        android:textColor="#ffffff" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill"
+        android:contentDescription="@string/RETURN"
+        android:onClick="KeyboardToggleENTER"
+        android:src="@drawable/sym_keyboard_return" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleZ"
+        android:text="@string/Z"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleX"
+        android:text="@string/X"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleC"
+        android:text="@string/C"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleV"
+        android:text="@string/V"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleB"
+        android:text="@string/B"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleN"
+        android:text="@string/N"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleM"
+        android:text="@string/M"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="3"
+        android:layout_gravity="fill"
+        android:contentDescription="@string/SHIFT"
+        android:onClick="KeyboardToggleCAPS"
+        android:text="CAPS" />
+
+    <Space
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleM"
+        android:text="@string/ESC"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleM"
+        android:text="@string/CTRL"
+        android:textColor="#ffffff"
+        android:textSize="10sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleM"
+        android:text="@string/ALT"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="6"
+        android:layout_gravity="fill"
+        android:contentDescription="@string/SPACE"
+        android:onClick="KeyboardToggleSPACE"
+        android:src="@drawable/sym_keyboard_space" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleM"
+        android:text="@string/copy"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleFULLSTOP"
+        android:text="@string/fullstop"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:onClick="KeyboardToggleUNDERSCORE"
+        android:text="@string/under"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
 </GridLayout>
