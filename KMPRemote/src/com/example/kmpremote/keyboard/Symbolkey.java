@@ -258,7 +258,9 @@ public class Symbolkey extends Activity {
         RemoteBluetoothClient.send(cmd);
     } 
     public void KeyboardToggleEXCLA(View v) {
-        cmd = "KEYBOARD TOGGLE !";
+		cmd = "KEYBOARD HOLD SHIFT";
+        cmd = "KEYBOARD TOGGLE 1";
+		cmd = "KEYBOARD RELEASE SHIFT";
         RemoteBluetoothClient.send(cmd);
     } 
     public void KeyboardToggleHASH(View v) {

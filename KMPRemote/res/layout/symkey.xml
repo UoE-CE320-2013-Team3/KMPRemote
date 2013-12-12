@@ -10,7 +10,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleF1"
+     		android:onClick="KeyboardHoldCtrl"
      		android:text="@string/f1"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -20,7 +20,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/f2" 
-	        android:onClick="KeyboardToggleF2"
+	        android:onClick="KeyboardHoldAlt"
 	        android:textSize="12sp"/> 
 	        <Button 
 	        android:layout_width="50dp"
@@ -28,7 +28,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/f3" 
-	        android:onClick="KeyboardToggleF3"
+	        android:onClick="KeyboardShift"
 	        android:textSize="12sp"/> 
 	        <Button 
 	        android:layout_width="50dp"
@@ -181,15 +181,19 @@
 	        android:layout_width="50dp"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="fill"
-	        android:textColor="#ffffff"
+	        android:textColor="#FF0000"
 	        android:layout_columnSpan="2"
 	        android:onClick="KeyboardToggleBACKSPACE" 
 	        android:src="@drawable/sym_keyboard_delete" 
 	        android:contentDescription="@string/BACKSPACE"/>
-     		<Space
+     		 <Button 
 	        android:layout_width="50dp"
-	       	android:layout_height="wrap_content"
-	        android:layout_gravity="fill"/>
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="fill"
+	        android:textColor="#ffffff"
+	        android:text="@string/SEMICOLON" 
+	        android:onClick="KeyboardToggleSEMICOLON"
+	        android:textSize="12sp"/>
      		
      		
 	        <Button 
@@ -215,7 +219,7 @@
 	        android:layout_gravity="fill"
 	        android:textColor="#ffffff"
 	        android:text="@string/gt" 
-	        android:onClick="KeyboardToggleGREATERTHAN"
+	        android:onClick="KeyboardGREATERTHAN"
 	        android:textSize="12sp"/>
 	     
 	         <Button
@@ -279,16 +283,20 @@
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
      		
-     		<Space
-	        android:layout_width="50dp"
-	       	android:layout_height="wrap_content"
-	        android:layout_gravity="fill"/>
-     		 <Button
+     		<Button
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
      		android:onClick="KeyboardToggleSINGLEQUOTE"
-     		android:text="@string/sqt"
+     		android:text="'"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" /> 
+     		 <Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleCOLON"
+     		android:text="@string/COLON"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
      		<Button
@@ -323,18 +331,14 @@
      		android:text="@string/plus"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
-     		
-     		<!-- string/sqt is not the right one  -->
      		<Button
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleCOMMA"
+     		android:onClick="KeyboardToggleF1"
      		android:text="@string/sqt"
      		android:textColor="#ffffff"
      		android:textSize="12sp" /> 
-     		
-     		
      		<Button
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
@@ -359,20 +363,26 @@
 	        android:onClick="KeyboardToggleENTER" 
 	        android:src="@drawable/sym_keyboard_return" 
 	        android:contentDescription="@string/RETURN"/>
-     		<Space
-	        android:layout_width="50dp"
-	       	android:layout_height="wrap_content"
-	        android:layout_gravity="fill"/>
+     		
 
      		
      		<Button
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleSLAH"
+     		android:onClick="KeyboardToggleSLASH"
      		android:text="@string/fwslash"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
+
+     		<Button
+     		    android:layout_width="50dp"
+     		    android:layout_height="wrap_content"
+     		    android:layout_gravity="fill"
+     		    android:onClick="KeyboardTogglePAGEUP"
+     		    android:text="@string/UP"
+     		    android:textColor="#FF0000"
+     		    android:textSize="12sp" />
      		
      		<Button
      		android:layout_width="50dp"
@@ -394,7 +404,7 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleSQBRACKETCLOSE"
+     		android:onClick="KeyboardToggleSQBRACKETOPEN"
      		android:text="@string/sqbrakc"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
@@ -434,23 +444,19 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleCOPY"
-     		android:text="@string/copy"
+     		android:onClick="KeyboardToggleQM"
+     		android:text="@string/question"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
-     		
-     		<!-- second copy button? -->
-     		
      		<Button
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleCOPY"
-     		android:text="@string/copy"
+     		android:onClick="KeyboardToggleAT"
+     		android:text="@"
      		android:textColor="#ffffff"
      		android:textSize="12sp" />
      		
-     		<!-- add a question mark -->
      	
      		<ImageButton 
 	        android:layout_width="50dp"
@@ -467,23 +473,27 @@
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardToggleESC"
-     		android:text="@string/ESC"
-     		android:textColor="#ffffff"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/LEFT"
+     		android:textColor="#FF0000"
      		android:textSize="12sp" />
      		<Button
      		android:layout_width="50dp"
      		android:layout_height="wrap_content"
      		android:layout_gravity="fill"
-     		android:onClick="KeyboardHoldALT"
-     		android:text="@string/ALT"
-     		android:textColor="#ffffff"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/DOWN"
+     		android:textColor="#FF0000"
      		android:textSize="12sp" />
-     		<Space
-	        android:layout_width="50dp"
-	       	android:layout_height="wrap_content"
-	        android:layout_gravity="fill"/>
- 
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/RIGHT"
+     		android:textColor="#FF0000"
+     		android:textSize="12sp" />
+   
      		
 	       
 	        <ImageButton 
@@ -494,8 +504,32 @@
 	        android:onClick="KeyboardToggleSPACE" 
 	        android:src="@drawable/sym_keyboard_space" 
 	        android:contentDescription="@string/SPACE"/>
+	        <Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/ESC"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
+     		<Button
+     		android:layout_width="50dp"
+     		android:layout_height="wrap_content"
+     		android:layout_gravity="fill"
+     		android:onClick="KeyboardToggleF1"
+     		android:text="@string/ALT"
+     		android:textColor="#ffffff"
+     		android:textSize="12sp" />
 	       
 
+	        
+     		       
+     		     
+     	
+     		
+     		
+
+     		
      		
 	      
 </GridLayout>
