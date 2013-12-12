@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.kmpremote.R;
 import com.example.kmpremote.keyboard.KeyboardActivity;
 import com.example.kmpremote.mouse.DisplayMousePad;
 import com.example.kmpremote.presentation.PresentationActivity;

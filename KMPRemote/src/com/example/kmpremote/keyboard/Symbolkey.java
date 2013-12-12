@@ -269,18 +269,26 @@ public class Symbolkey extends Activity {
         cmd = "KEYBOARD TOGGLE $";
         RemoteBluetoothClient.send(cmd);
     } 
-//    public void KeyboardTogglePOUND(View v) {
-//        cmd = "KEYBOARD TOGGLE £";
-//        RemoteBluetoothClient.send(cmd);
-//    } 
+    public void KeyboardTogglePOUND(View v) {
+    	cmd = "KEYBOARD HOLD SHIFT";
+    	RemoteBluetoothClient.send(cmd);
+    	cmd = "KEYBOARD TOGGLE 3";
+    	RemoteBluetoothClient.send(cmd);
+    	cmd = "KEYBOARD RELEASE SHIFT";
+        RemoteBluetoothClient.send(cmd);
+    } 
     public void KeyboardToggleEQUALS(View v) {
         cmd = "KEYBOARD TOGGLE =";
         RemoteBluetoothClient.send(cmd);
     } 
-//    public void KeyboardTogglePERCENT(View v) {
-//        cmd = "KEYBOARD TOGGLE %";
-//        RemoteBluetoothClient.send(cmd);
-//    } 
+    public void KeyboardTogglePERCENT(View v) {
+    	cmd = "KEYBOARD HOLD SHIFT";
+    	RemoteBluetoothClient.send(cmd);
+    	cmd = "KEYBOARD TOGGLE 5";
+    	RemoteBluetoothClient.send(cmd);
+    	cmd = "KEYBOARD RELEASE SHIFT";
+        RemoteBluetoothClient.send(cmd);
+    } 
     public void KeyboardToggleSINGLEQUOTE(View v) {
         cmd = "KEYBOARD TOGGLE '";
         RemoteBluetoothClient.send(cmd);
@@ -321,18 +329,38 @@ public class Symbolkey extends Activity {
         cmd = "KEYBOARD TOGGLE _";
         RemoteBluetoothClient.send(cmd);
     } 
-//    public void KeyboardToggleCRBRACKETOPEN(View v) {
-//        cmd = "KEYBOARD TOGGLE {";
-//        RemoteBluetoothClient.send(cmd);
-//    } 
-//    public void KeyboardToggleCRBRACKETCLOSE(View v) {
-//        cmd = "KEYBOARD TOGGLE }";
-//        RemoteBluetoothClient.send(cmd);
-//    } 
-//    public void KeyboardToggleEQV(View v) {
-//        cmd = "KEYBOARD TOGGLE ~";
-//        RemoteBluetoothClient.send(cmd);
-//    } 
+    public void KeyboardToggleCRBRACKETOPEN(View v) {
+    	cmd = "KEYBOARD HOLD SHIFT";
+        RemoteBluetoothClient.send(cmd);
+        cmd = "KEYBOARD TOGGLE [";
+        RemoteBluetoothClient.send(cmd);
+        cmd = "KEYBOARD RELEASE SHIFT";
+        RemoteBluetoothClient.send(cmd);
+    } 
+    public void KeyboardToggleCRBRACKETCLOSE(View v) {
+    	cmd = "KEYBOARD HOLD SHIFT";
+        RemoteBluetoothClient.send(cmd);
+        cmd = "KEYBOARD TOGGLE ]";
+        RemoteBluetoothClient.send(cmd);
+        cmd = "KEYBOARD RELEASE SHIFT";
+        RemoteBluetoothClient.send(cmd);
+    } 
+    public void KeyboardToggleEQV(View v) {
+    	cmd = "KEYBOARD HOLD SHIFT";
+        RemoteBluetoothClient.send(cmd);
+        cmd = "KEYBOARD TOGGLE #";
+        RemoteBluetoothClient.send(cmd);
+        cmd = "KEYBOARD RELEASE SHIFT";
+        RemoteBluetoothClient.send(cmd);
+    } 
+    public void KeyboardToggleQM(View v){
+    	cmd = "KEYBOARD HOLD SHIFT";
+        RemoteBluetoothClient.send(cmd);
+        cmd = "KEYBOARD TOGGLE /";
+        RemoteBluetoothClient.send(cmd);
+        cmd = "KEYBOARD RELEASE SHIFT";
+        RemoteBluetoothClient.send(cmd);
+    }
     
     
     
@@ -367,6 +395,12 @@ public class Symbolkey extends Activity {
     public void KeyboardReleaseShift(View v) {
         cmd = "KEYBOARD RELEASE SHIFT";
         RemoteBluetoothClient.send(cmd);
+    }
+    
+    public void KeyboardSWITCH(View v) {
+        Intent i = new Intent(this, KeyboardActivity.class);
+        startActivity(i);
+        finish();
     }
     
 }
