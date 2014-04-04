@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin:'application'
+apply plugin: 'shadow'
+apply plugin: 'idea'
+
+mainClassName = "main.java.bluetooth.RemoteBluetoothServer"
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:0.8'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+shadow {
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+}
+
+jar {
+    manifest.attributes("Main-Class": mainClassName)
+}
+
+dependencies {
+    compile 'org.apache.poi:poi:3.9'
+    compile 'net.sf.bluecove:bluecove:2.1.0'
+    compile 'net.sf.bluecove:bluecove-gpl:2.1.0'
+    compile 'com.google.code.gson:gson:2.2.4'
+    testCompile 'org.mockito:mockito-all:1.9.5'
+    compile 'org.apache.poi:poi-scratchpad:3.9'
+    testCompile 'junit:junit:4.10'
+    //compile 'org.ow2.chameleon.commons.bluecove:bluecove:2.1.1-63'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.9'
+}
+
