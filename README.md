@@ -2,6 +2,7 @@ KMPRemote
 =========
 
 From the server_work directory in the SVN repo:
+
 Server build status: [![Build Status](https://travis-ci.org/UoE-CE320-2013-Team3/KMPRemote.svg?branch=master)](https://travis-ci.org/UoE-CE320-2013-Team3/KMPRemote)
 
 Building the deployable server:
