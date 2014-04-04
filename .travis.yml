@@ -1,1 +1,5 @@
 language: java
+jdk: oraclejdk7
+
+before_install:
+    - cd server_work
