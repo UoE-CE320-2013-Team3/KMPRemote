@@ -36,6 +36,11 @@ public class TextualCommandInterpreterTest {
     InOrder mouseInputControlMockMethodInvocationOrderChecker;
     InOrder keyboardInputControlMockMethodInvocationOrderChecker;
     InOrder presentationInputControlMockMethodInvocationOrderChecker;
+    
+    static {
+        //Otherwise AWTException thrown on headless server.
+        System.setProperty("java.awt.headless", "false");
+    }
 
     @Rule
     public ExpectedException expectedExSpecifier;
